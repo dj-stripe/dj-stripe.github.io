@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="assets/stylesheets/home.css" />
+{% endblock %}
+
+{% block tabs %}
+<section class="mdx-container">
+  <div class="mdx-container-hero">
+    <div class="mdx-hero">
+      <h1>dj-<span>stripe</span></h1>
+
+      <h2>{{ config.site_description }}</h2>
+    </div>
+  </div>
+
+  <div class="mdx-content">
+    {{page.content}}
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}{% endblock %}
+{% block disqus %}{% endblock %}
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock %}
