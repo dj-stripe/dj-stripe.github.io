@@ -1,0 +1,195 @@
+{% import "partials/language.html" as lang with context %}
+
+<style>
+  [data-md-color-scheme="dark"] {
+    --md-footer-fg-color: #A6ADFD;
+
+    --md-footer-fg-color: #BDC2FC;
+    --md-footer-fg-color--light: #6254FB;
+    --md-footer-bg-color: #1F224A;
+
+    --md-admonition-bg-color: #393f80;
+  }
+
+  [data-md-color-scheme="light"] {
+    --md-footer-fg-color: #363E99;
+    --md-footer-fg-color--light: #6254FB;
+
+    --md-footer-bg-color: #BDC2FC;
+  }
+
+  [data-md-color-scheme="light"] .md-footer {
+    background-color: var(--md-footer-fg-color--light);
+  }
+
+  [data-md-color-scheme="light"] .md-footer__inner {
+    color: var(--md-default-bg-color);
+  }
+
+  [data-md-color-scheme="dark"] .md-footer {
+    background-color: var(--md-primary-fg-color);
+  }
+
+  [data-md-color-scheme="dark"] .md-footer__inner {
+    color: var(--md-default-fg-color);
+  }
+
+  .mdx-footer {
+    background-color: var(--md-footer-bg-color);
+  }
+
+  .mdx-footer__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 4rem 0.5rem;
+    max-width: 61rem;
+
+    border-bottom: 1px solid var(--md-footer-fg-color);
+  }
+
+  .mdx-footer__content {
+    margin-top: 1.5rem;
+
+  }
+
+  .mdx-footer__logo {
+    height: 3rem;
+    width: auto;
+  }
+
+  .mdx-footer__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .mdx-footer__nav-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mdx-footer__nav-item p {
+    color: var(--md-footer-fg-color--light);
+
+    font-weight: bold;
+  }
+
+  .mdx-footer__copyright {
+    padding: 1.5rem 0;
+
+    text-align: center;
+
+  }
+
+  @media screen and (max-width: 76.1875em) {
+    .mdx-footer__wrapper {
+      flex-direction: column;
+    }
+
+    .mdx-footer__nav {
+      flex-direction: column;
+    }
+
+    .mdx-footer__wrapper {
+      margin: 0 1rem;
+    }
+
+  }
+</style>
+
+<!-- Footer -->
+
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  {% if page.previous_page or page.next_page %}
+  <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer.title') }}">
+
+    <!-- Link to previous page -->
+    {% if page.previous_page %}
+    {% set direction = lang.t("footer.previous") %}
+    <a href="{{ page.previous_page.url | url }}" class="md-footer__link md-footer__link--prev"
+      aria-label="{{ direction }}: {{ page.previous_page.title | e }}" rel="prev">
+      <div class="md-footer__button md-icon">
+        {% include ".icons/material/arrow-left.svg" %}
+      </div>
+      <div class="md-footer__title">
+        <div class="md-ellipsis">
+          <span class="md-footer__direction">
+            {{ direction }}
+          </span>
+          {{ page.previous_page.title }}
+        </div>
+      </div>
+    </a>
+    {% endif %}
+
+    <!-- Link to next page -->
+    {% if page.next_page %}
+    {% set direction = lang.t("footer.next") %}
+    <a href="{{ page.next_page.url | url }}" class="md-footer__link md-footer__link--next"
+      aria-label="{{ direction }}: {{ page.next_page.title | e }}" rel="next">
+      <div class="md-footer__title">
+        <div class="md-ellipsis">
+          <span class="md-footer__direction">
+            {{ direction }}
+          </span>
+          {{ page.next_page.title }}
+        </div>
+      </div>
+      <div class="md-footer__button md-icon">
+        {% include ".icons/material/arrow-right.svg" %}
+      </div>
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
+
+
+  <div class="mdx-footer">
+    <!-- Further information -->
+    <div class="mdx-footer__wrapper">
+
+      <div>
+
+        <img class="mdx-footer__logo" src="{{ config.theme.logo | url }}" alt="logo" />
+        <div class="mdx-footer__content">
+          {{ config.site_footer}}
+
+        </div>
+
+      </div>
+      <div class="mdx-footer__nav">
+        {% for nav_item in nav %}
+        {% set path = "__nav_" ~ loop.index %}
+        {% set level = 1 %}
+        <div class="mdx-footer__nav-item">
+          <p>
+            <!-- <a href="{{ nav_item.url | url }}"> -->
+            {{ nav_item.title }}
+            <!-- </a> -->
+          </p>
+          {% if nav_item.children %}
+          {% for item in nav_item.children %}
+          <div class="md-nav__link">
+            <a href="{{ item.url | url }}">
+              {{ item.title }}
+            </a>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Social links -->
+      <!-- {% include "partials/social.html" %} -->
+    </div>
+    <div class="mdx-footer__copyright">
+      {{ config.copyright }}
+    </div>
+  </div>
+</footer>
