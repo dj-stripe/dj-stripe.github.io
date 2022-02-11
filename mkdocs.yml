@@ -22,20 +22,12 @@ theme:
     - 404.html
   features:
     - content.code.annotate
-    # - content.tabs.link
-    # - header.autohide
-    # - navigation.expand
     - navigation.indexes
-    # - navigation.instant
-    #- navigation.sections
     - navigation.tabs
-    # - navigation.tabs.sticky
-    # - navigation.top
     - navigation.tracking
     - search.highlight
     - search.share
     - search.suggest
-    # - toc.integrate
   palette:
     - media: "(prefers-color-scheme: light)" # 
       scheme: light
@@ -60,29 +52,8 @@ markdown_extensions:
   - meta
 
 plugins:
-  - autorefs
   - search
-  # - minify:
-  #   minify_html: true
-  # - mkdocstrings:
-  #     default_handler: python
-  #     handlers:
-  #       python:
-  #         rendering:
-  #           # show_root_heading: true
-  #           show_object_full_path: true
-  #           show_category_heading: true
-  #           show_if_no_docstring: true
-  #         setup_commands:
-  #           - import os
-  #           - import sys
-  #           - import django
-  #           - sys.path.insert(0, os.path.abspath("."))
-  #           - os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tests.settings")
-  #           - django.setup()
-  #     watch:
-  #       - .
-  #     enable_inventory: true
+  - autorefs
 
 nav:
   - Documentation: 
