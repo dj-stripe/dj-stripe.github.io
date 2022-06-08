@@ -71,13 +71,13 @@ The dj-stripe community has come up with some great tutorials:
 
 ## Videos
 
-Sample Tutorial - Feb 11, 2021 - Django 3.1.6 - dj-stripe 2.4.3
+--
 
 ## Blogs
 
-* How to Create a Subscription SaaS Application with Django and Stripe - Sep 2021 - Django 3.2 - dj-stripe 2.4.3 
-* Using Django and Stripe for Monthly Subscriptions - May 4, 2021 Uses Stripe Elements
-* Django Stripe Integration with using dj-stripe - Jun 12, 2020
+* [How to Create a Subscription SaaS Application with Django and Stripe - Sep 2021 - Django 3.2 - dj-stripe 2.4.3](https://www.saaspegasus.com/guides/django-stripe-integrate/)
+* [Using Django and Stripe for Monthly Subscriptions - May 4, 2021 Uses Stripe Elements](https://ordinarycoders.com/blog/article/django-stripe-monthly-subscription)
+* [Django Stripe Integration with using dj-stripe - Jun 12, 2020](https://kartaca.com/en/django-stripe-integration-using-dj-stripe/)
 
 
 **Have a blog, video or online publication? Write about your dj-stripe tips and tricks, then send us a pull request with the link.** 
