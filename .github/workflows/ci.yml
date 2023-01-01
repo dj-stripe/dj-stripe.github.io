@@ -1,37 +1,65 @@
-name: Build Documentation
+name: Build and deploy docs
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - "master"
+      # Push events to branches matching "stable/*"
+      - "stable/.+"
+
+  workflow_dispatch: # to trigger manually
+
+env:
+  POETRY_VERSION: "1.2.2"
+  POETRY_VIRTUALENVS_IN_PROJECT: "1"
+  LATEST_STABLE_BRANCH: "stable/2.7"
 
 jobs:
-  build:
-    name: Build and Deploy Documentation
+  deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.9"]
 
     steps:
-      - name: Checkout Master
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.11"
+
+      - name: Install poetry (${{ env.POETRY_VERSION }}) binary on runner
+        run: |
+          curl -sL https://install.python-poetry.org | python - --version ${{ env.POETRY_VERSION }}
+
+      - name: Set up cache
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: .venv
+          key: venv
+
+      - name: Ensure cache is healthy
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: timeout 10s poetry run pip --version || rm -rf .venv
+
+      - name: Configure git user to make clone and commit
+        run: |
+          git config user.name "dj-stripe commit bot"
+          git config user.email "admin@djstripe.dev"
+
+      - name: Fetch gh-pages remote changes (if any)
+        run: git fetch origin gh-pages --depth=1
+
+      - name: Clone dj-stripe repo to get up-to-date docs
+        run: git clone git@github.com:dj-stripe/dj-stripe.git
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs-material
-          pip install mkdocs-autorefs
+        run: poetry install --with docs
 
-      - name: Deploy
-        run: |
-          git pull
-          mkdocs gh-deploy --clean
+      - name: Move docs directories to root for docs generation
+        run: mv dj-stripe/mkdocs.yml .; mv dj-stripe/docs .; mv dj-stripe/tests .
+
+      - name: Deploy (and Update) docs for the branch, ${GITHUB_REF##*/}
+        run: poetry run mike deploy --push --rebase "${GITHUB_REF##*/}"
+
+      - name: Set default docs to ${LATEST_STABLE_BRANCH##*/}
+        run: poetry run mike set-default --push --rebase "${LATEST_STABLE_BRANCH##*/}"
