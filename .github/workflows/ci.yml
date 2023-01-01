@@ -58,6 +58,9 @@ jobs:
       - name: Move docs directories to root for docs generation
         run: mv dj-stripe/mkdocs.yml .; mv dj-stripe/docs .; mv dj-stripe/tests .
 
+      - name: Add CNAME file to docs folder
+        run: echo "dj-stripe.dev" > docs/CNAME
+
       - name: Deploy (and Update) docs for the branch, ${GITHUB_REF##*/}
         run: poetry run mike deploy --push --rebase "${GITHUB_REF##*/}"
 
