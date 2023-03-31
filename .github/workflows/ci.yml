@@ -50,7 +50,7 @@ jobs:
         run: git fetch origin gh-pages --depth=1
 
       - name: Clone dj-stripe repo to get up-to-date docs
-        run: git clone git@github.com:dj-stripe/dj-stripe.git
+        run: git clone https://github.com/dj-stripe/dj-stripe.git
 
       - name: Install dependencies
         run: poetry install --with docs
