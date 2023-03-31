@@ -70,8 +70,5 @@ jobs:
       - name: Add CNAME file to docs folder
         run: echo "dj-stripe.dev" > docs/CNAME
 
-      - name: Deploy (and Update) docs for the branch, ${GITHUB_REF##*/}
-        run: poetry run mike deploy --push --rebase "${GITHUB_REF##*/}"
-
-      - name: Set default docs to ${LATEST_STABLE_BRANCH##*/}
-        run: poetry run mike set-default --push "${LATEST_STABLE_BRANCH##*/}"
+      - name: Deploy (and Update) docs for the branch
+        run: mkdocs gh-deploy --clean
