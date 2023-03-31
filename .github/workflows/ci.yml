@@ -74,4 +74,4 @@ jobs:
         run: poetry run mike deploy --push --rebase "${GITHUB_REF##*/}"
 
       - name: Set default docs to ${LATEST_STABLE_BRANCH##*/}
-        run: poetry run mike set-default --push --rebase "${LATEST_STABLE_BRANCH##*/}"
+        run: poetry run mike set-default --push "${LATEST_STABLE_BRANCH##*/}"
