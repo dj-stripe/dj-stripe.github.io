@@ -71,7 +71,7 @@ jobs:
         run: echo "dj-stripe.dev" > docs/CNAME
 
       - name: Deploy (and Update) docs for the branch, ${GITHUB_REF##*/}
-        run: poetry run mike deploy --push --rebase "${GITHUB_REF##*/}"
+        run: poetry run mike deploy --push "${GITHUB_REF##*/}"
 
       - name: Set default docs to ${LATEST_STABLE_BRANCH##*/}
         run: poetry run mike set-default --push "${LATEST_STABLE_BRANCH##*/}"
