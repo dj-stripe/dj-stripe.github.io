@@ -8,16 +8,15 @@
     <title>Dj-Stripe</title>
     <link rel="stylesheet" href="/dj-stripe/2.7/css/theme.css" />
     <link rel="stylesheet" href="/dj-stripe/2.7/css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
         <link href="/dj-stripe/2.7/assets/_mkdocstrings.css" rel="stylesheet" />
         <link href="/dj-stripe/2.7/css/version-select.css" rel="stylesheet" />
     
-    <script src="/dj-stripe/2.7/js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="/dj-stripe/2.7/js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -29,7 +28,7 @@
           <a href="/dj-stripe/2.7/." class="icon icon-home"> Dj-Stripe
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="/dj-stripe/2.7/search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -52,6 +51,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="/dj-stripe/2.7/api_versions/">A note on Stripe API Versions</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="/dj-stripe/2.7/stripe_elements_js/">Integrating Stripe Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/dj-stripe/2.7/upgrade_dj_stripe/">Upgrading Smooth and Carefully</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Release notes</span></p>
@@ -133,7 +134,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="/dj-stripe/2.7/." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+    <li><a href="/dj-stripe/2.7/." class="icon icon-home" aria-label="Docs"></a></li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -178,15 +179,16 @@
     
   </span>
 </div>
-    <script>var base_url = '/dj-stripe/2.7';</script>
-    <script src="/dj-stripe/2.7/js/theme_extra.js" defer></script>
-    <script src="/dj-stripe/2.7/js/theme.js" defer></script>
-      <script src="/dj-stripe/2.7/search/main.js" defer></script>
-      <script src="/dj-stripe/2.7/js/version-select.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="/dj-stripe/2.7/js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "/dj-stripe/2.7";</script>
+    <script src="/dj-stripe/2.7/js/theme_extra.js"></script>
+    <script src="/dj-stripe/2.7/js/theme.js"></script>
+      <script src="/dj-stripe/2.7/search/main.js"></script>
+      <script src="/dj-stripe/2.7/js/version-select.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

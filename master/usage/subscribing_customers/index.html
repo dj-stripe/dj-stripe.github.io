@@ -8,7 +8,7 @@
     <title>Subscribing a customer to a plan - Dj-Stripe</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
         <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
         <link href="../../css/version-select.css" rel="stylesheet" />
     
@@ -19,12 +19,11 @@
         var mkdocs_page_url = "/dj-stripe/2.7/usage/subscribing_customers/";
       </script>
     
-    <script src="../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -36,7 +35,7 @@
           <a href="../.." class="icon icon-home"> Dj-Stripe
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -59,6 +58,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../api_versions/">A note on Stripe API Versions</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../stripe_elements_js/">Integrating Stripe Elements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../upgrade_dj_stripe/">Upgrading Smooth and Carefully</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Release notes</span></p>
@@ -84,7 +85,7 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../webhooks/">Using Stripe Webhooks</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Subscribing a customer to a plan</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Subscribing a customer to a plan</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#recommended-approach">Recommended Approach</a>
     </li>
@@ -148,9 +149,9 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Usage &raquo;</li>
-      <li>Subscribing a customer to a plan</li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Usage</li>
+      <li class="breadcrumb-item active">Subscribing a customer to a plan</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/dj-stripe/dj-stripe/edit/master/docs/usage/subscribing_customers.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -208,16 +209,6 @@ happens you can just call the official <code>stripe.Customer.subscribe()</code>.
 <li>[<code>form_valid view example</code>][tests.apps.example.views.PurchaseSubscriptionView.form_valid]</li>
 <li><a class="autorefs autorefs-internal" href="../../reference/models/#djstripe.models.core.Customer.add_payment_method"><code>djstripe.models.Customer.add_payment_method</code></a></li>
 </ul>
-<p>Note that PaymentMethods can be used instead of Cards/Source by
-substituting</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Add the payment method customer&#39;s default</span>
-<span class="n">customer</span><span class="o">.</span><span class="n">add_payment_method</span><span class="p">(</span><span class="n">payment_method</span><span class="p">)</span>
-</code></pre></div>
-<p>instead of</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Add the source as the customer&#39;s default card</span>
-<span class="n">customer</span><span class="o">.</span><span class="n">add_card</span><span class="p">(</span><span class="n">stripe_source</span><span class="p">)</span>
-</code></pre></div>
-<p>in the above example.</p>
 </div>
               
             </div>
@@ -258,15 +249,16 @@ substituting</p>
     
   </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme_extra.js" defer></script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-      <script src="../../js/version-select.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+      <script src="../../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

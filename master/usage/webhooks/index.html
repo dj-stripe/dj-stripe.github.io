@@ -8,7 +8,7 @@
     <title>Using Stripe Webhooks - Dj-Stripe</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
         <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
         <link href="../../css/version-select.css" rel="stylesheet" />
     
@@ -19,12 +19,11 @@
         var mkdocs_page_url = "/dj-stripe/2.7/usage/webhooks/";
       </script>
     
-    <script src="../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -36,7 +35,7 @@
           <a href="../.." class="icon icon-home"> Dj-Stripe
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -60,6 +59,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../stripe_elements_js/">Integrating Stripe Elements</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../upgrade_dj_stripe/">Upgrading Smooth and Carefully</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Release notes</span></p>
               <ul>
@@ -82,15 +83,11 @@
               </ul>
               <p class="caption"><span class="caption-text">Usage</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Using Stripe Webhooks</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Using Stripe Webhooks</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#setting-up-a-new-webhook-endpoint-in-dj-stripe">Setting up a new webhook endpoint in dj-stripe</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#legacy-setup">Legacy setup</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#extra-configuration">Extra configuration</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#advanced-usage">Advanced usage</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#official-documentation">Official documentation</a>
     </li>
@@ -152,9 +149,9 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Usage &raquo;</li>
-      <li>Using Stripe Webhooks</li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Usage</li>
+      <li class="breadcrumb-item active">Using Stripe Webhooks</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/dj-stripe/dj-stripe/edit/master/docs/usage/webhooks.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -180,67 +177,12 @@ with such a value, so you will want to change it to a real website URL.</p>
 <p>When saved from the admin, the endpoint will be created in Stripe with a dj-stripe
 specific UUID which will be part of the URL, making it impossible to guess externally
 by brute-force.</p>
-<h2 id="legacy-setup">Legacy setup</h2>
-<p>Before dj-stripe 2.7.0, dj-stripe included a global webhook endpoint URL, which uses the
-setting <a class="autorefs autorefs-internal" href="../../reference/settings/#djstripe.settings.DjstripeSettings.WEBHOOK_SECRET"><code>DJSTRIPE_WEBHOOK_SECRET</code></a>
-to validate incoming webhooks.</p>
-<p>This is not recommended as it makes the URL guessable, and may be removed in the future.</p>
 <h2 id="extra-configuration">Extra configuration</h2>
 <p>dj-stripe provides the following settings to tune how your webhooks work:</p>
 <ul>
-<li><a class="autorefs autorefs-internal" href="../../reference/settings/#djstripe.settings.DjstripeSettings.WEBHOOK_VALIDATION"><code>DJSTRIPE_WEBHOOK_VALIDATION</code></a></li>
-<li><a class="autorefs autorefs-internal" href="../../reference/settings/#djstripe.settings.DjstripeSettings.WEBHOOK_TOLERANCE"><code>DJSTRIPE_WEBHOOK_TOLERANCE</code></a></li>
+<li>[<code>DJSTRIPE_WEBHOOK_VALIDATION</code>][djstripe.settings.DjstripeSettings.WEBHOOK_VALIDATION]</li>
 <li><a class="autorefs autorefs-internal" href="../../reference/settings/#djstripe.settings.DjstripeSettings.WEBHOOK_EVENT_CALLBACK"><code>DJSTRIPE_WEBHOOK_EVENT_CALLBACK</code></a></li>
 </ul>
-<h2 id="advanced-usage">Advanced usage</h2>
-<p>dj-stripe comes with native support for webhooks as event listeners.</p>
-<p>Events allow you to do things like sending an email to a customer when
-his payment has
-<a href="https://stripe.com/docs/receipts#failed-payment-alerts">failed</a>
-or trial period is ending.</p>
-<p>This is how you use them:</p>
-<div class="highlight"><pre><span></span><code>    <span class="kn">from</span> <span class="nn">djstripe</span> <span class="kn">import</span> <span class="n">webhooks</span>
-
-    <span class="nd">@webhooks</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="s2">&quot;customer.subscription.trial_will_end&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">my_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We should probably notify the user at this point&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>You can handle all events related to customers like this:</p>
-<div class="highlight"><pre><span></span><code>    <span class="kn">from</span> <span class="nn">djstripe</span> <span class="kn">import</span> <span class="n">webhooks</span>
-
-    <span class="nd">@webhooks</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="s2">&quot;customer&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">my_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We should probably notify the user at this point&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>You can also handle different events in the same handler:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">djstripe</span> <span class="kn">import</span> <span class="n">webhooks</span>
-
-<span class="nd">@webhooks</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;product&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">my_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Triggered webhook &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>In order to get registrations picked up, you need to put them in a
-module that is imported like models.py or make sure you import it manually.</p>
-</div>
-<p>Webhook event creation and processing is now wrapped in a
-<code>transaction.atomic()</code> block to better handle webhook errors. This will
-prevent any additional database modifications you may perform in your
-custom handler from being committed should something in the webhook
-processing chain fail. You can also take advantage of Django's
-<code>transaction.on_commit()</code> function to only perform an action if the
-transaction successfully commits (meaning the Event processing worked):</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">transaction</span>
-<span class="kn">from</span> <span class="nn">djstripe</span> <span class="kn">import</span> <span class="n">webhooks</span>
-
-<span class="k">def</span> <span class="nf">do_something</span><span class="p">():</span>
-    <span class="k">pass</span>  <span class="c1"># send a mail, invalidate a cache, fire off a Celery task, etc.</span>
-
-<span class="nd">@webhooks</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;product&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">my_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">transaction</span><span class="o">.</span><span class="n">on_commit</span><span class="p">(</span><span class="n">do_something</span><span class="p">)</span>
-</code></pre></div>
 <h2 id="official-documentation">Official documentation</h2>
 <p>Stripe docs for types of Events:
 <a href="https://stripe.com/docs/api/events/types">https://stripe.com/docs/api/events/types</a></p>
@@ -286,15 +228,16 @@ transaction successfully commits (meaning the Event processing worked):</p>
     
   </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme_extra.js" defer></script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-      <script src="../../js/version-select.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+      <script src="../../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
