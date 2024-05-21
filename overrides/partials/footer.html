@@ -1,5 +1,18 @@
 {% import "partials/language.html" as lang with context %}
 
+{% macro get_first_link(item) %}
+    {% if item.children %}
+        {{ get_first_link(item.children|first) }}
+    {% else %}
+        {% if item.url.startswith('/') %}
+            {{ item.url | url }}
+        {% else %}
+            {{ '/' + item.url | url }}
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+
 <style>
   [data-md-color-scheme="dark"] {
     --md-footer-fg-color: #A6ADFD;
@@ -164,22 +177,27 @@
       </div>
       <div class="mdx-footer__nav">
         {% for nav_item in nav %}
-        {% set path = "__nav_" ~ loop.index %}
-        {% set level = 1 %}
         <div class="mdx-footer__nav-item">
-          <p>
-            <!-- <a href="{{ nav_item.url | url }}"> -->
-            {{ nav_item.title }}
-            <!-- </a> -->
-          </p>
+          <p>{{ nav_item.title }}</p>
           {% if nav_item.children %}
-          {% for item in nav_item.children %}
-          <div class="md-nav__link">
-            <a href="{{ item.url | url }}">
-              {{ item.title }}
-            </a>
-          </div>
-          {% endfor %}
+            {% for item in nav_item.children %}
+              {% if item.children %}
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                {% set first_link = get_first_link(item) %}
+                <div class="md-nav__link">
+                  <a href="{{ first_link | url }}">
+                    {{ item.title }}
+                  </a>
+                </div>
+              {% else %}
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="{{ item.url | url }}">
+                    {{ item.title }}
+                  </a>
+                </div>
+              {% endif %}
+            {% endfor %}
           {% endif %}
         </div>
         {% endfor %}

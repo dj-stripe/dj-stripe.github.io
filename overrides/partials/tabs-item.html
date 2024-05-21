@@ -1,0 +1,26 @@
+<!-- tabs-item.html -->
+{% macro get_first_link(item) %}
+    {% if item.children %}
+        {{ get_first_link(item.children|first) }}
+    {% else %}
+        {% if item.url.startswith('/') %}
+            {{ item.url }}
+        {% else %}
+            {{ '/' + item.url }}
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+<li class="md-tabs__item">
+    {% if nav_item.children %}
+        {% set first_link = get_first_link(nav_item.children|first) %}
+        <a href="{{ first_link }}" class="md-tabs">
+            {{ nav_item.title }}
+        </a>
+    {% else %}
+        <a href="#" class="md-tabs"> <!-- Fallback URL -->
+            {{ nav_item.title }}
+        </a>
+    </li>
+{% endif %}
+
