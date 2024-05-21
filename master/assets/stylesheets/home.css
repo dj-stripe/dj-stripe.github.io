@@ -1,0 +1,243 @@
+[data-md-color-scheme="dark"] {
+    --md-primary-fg-color: #1f224a !important;
+    --md-primary-fg-color--lighter: #1f224a !important;
+
+    --md-default-fg-color: #a6adfd !important;
+    --md-default-fg-color--light: #393f80 !important;
+
+    --md-default-bg-color--light: #6772e5;
+}
+
+[data-md-color-scheme="light"] {
+    --md-primary-fg-color: #a6adfd;
+    --md-primary-fg-color--light: #ecb7b7;
+    --md-primary-fg-color--dark: #363e99;
+    --md-primary-bg-color: #6254fb;
+    --md-primary-bg-color--light: #ffffff;
+
+    --md-default-fg-color: #6254fb;
+    --md-default-bg-color: #a6adfd;
+
+    --md-accent-fg-color: #a6adfd;
+    --md-accent-bg-color: #a6adfd;
+}
+
+.mdx-logo {
+    height: 3rem !important;
+}
+
+.mdx-content {
+    line-height: 1.5em;
+}
+
+.mdx-wrapper {
+    margin: 0 auto;
+    max-width: 61rem;
+}
+
+.mdx-container-hero {
+    height: calc(100vh - 6rem);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.mdx-hero {
+    position: relative;
+    height: 22rem;
+
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mdx-hero:before {
+    background-image: url("../logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: 50% 0;
+    z-index: -1;
+    background-size: contain;
+}
+
+.mdx-hero h1 {
+    margin-bottom: 0;
+    font-size: 6.5rem;
+    text-align: center;
+    color: white;
+}
+
+.mdx-hero h1 span {
+    color: #6772e5;
+}
+
+.mdx-hero h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    color: #363e99;
+}
+
+[data-md-color-scheme="dark"] .mdx-hero h2 {
+    color: var(--md-default-fg-color);
+}
+
+.mdx-what-is {
+    padding-bottom: 3.5rem;
+}
+
+.mdx-what-is p {
+    color: white;
+}
+
+.mdx-features {
+    position: relative;
+    max-width: 100%;
+
+    background: white;
+    margin: 5rem 0;
+}
+
+.mdx-features:before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 5rem;
+    bottom: 100%;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    -webkit-clip-path: polygon(0 0, 0% 100%, 125% 100%);
+    clip-path: polygon(0 0%, 0 105%, 125% 105%);
+}
+
+.mdx-features:after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 5rem;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    -webkit-clip-path: polygon(0 -5%, 0% 100%, 125% 0%);
+    clip-path: polygon(0 -5%, 0% 100%, 125% 0%);
+}
+
+.mdx-features__icons {
+    width: 75%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mdx-features__icons > * {
+    flex: 0 0 25%;
+    margin: 2.5em 0;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.mdx-tutorials {
+    padding: 3.5rem 0;
+}
+
+.mdx-tutorials :not(h1) {
+    color: white;
+}
+
+.mdx-who-uses {
+    padding: 3.5rem 0;
+    background: white;
+}
+
+.mdx-companies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3.5rem 0;
+}
+
+.mdx-companies * {
+    max-height: 92px;
+    max-width: 160px;
+}
+
+.mdx-companies img {
+    filter: grayscale(100%);
+}
+
+.mdx-companies img:hover {
+    filter: none;
+}
+
+[data-md-color-scheme="dark"] .mdx-features,
+[data-md-color-scheme="dark"] .mdx-features:before,
+[data-md-color-scheme="dark"] .mdx-features:after,
+[data-md-color-scheme="dark"] .mdx-who-uses {
+    background-color: var(--md-default-bg-color--light);
+}
+
+[data-md-color-scheme="dark"] .mdx-features h1,
+[data-md-color-scheme="dark"] .mdx-who-uses h1 {
+    color: var(--md-default-fg-color--light);
+}
+
+[data-md-color-scheme="dark"] .mdx-features :not(h1),
+[data-md-color-scheme="dark"] .mdx-who-uses :not(h1) {
+    color: var(--md-primary-bg-color);
+}
+
+.md-header {
+    position: initial;
+    padding-top: 1rem;
+}
+
+.md-header[data-md-state="shadow"] {
+    box-shadow: none;
+}
+
+.md-content {
+    display: none;
+}
+.md-main__inner {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 76.1875em) {
+    .mdx-hero {
+        height: 14rem;
+    }
+
+    .mdx-hero h1 {
+        font-size: 4rem;
+    }
+
+    .mdx-hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .mdx-wrapper {
+        margin: 0 1rem;
+    }
+
+    .mdx-features__icons {
+        flex-direction: column;
+    }
+}
