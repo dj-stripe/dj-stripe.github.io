@@ -1,5 +1,5 @@
 [data-md-color-scheme="dark"] {
-    --md-primary-fg-color: #1f224a !important;
+    --md-primary-fg-color: #ffffff !important;
     --md-primary-fg-color--lighter: #1f224a !important;
 
     --md-default-fg-color: #a6adfd !important;
@@ -11,7 +11,6 @@
 [data-md-color-scheme="light"] {
     --md-primary-fg-color: #a6adfd;
     --md-primary-fg-color--light: #ecb7b7;
-    --md-primary-fg-color--dark: #363e99;
     --md-primary-bg-color: #6254fb;
     --md-primary-bg-color--light: #ffffff;
 
