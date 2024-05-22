@@ -1,0 +1,4202 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Stripe Made Easy for Django Developers">
+      
+      
+        <meta name="author" content="Dj-Stripe Team">
+      
+      
+        <link rel="canonical" href="https://dj-stripe.dev/2.8/reference/settings/">
+      
+      
+        <link rel="prev" href="../models/">
+      
+      
+        <link rel="next" href="../utils/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>Settings - Dj-Stripe</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#settings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+
+<style>
+  [data-md-color-scheme="dark"] {
+    --md-primary-fg-color: #393f80;
+    --md-primary-bg-color: #fff;
+
+    --md-default-fg-color: #ffffff;
+    --md-default-fg-color--light: #ffffff;
+    --md-default-bg-color: #1f224a;
+
+    --md-typeset-a-color: #a6adfd;
+
+    --md-code-fg-color: #f5f5f5;
+    --md-code-bg-color: #21222c;
+  }
+
+  [data-md-color-scheme="light"] {
+    --md-primary-fg-color: #a6adfd;
+    --md-primary-bg-color: #6254fb;
+  }
+
+  body {
+    font-size: 0.8rem;
+  }
+
+  .mdx-logo {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  .mdx-logo:hover {
+    opacity: 0.6;
+  }
+
+  @media screen and (min-width: 60em) {
+    .md-search__form {
+      background-color: rgba(255, 255, 255, 0.26);
+    }
+  }
+
+  @media screen and (max-width: 76.1875em) {
+    .mdx-logo {
+      display: none;
+    }
+  }
+</style>
+
+<!-- Header -->
+<header class="md-header" data-md-component="header" data-md-state="">
+  <nav class="md-header__inner md-grid" aria-label="header.title">
+
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <!-- Link to home -->
+    <a href="../.." title="Dj-Stripe"
+      aria-label="Dj-Stripe" data-md-component="logo">
+      <img class="mdx-logo" src="../../assets/logo.svg" alt="logo" />
+    </a>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dj-Stripe
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+            Settings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    
+
+<style>
+  .md-tabs li {
+    height: auto;
+  }
+
+  .md-tabs a {
+    font-weight: bold;
+  }
+
+  .md-tabs a:hover {
+    opacity: 0.6;
+  }
+
+  .md-container > .md-tabs {
+    display: none;
+  }
+</style>
+
+<!-- Navigation tabs -->
+<nav class="md-tabs" aria-label="tabs.title">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+    
+        
+            /installation/
+        
+    
+
+    
+" class="md-tabs">
+            Documentation
+        </a>
+    
+
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+            /project/sponsors/
+        
+    
+" class="md-tabs">
+            Sponsors
+        </a>
+    
+
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+            /history/3_0_0/
+        
+    
+" class="md-tabs">
+            History
+        </a>
+    
+
+      
+    </ul>
+  </div>
+</nav>
+
+    <!-- Color palette -->
+    
+    <form class="md-header__option" data-md-component="palette">
+      
+      
+      
+      <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="light"
+        data-md-color-primary="" data-md-color-accent="" 
+        aria-label="Switch to dark mode"  type="radio" name="__palette"
+        id="__palette_1" />
+      
+      <label class="md-header__button md-icon" title="Switch to dark mode"
+        for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+      
+      
+      
+      
+      <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="dark"
+        data-md-color-primary="" data-md-color-accent="" 
+        aria-label="Switch to light mode"  type="radio" name="__palette"
+        id="__palette_2" />
+      
+      <label class="md-header__button md-icon" title="Switch to light mode"
+        for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+      
+      
+    </form>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+    <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repository information -->
+    
+    <div class="md-header__source">
+      <a href="https://github.com/dj-stripe/dj-stripe/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dj-stripe
+  </div>
+</a>
+    </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+
+<style>
+  .md-tabs li {
+    height: auto;
+  }
+
+  .md-tabs a {
+    font-weight: bold;
+  }
+
+  .md-tabs a:hover {
+    opacity: 0.6;
+  }
+
+  .md-container > .md-tabs {
+    display: none;
+  }
+</style>
+
+<!-- Navigation tabs -->
+<nav class="md-tabs" aria-label="tabs.title">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+    
+        
+            /installation/
+        
+    
+
+    
+" class="md-tabs">
+            Documentation
+        </a>
+    
+
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+            /project/sponsors/
+        
+    
+" class="md-tabs">
+            Sponsors
+        </a>
+    
+
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+            /history/3_0_0/
+        
+    
+" class="md-tabs">
+            History
+        </a>
+    
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Dj-Stripe" class="md-nav__button md-logo" aria-label="Dj-Stripe" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    Dj-Stripe
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dj-stripe/dj-stripe/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dj-stripe
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api_keys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing Stripe API Keys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api_versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A note on Stripe API Versions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../upgrade_dj_stripe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upgrade dj-stripe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stripe_elements_js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating Stripe Elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/webhooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Stripe Webhooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/local_webhook_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local Webhook Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/subscribing_customers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Subscribing a customer to a plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/add_payment_method_to_customer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a payment method to customer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/managing_subscriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing subscriptions and payment sources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/manually_syncing_with_stripe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manually syncing data with Stripe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/creating_individual_charges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating individual charges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/creating_usage_record/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating Usage Records
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/using_stripe_checkout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Stripe Checkout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/using_with_docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using with Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Project
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/test_fixtures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test Fixtures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/authors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/release_process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enums/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enumerations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Settings
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Settings
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stripe_api_version-2020-08-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_API_VERSION (='2020-08-27')
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_idempotency_key_callback-djstripesettingsdjstripe_settings_get_idempotency_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_IDEMPOTENCY_KEY_CALLBACK (=djstripe.settings.djstripe_settings._get_idempotency_key)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_subscriber_customer_key-djstripe_subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_SUBSCRIBER_CUSTOMER_KEY (="djstripe_subscriber")
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_subscriber_model-settingsauth_user_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_SUBSCRIBER_MODEL (=settings.AUTH_USER_MODEL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_subscriber_model_migration_dependency-__first__" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_SUBSCRIBER_MODEL_MIGRATION_DEPENDENCY (="__first__")
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_webhook_event_callback-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_WEBHOOK_EVENT_CALLBACK (=None)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stripe_api_host-unset" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_API_HOST (= unset)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_subscriber_model_request_callback-optionally-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK (Optionally Required)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe.settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe.settings-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.djstripe_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      djstripe_settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe.settings-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      DjstripeSettings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DjstripeSettings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.DEFAULT_STRIPE_API_VERSION" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEFAULT_STRIPE_API_VERSION
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.LIVE_API_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      LIVE_API_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.STRIPE_API_VERSION" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_API_VERSION
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.STRIPE_LIVE_MODE" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_LIVE_MODE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.STRIPE_PUBLIC_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_PUBLIC_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.STRIPE_SECRET_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_SECRET_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.SUBSCRIBER_CUSTOMER_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      SUBSCRIBER_CUSTOMER_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.TEST_API_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      TEST_API_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.WEBHOOK_EVENT_CALLBACK" class="md-nav__link">
+    <span class="md-ellipsis">
+      WEBHOOK_EVENT_CALLBACK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.ZERO_DECIMAL_CURRENCIES" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZERO_DECIMAL_CURRENCIES
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.decimal_max_digits" class="md-nav__link">
+    <span class="md-ellipsis">
+      decimal_max_digits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.decimal_places" class="md-nav__link">
+    <span class="md-ellipsis">
+      decimal_places
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_idempotency_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_idempotency_key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.subscriber_request_callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      subscriber_request_callback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.__delattr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __delattr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.__setattr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __setattr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_callback_function" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_callback_function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_default_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_default_api_key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_subscriber_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_subscriber_model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_subscriber_model_string" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_subscriber_model_string
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Utilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sponsors
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sponsors
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/sponsors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Our Sponsors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    History
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            History
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/3_0_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 3.0 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/2_9_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.9 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/2_8_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.8 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/2_7_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.7 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/2_6_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.6 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/2_5_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.5 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/2_4_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.4.1 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/2_4_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.4 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/2_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.0 ~ 2.3 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/1_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 1.x release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/0_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 0.x release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stripe_api_version-2020-08-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_API_VERSION (='2020-08-27')
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_idempotency_key_callback-djstripesettingsdjstripe_settings_get_idempotency_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_IDEMPOTENCY_KEY_CALLBACK (=djstripe.settings.djstripe_settings._get_idempotency_key)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_subscriber_customer_key-djstripe_subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_SUBSCRIBER_CUSTOMER_KEY (="djstripe_subscriber")
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_subscriber_model-settingsauth_user_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_SUBSCRIBER_MODEL (=settings.AUTH_USER_MODEL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_subscriber_model_migration_dependency-__first__" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_SUBSCRIBER_MODEL_MIGRATION_DEPENDENCY (="__first__")
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_webhook_event_callback-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_WEBHOOK_EVENT_CALLBACK (=None)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stripe_api_host-unset" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_API_HOST (= unset)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe_subscriber_model_request_callback-optionally-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK (Optionally Required)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe.settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe.settings-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.djstripe_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      djstripe_settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#djstripe.settings-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      DjstripeSettings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DjstripeSettings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.DEFAULT_STRIPE_API_VERSION" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEFAULT_STRIPE_API_VERSION
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.LIVE_API_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      LIVE_API_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.STRIPE_API_VERSION" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_API_VERSION
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.STRIPE_LIVE_MODE" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_LIVE_MODE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.STRIPE_PUBLIC_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_PUBLIC_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.STRIPE_SECRET_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRIPE_SECRET_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.SUBSCRIBER_CUSTOMER_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      SUBSCRIBER_CUSTOMER_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.TEST_API_KEY" class="md-nav__link">
+    <span class="md-ellipsis">
+      TEST_API_KEY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.WEBHOOK_EVENT_CALLBACK" class="md-nav__link">
+    <span class="md-ellipsis">
+      WEBHOOK_EVENT_CALLBACK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.ZERO_DECIMAL_CURRENCIES" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZERO_DECIMAL_CURRENCIES
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.decimal_max_digits" class="md-nav__link">
+    <span class="md-ellipsis">
+      decimal_max_digits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.decimal_places" class="md-nav__link">
+    <span class="md-ellipsis">
+      decimal_places
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_idempotency_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_idempotency_key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.subscriber_request_callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      subscriber_request_callback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.__delattr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __delattr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.__setattr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __setattr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_callback_function" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_callback_function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_default_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_default_api_key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_subscriber_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_subscriber_model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#djstripe.settings.DjstripeSettings.get_subscriber_model_string" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_subscriber_model_string
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="settings">Settings</h1>
+<h2 id="stripe_api_version-2020-08-27">STRIPE_API_VERSION (='2020-08-27')</h2>
+<p>The API version used to communicate with the Stripe API is configurable, and defaults to
+the latest version that has been tested as working. Using a value other than the default
+is allowed, as a string in the format of YYYY-MM-DD.</p>
+<p>For example, you can specify <code>"2020-03-02"</code> to use that API version:</p>
+<div class="highlight"><pre><span></span><code><span class="n">STRIPE_API_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2020-03-02&quot;</span>
+</code></pre></div>
+<p>However you do so at your own risk, as using a value other than the default might result
+in incompatibilities between Stripe and this library, especially if Stripe has labelled
+the differences between API versions as "Major". Even small differences such as a new
+enumeration value might cause issues.</p>
+<p>For this reason it is best to assume that only the default version is supported.</p>
+<p>For more information on API versioning, see the <a href="https://stripe.com/docs/upgrades">stripe
+documentation</a>.</p>
+<p>See also <a href="../../api_versions/#a_note_on_stripe_api_versions">API Versions</a>.</p>
+<h2 id="djstripe_idempotency_key_callback-djstripesettingsdjstripe_settings_get_idempotency_key">DJSTRIPE_IDEMPOTENCY_KEY_CALLBACK (=djstripe.settings.djstripe_settings._get_idempotency_key)</h2>
+<p>A function which will return an idempotency key for a particular object_type and action
+pair. By default, this is set to a function which will create a
+<code>djstripe.IdempotencyKey</code> object and return its <code>uuid</code>. You may want to customize this
+if you want to give your idempotency keys a different lifecycle than they normally would
+get.</p>
+<p>The function takes the following signature:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_idempotency_key</span><span class="p">(</span><span class="n">object_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">livemode</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;&lt;idempotency key&gt;&quot;</span>
+</code></pre></div>
+<p>The function MUST return a string suitably random for the object_type/action pair, and
+usable in the Stripe <code>Idempotency-Key</code> HTTP header. For more information, see the
+<a href="https://stripe.com/docs/upgrades">stripe documentation</a>.</p>
+<h2 id="djstripe_subscriber_customer_key-djstripe_subscriber">DJSTRIPE_SUBSCRIBER_CUSTOMER_KEY (="djstripe_subscriber")</h2>
+<p>Every Customer object created in Stripe is tagged with
+<a href="https://stripe.com/docs/api#metadata">metadata</a> This setting controls what the name of
+the key in Stripe should be. The key name must be a string no more than 40 characters
+long.</p>
+<p>You may set this to <code>None</code> or <code>""</code> to disable that behaviour altogether. This is
+probably not something you want to do, though.</p>
+<h2 id="djstripe_subscriber_model-settingsauth_user_model">DJSTRIPE_SUBSCRIBER_MODEL (=settings.AUTH_USER_MODEL)</h2>
+<p>If the AUTH_USER_MODEL doesn't represent the object your application's subscription
+holder, you may define a subscriber model to use here. It should be a string in the form
+of 'app.model'.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DJSTRIPE_SUBSCRIBER_MODEL must have an <code>email</code> field. If your
+existing model has no email field, add an email property that
+defines an email address to use.</p>
+</div>
+<p>Example Model:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Organization</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">admin</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">CASCADE</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin</span><span class="o">.</span><span class="n">email</span>
+</code></pre></div>
+<h2 id="djstripe_subscriber_model_migration_dependency-__first__">DJSTRIPE_SUBSCRIBER_MODEL_MIGRATION_DEPENDENCY (="__first__")</h2>
+<p>If the model referenced in DJSTRIPE_SUBSCRIBER_MODEL is not created in the <code>__first__</code>
+migration of an app you can specify the migration name to depend on here. For example:
+"0003_here_the_subscriber_model_was_added"</p>
+<h2 id="djstripe_webhook_event_callback-none">DJSTRIPE_WEBHOOK_EVENT_CALLBACK (=None)</h2>
+<p>Webhook event callbacks allow an application to take control of what happens when an
+event from Stripe is received. It must be a callable or importable string to a callable
+that takes an event object.</p>
+<p>One suggestion is to put the event onto a task queue (such as celery) for asynchronous
+processing.</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># callbacks.py</span>
+<span class="k">def</span> <span class="nf">webhook_event_callback</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Dispatches the event to celery for processing. &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">tasks</span>
+    <span class="c1"># Ansychronous hand-off to celery so that we can continue immediately</span>
+    <span class="n">tasks</span><span class="o">.</span><span class="n">process_webhook_event</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">pk</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span><span class="o">.</span><span class="n">apply_async</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># tasks.py</span>
+<span class="kn">from</span> <span class="nn">djstripe.models</span> <span class="kn">import</span> <span class="n">WebhookEventTrigger</span>
+<span class="kn">from</span> <span class="nn">stripe</span> <span class="kn">import</span> <span class="n">StripeError</span>
+
+<span class="nd">@shared_task</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">process_webhook_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Processes events from Stripe asynchronously. &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing Stripe event: </span><span class="si">{</span><span class="n">pk</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># get the event</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">WebhookEventTrigger</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="c1"># process the event.</span>
+        <span class="c1"># internally, this creates a Stripe WebhookEvent Object and invokes the respective Webhooks</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+            <span class="c1"># only save the event if webhook process was successfuly, otherwise it won&#39;t retry</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">StripeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="c1"># Mark the event as not processed</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">processed</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to process Stripe event: </span><span class="si">{</span><span class="n">pk</span><span class="si">}</span><span class="s2">. Retrying in 60 seconds.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">retry</span><span class="p">(</span><span class="n">exc</span><span class="o">=</span><span class="n">exc</span><span class="p">,</span> <span class="n">countdown</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>  <span class="c1"># retry after 60 seconds</span>
+    <span class="k">except</span> <span class="n">WebhookEventTrigger</span><span class="o">.</span><span class="n">DoesNotExist</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="c1"># This can happen in case the celery task got executed before the actual model got saved to the DB</span>
+        <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">retry</span><span class="p">(</span><span class="n">exc</span><span class="o">=</span><span class="n">exc</span><span class="p">,</span> <span class="n">countdown</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># retry after 10 seconds</span>
+
+    <span class="k">return</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="ow">or</span> <span class="s2">&quot;Stripe Event Processed&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># settings.py</span>
+<span class="n">DJSTRIPE_WEBHOOK_EVENT_CALLBACK</span> <span class="o">=</span> <span class="s1">&#39;callbacks.webhook_event_callback&#39;</span>
+</code></pre></div>
+<h2 id="stripe_api_host-unset">STRIPE_API_HOST (= unset)</h2>
+<p>If set, this sets the base API host for Stripe. You may want to set this to, for
+example, <code>"http://localhost:12111"</code> if you are running
+<a href="https://github.com/stripe/stripe-mock">stripe-mock</a>.</p>
+<p>If this is set in production (DEBUG=False), a warning will be raised on <code>manage.py check</code>.</p>
+<h2 id="djstripe_subscriber_model_request_callback-optionally-required">DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK (Optionally Required)</h2>
+<p>This is required to be set in case you are linking Stripe Customers (via the <code>subscriber</code> model field) to a model other than the one defined by <code>settings.AUTH_USER_MODEL</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># settings.py</span>
+<span class="n">DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">request</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">org</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="source-code">Source Code</h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="djstripe.settings"></a>
+    <div class="doc doc-contents first">
+
+      <p>dj-stripe settings</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h2 id="djstripe.settings-attributes">Attributes</h2>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="djstripe.settings.djstripe_settings" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">djstripe_settings</span> <span class="o">=</span> <span class="n">DjstripeSettings</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+<h2 id="djstripe.settings-classes">Classes</h2>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="djstripe.settings.DjstripeSettings" class="doc doc-heading">
+            <code>djstripe.settings.DjstripeSettings</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+      <p>Container for Dj-stripe settings</p>
+<p>:return: Initialised settings for Dj-stripe.
+:rtype: object</p>
+
+              <details class="quote">
+                <summary>Source code in <code>djstripe/settings.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">DjstripeSettings</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Container for Dj-stripe settings</span>
+
+<span class="sd">    :return: Initialised settings for Dj-stripe.</span>
+<span class="sd">    :rtype: object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DEFAULT_STRIPE_API_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2020-08-27&quot;</span>
+
+    <span class="n">ZERO_DECIMAL_CURRENCIES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;bif&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clp&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;djf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;gnf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jpy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kmf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;krw&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mga&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pyg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rwf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vnd&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vuv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xaf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xof&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;xpf&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Set STRIPE_API_HOST if you want to use a different Stripe API server</span>
+        <span class="c1"># Example: https://github.com/stripe/stripe-mock</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_API_HOST&quot;</span><span class="p">):</span>
+            <span class="n">stripe</span><span class="o">.</span><span class="n">api_base</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_API_HOST&quot;</span><span class="p">)</span>
+
+    <span class="c1"># generic setter and deleter methods to ensure object patching works</span>
+    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__delattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">subscriber_request_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_callback_function</span><span class="p">(</span>
+            <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK&quot;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">request</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">get_idempotency_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_callback_function</span><span class="p">(</span>
+            <span class="s2">&quot;DJSTRIPE_IDEMPOTENCY_KEY_CALLBACK&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_idempotency_key</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">decimal_max_digits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">24</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">decimal_places</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">12</span>
+
+    <span class="c1"># Webhook event callbacks allow an application to take control of what happens</span>
+    <span class="c1"># when an event from Stripe is received.  One suggestion is to put the event</span>
+    <span class="c1"># onto a task queue (such as celery) for asynchronous processing.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">WEBHOOK_EVENT_CALLBACK</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_callback_function</span><span class="p">(</span><span class="s2">&quot;DJSTRIPE_WEBHOOK_EVENT_CALLBACK&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">SUBSCRIBER_CUSTOMER_KEY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span>
+            <span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_CUSTOMER_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;djstripe_subscriber&quot;</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">TEST_API_KEY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_TEST_SECRET_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">LIVE_API_KEY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_LIVE_SECRET_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Determines whether we are in live mode or test mode</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">STRIPE_LIVE_MODE</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_LIVE_MODE&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">STRIPE_SECRET_KEY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Default secret key</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_SECRET_KEY&quot;</span><span class="p">):</span>
+            <span class="n">STRIPE_SECRET_KEY</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">STRIPE_SECRET_KEY</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">STRIPE_SECRET_KEY</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">LIVE_API_KEY</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">STRIPE_LIVE_MODE</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">TEST_API_KEY</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">STRIPE_SECRET_KEY</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">STRIPE_PUBLIC_KEY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Default public key</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_PUBLIC_KEY&quot;</span><span class="p">):</span>
+            <span class="n">STRIPE_PUBLIC_KEY</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">STRIPE_PUBLIC_KEY</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">STRIPE_LIVE_MODE</span><span class="p">:</span>
+            <span class="n">STRIPE_PUBLIC_KEY</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_LIVE_PUBLIC_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">STRIPE_PUBLIC_KEY</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_TEST_PUBLIC_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">STRIPE_PUBLIC_KEY</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">STRIPE_API_VERSION</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the desired API version to use for Stripe requests.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_API_VERSION&quot;</span><span class="p">,</span> <span class="n">stripe</span><span class="o">.</span><span class="n">api_version</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">version</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_STRIPE_API_VERSION</span>
+
+    <span class="k">def</span> <span class="nf">get_callback_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">setting_name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Resolve a callback function based on a setting name.</span>
+
+<span class="sd">        If the setting value isn&#39;t set, default is returned.  If the setting value</span>
+<span class="sd">        is already a callable function, that value is used - If the setting value</span>
+<span class="sd">        is a string, an attempt is made to import it.  Anything else will result in</span>
+<span class="sd">        a failed import causing ImportError to be raised.</span>
+
+<span class="sd">        :param setting_name: The name of the setting to resolve a callback from.</span>
+<span class="sd">        :type setting_name: string (``str``/``unicode``)</span>
+<span class="sd">        :param default: The default to return if setting isn&#39;t populated.</span>
+<span class="sd">        :type default: ``bool``</span>
+<span class="sd">        :returns: The resolved callback function (if any).</span>
+<span class="sd">        :type: ``callable``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">setting_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">func</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">default</span>
+
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">func</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="n">import_string</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">setting_name</span><span class="si">}</span><span class="s2"> must be callable.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="nf">_get_idempotency_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_type</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">livemode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">IdempotencyKey</span>
+
+        <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">object_type</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">idempotency_key</span><span class="p">,</span> <span class="n">_created</span> <span class="o">=</span> <span class="n">IdempotencyKey</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span>
+            <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span> <span class="n">livemode</span><span class="o">=</span><span class="n">livemode</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">idempotency_key</span><span class="o">.</span><span class="n">uuid</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_default_api_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">livemode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the default API key for a value of `livemode`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">livemode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Livemode is unknown. Use the default secret key.</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">STRIPE_SECRET_KEY</span>
+        <span class="k">elif</span> <span class="n">livemode</span><span class="p">:</span>
+            <span class="c1"># Livemode is true, use the live secret key</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIVE_API_KEY</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">STRIPE_SECRET_KEY</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Livemode is false, use the test secret key</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">TEST_API_KEY</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">STRIPE_SECRET_KEY</span>
+
+    <span class="k">def</span> <span class="nf">get_subscriber_model_string</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the configured subscriber model as a module path string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL&quot;</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">def</span> <span class="nf">get_subscriber_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attempt to pull settings.DJSTRIPE_SUBSCRIBER_MODEL.</span>
+
+<span class="sd">        Users have the option of specifying a custom subscriber model via the</span>
+<span class="sd">        DJSTRIPE_SUBSCRIBER_MODEL setting.</span>
+
+<span class="sd">        This methods falls back to AUTH_USER_MODEL if DJSTRIPE_SUBSCRIBER_MODEL is not set.</span>
+
+<span class="sd">        Returns the subscriber model that is active in this project.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">model_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_subscriber_model_string</span><span class="p">()</span>
+
+        <span class="c1"># Attempt a Django 1.7 app lookup</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">subscriber_model</span> <span class="o">=</span> <span class="n">django_apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
+                <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL must be of the form &#39;app_label.model_name&#39;.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL refers to model &#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&#39; &quot;</span>
+                <span class="s2">&quot;that has not been installed.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="s2">&quot;email&quot;</span>
+            <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">field_</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field_</span> <span class="ow">in</span> <span class="n">subscriber_model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_fields</span><span class="p">()]</span>
+        <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">subscriber_model</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
+                <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL must have an email attribute.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">model_name</span> <span class="o">!=</span> <span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">:</span>
+            <span class="c1"># Custom user model detected. Make sure the callback is configured.</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_callback_function</span><span class="p">(</span>
+                <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK&quot;</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">func</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
+                    <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK must be implemented &quot;</span>
+                    <span class="s2">&quot;if a DJSTRIPE_SUBSCRIBER_MODEL is defined.&quot;</span>
+                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">subscriber_model</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h4 id="djstripe.settings.DjstripeSettings-attributes">Attributes</h4>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.DEFAULT_STRIPE_API_VERSION" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">DEFAULT_STRIPE_API_VERSION</span> <span class="o">=</span> <span class="s1">&#39;2020-08-27&#39;</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.LIVE_API_KEY" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">LIVE_API_KEY</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.STRIPE_API_VERSION" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">STRIPE_API_VERSION</span><span class="p">:</span> <span class="nb">str</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Get the desired API version to use for Stripe requests.</p>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.STRIPE_LIVE_MODE" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">STRIPE_LIVE_MODE</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.STRIPE_PUBLIC_KEY" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">STRIPE_PUBLIC_KEY</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.STRIPE_SECRET_KEY" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">STRIPE_SECRET_KEY</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.SUBSCRIBER_CUSTOMER_KEY" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">SUBSCRIBER_CUSTOMER_KEY</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.TEST_API_KEY" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">TEST_API_KEY</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.WEBHOOK_EVENT_CALLBACK" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">WEBHOOK_EVENT_CALLBACK</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.ZERO_DECIMAL_CURRENCIES" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">ZERO_DECIMAL_CURRENCIES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bif&#39;</span><span class="p">,</span> <span class="s1">&#39;clp&#39;</span><span class="p">,</span> <span class="s1">&#39;djf&#39;</span><span class="p">,</span> <span class="s1">&#39;gnf&#39;</span><span class="p">,</span> <span class="s1">&#39;jpy&#39;</span><span class="p">,</span> <span class="s1">&#39;kmf&#39;</span><span class="p">,</span> <span class="s1">&#39;krw&#39;</span><span class="p">,</span> <span class="s1">&#39;mga&#39;</span><span class="p">,</span> <span class="s1">&#39;pyg&#39;</span><span class="p">,</span> <span class="s1">&#39;rwf&#39;</span><span class="p">,</span> <span class="s1">&#39;vnd&#39;</span><span class="p">,</span> <span class="s1">&#39;vuv&#39;</span><span class="p">,</span> <span class="s1">&#39;xaf&#39;</span><span class="p">,</span> <span class="s1">&#39;xof&#39;</span><span class="p">,</span> <span class="s1">&#39;xpf&#39;</span><span class="p">}</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.decimal_max_digits" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">decimal_max_digits</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.decimal_places" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">decimal_places</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.get_idempotency_key" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">get_idempotency_key</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h5 id="djstripe.settings.DjstripeSettings.subscriber_request_callback" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">subscriber_request_callback</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+    </div>
+
+</div>
+
+<h4 id="djstripe.settings.DjstripeSettings-functions">Functions</h4>
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="djstripe.settings.DjstripeSettings.__delattr__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="fm">__delattr__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></code>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+
+            <details class="quote">
+              <summary>Source code in <code>djstripe/settings.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__delattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="djstripe.settings.DjstripeSettings.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span></code>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+
+            <details class="quote">
+              <summary>Source code in <code>djstripe/settings.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Set STRIPE_API_HOST if you want to use a different Stripe API server</span>
+    <span class="c1"># Example: https://github.com/stripe/stripe-mock</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_API_HOST&quot;</span><span class="p">):</span>
+        <span class="n">stripe</span><span class="o">.</span><span class="n">api_base</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;STRIPE_API_HOST&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="djstripe.settings.DjstripeSettings.__setattr__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+
+            <details class="quote">
+              <summary>Source code in <code>djstripe/settings.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="djstripe.settings.DjstripeSettings.get_callback_function" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">get_callback_function</span><span class="p">(</span><span class="n">setting_name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Resolve a callback function based on a setting name.</p>
+<p>If the setting value isn't set, default is returned.  If the setting value
+is already a callable function, that value is used - If the setting value
+is a string, an attempt is made to import it.  Anything else will result in
+a failed import causing ImportError to be raised.</p>
+<p>:param setting_name: The name of the setting to resolve a callback from.
+:type setting_name: string (<code>str</code>/<code>unicode</code>)
+:param default: The default to return if setting isn't populated.
+:type default: <code>bool</code>
+:returns: The resolved callback function (if any).
+:type: <code>callable</code></p>
+
+            <details class="quote">
+              <summary>Source code in <code>djstripe/settings.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_callback_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">setting_name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resolve a callback function based on a setting name.</span>
+
+<span class="sd">    If the setting value isn&#39;t set, default is returned.  If the setting value</span>
+<span class="sd">    is already a callable function, that value is used - If the setting value</span>
+<span class="sd">    is a string, an attempt is made to import it.  Anything else will result in</span>
+<span class="sd">    a failed import causing ImportError to be raised.</span>
+
+<span class="sd">    :param setting_name: The name of the setting to resolve a callback from.</span>
+<span class="sd">    :type setting_name: string (``str``/``unicode``)</span>
+<span class="sd">    :param default: The default to return if setting isn&#39;t populated.</span>
+<span class="sd">    :type default: ``bool``</span>
+<span class="sd">    :returns: The resolved callback function (if any).</span>
+<span class="sd">    :type: ``callable``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">setting_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">func</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">default</span>
+
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">func</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">import_string</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">setting_name</span><span class="si">}</span><span class="s2"> must be callable.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">func</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="djstripe.settings.DjstripeSettings.get_default_api_key" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">get_default_api_key</span><span class="p">(</span><span class="n">livemode</span><span class="p">)</span></code>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Returns the default API key for a value of <code>livemode</code>.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>djstripe/settings.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_default_api_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">livemode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the default API key for a value of `livemode`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">livemode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Livemode is unknown. Use the default secret key.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">STRIPE_SECRET_KEY</span>
+    <span class="k">elif</span> <span class="n">livemode</span><span class="p">:</span>
+        <span class="c1"># Livemode is true, use the live secret key</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIVE_API_KEY</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">STRIPE_SECRET_KEY</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Livemode is false, use the test secret key</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">TEST_API_KEY</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">STRIPE_SECRET_KEY</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="djstripe.settings.DjstripeSettings.get_subscriber_model" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">get_subscriber_model</span><span class="p">()</span></code>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Attempt to pull settings.DJSTRIPE_SUBSCRIBER_MODEL.</p>
+<p>Users have the option of specifying a custom subscriber model via the
+DJSTRIPE_SUBSCRIBER_MODEL setting.</p>
+<p>This methods falls back to AUTH_USER_MODEL if DJSTRIPE_SUBSCRIBER_MODEL is not set.</p>
+<p>Returns the subscriber model that is active in this project.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>djstripe/settings.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_subscriber_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Attempt to pull settings.DJSTRIPE_SUBSCRIBER_MODEL.</span>
+
+<span class="sd">    Users have the option of specifying a custom subscriber model via the</span>
+<span class="sd">    DJSTRIPE_SUBSCRIBER_MODEL setting.</span>
+
+<span class="sd">    This methods falls back to AUTH_USER_MODEL if DJSTRIPE_SUBSCRIBER_MODEL is not set.</span>
+
+<span class="sd">    Returns the subscriber model that is active in this project.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_subscriber_model_string</span><span class="p">()</span>
+
+    <span class="c1"># Attempt a Django 1.7 app lookup</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">subscriber_model</span> <span class="o">=</span> <span class="n">django_apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
+            <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL must be of the form &#39;app_label.model_name&#39;.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL refers to model &#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&#39; &quot;</span>
+            <span class="s2">&quot;that has not been installed.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="s2">&quot;email&quot;</span>
+        <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">field_</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">field_</span> <span class="ow">in</span> <span class="n">subscriber_model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_fields</span><span class="p">()]</span>
+    <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">subscriber_model</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
+            <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL must have an email attribute.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">model_name</span> <span class="o">!=</span> <span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">:</span>
+        <span class="c1"># Custom user model detected. Make sure the callback is configured.</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_callback_function</span><span class="p">(</span>
+            <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK&quot;</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">func</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
+                <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL_REQUEST_CALLBACK must be implemented &quot;</span>
+                <span class="s2">&quot;if a DJSTRIPE_SUBSCRIBER_MODEL is defined.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">subscriber_model</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h5 id="djstripe.settings.DjstripeSettings.get_subscriber_model_string" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">djstripe</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">DjstripeSettings</span><span class="o">.</span><span class="n">get_subscriber_model_string</span><span class="p">()</span></code>
+
+</h5>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Get the configured subscriber model as a module path string.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>djstripe/settings.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_subscriber_model_string</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the configured subscriber model as a module path string.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s2">&quot;DJSTRIPE_SUBSCRIBER_MODEL&quot;</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div><p>selection:
+filters: - "!^<em>[^</em>]"</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+
+
+
+<style>
+  [data-md-color-scheme="dark"] {
+    --md-footer-fg-color: #A6ADFD;
+
+    --md-footer-fg-color: #BDC2FC;
+    --md-footer-fg-color--light: #6254FB;
+    --md-footer-bg-color: #1F224A;
+
+    --md-admonition-bg-color: #393f80;
+  }
+
+  [data-md-color-scheme="light"] {
+    --md-footer-fg-color: #363E99;
+    --md-footer-fg-color--light: #6254FB;
+
+    --md-footer-bg-color: #BDC2FC;
+  }
+
+  [data-md-color-scheme="light"] .md-footer {
+    background-color: var(--md-footer-fg-color--light);
+  }
+
+  [data-md-color-scheme="light"] .md-footer__inner {
+    color: var(--md-default-bg-color);
+  }
+
+  [data-md-color-scheme="dark"] .md-footer {
+    background-color: var(--md-primary-fg-color);
+  }
+
+  [data-md-color-scheme="dark"] .md-footer__inner {
+    color: var(--md-default-fg-color);
+  }
+
+  .mdx-footer {
+    background-color: var(--md-footer-bg-color);
+  }
+
+  .mdx-footer__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 4rem 0.5rem;
+    max-width: 61rem;
+
+    border-bottom: 1px solid var(--md-footer-fg-color);
+  }
+
+  .mdx-footer__content {
+    margin-top: 1.5rem;
+
+  }
+
+  .mdx-footer__logo {
+    height: 3rem;
+    width: auto;
+  }
+
+  .mdx-footer__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .mdx-footer__nav-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mdx-footer__nav-item p {
+    color: var(--md-footer-fg-color--light);
+
+    font-weight: bold;
+  }
+
+  .mdx-footer__copyright {
+    padding: 1.5rem 0;
+
+    text-align: center;
+
+  }
+
+  @media screen and (max-width: 76.1875em) {
+    .mdx-footer__wrapper {
+      flex-direction: column;
+    }
+
+    .mdx-footer__nav {
+      flex-direction: column;
+    }
+
+    .mdx-footer__wrapper {
+      margin: 0 1rem;
+    }
+
+  }
+</style>
+
+<!-- Footer -->
+
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+  <nav class="md-footer__inner md-grid" aria-label="footer.title">
+
+    <!-- Link to previous page -->
+    
+    
+    <a href="../models/" class="md-footer__link md-footer__link--prev"
+      aria-label="Previous: Models" rel="prev">
+      <div class="md-footer__button md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </div>
+      <div class="md-footer__title">
+        <div class="md-ellipsis">
+          <span class="md-footer__direction">
+            Previous
+          </span>
+          Models
+        </div>
+      </div>
+    </a>
+    
+
+    <!-- Link to next page -->
+    
+    
+    <a href="../utils/" class="md-footer__link md-footer__link--next"
+      aria-label="Next: Utilities" rel="next">
+      <div class="md-footer__title">
+        <div class="md-ellipsis">
+          <span class="md-footer__direction">
+            Next
+          </span>
+          Utilities
+        </div>
+      </div>
+      <div class="md-footer__button md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+      </div>
+    </a>
+    
+  </nav>
+  
+
+
+  <div class="mdx-footer">
+    <!-- Further information -->
+    <div class="mdx-footer__wrapper">
+
+      <div>
+
+        <img class="mdx-footer__logo" src="../../assets/logo.svg" alt="logo" />
+        <div class="mdx-footer__content">
+          The link between your Django project and stripe.
+
+        </div>
+
+      </div>
+      <div class="mdx-footer__nav">
+        
+        <div class="mdx-footer__nav-item">
+          <p>Documentation</p>
+          
+            
+              
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                
+                <div class="md-nav__link">
+                  <a href="../../../installation/
+        
+    
+
+    
+">
+                    Getting Started
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                
+                <div class="md-nav__link">
+                  <a href="../../../usage/webhooks/
+        
+    
+
+    
+">
+                    Usage
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                
+                <div class="md-nav__link">
+                  <a href="../../../project/contributing/
+        
+    
+
+    
+">
+                    Project
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                
+                <div class="md-nav__link">
+                  <a href="../../enums/
+        
+    
+
+    
+">
+                    Reference
+                  </a>
+                </div>
+              
+            
+          
+        </div>
+        
+        <div class="mdx-footer__nav-item">
+          <p>Sponsors</p>
+          
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../project/sponsors/">
+                    Our Sponsors
+                  </a>
+                </div>
+              
+            
+          
+        </div>
+        
+        <div class="mdx-footer__nav-item">
+          <p>History</p>
+          
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/3_0_0/">
+                    dj-stripe 3.0 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/2_9_0/">
+                    dj-stripe 2.9 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/2_8_x/">
+                    dj-stripe 2.8 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/2_7_x/">
+                    dj-stripe 2.7 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/2_6_x/">
+                    dj-stripe 2.6 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/2_5_x/">
+                    dj-stripe 2.5 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/2_4_x/">
+                    dj-stripe 2.4.1 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/2_4_0/">
+                    dj-stripe 2.4 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/2_x/">
+                    dj-stripe 2.0 ~ 2.3 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/1_x/">
+                    dj-stripe 1.x release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../../history/0_x/">
+                    dj-stripe 0.x release notes
+                  </a>
+                </div>
+              
+            
+          
+        </div>
+        
+      </div>
+
+      <!-- Social links -->
+      <!-- <div class="md-social">
+  
+</div> -->
+    </div>
+    <div class="mdx-footer__copyright">
+      Copyright © 2024. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.tabs", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>

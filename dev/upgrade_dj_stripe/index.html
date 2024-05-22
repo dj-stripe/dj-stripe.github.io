@@ -1,0 +1,2349 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Stripe Made Easy for Django Developers">
+      
+      
+        <meta name="author" content="Dj-Stripe Team">
+      
+      
+        <link rel="canonical" href="https://dj-stripe.dev/2.8/upgrade_dj_stripe/">
+      
+      
+        <link rel="prev" href="../api_versions/">
+      
+      
+        <link rel="next" href="../stripe_elements_js/">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>Upgrade dj-stripe - Dj-Stripe</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#upgrading-dj-stripe-smooth-and-carefully" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+
+<style>
+  [data-md-color-scheme="dark"] {
+    --md-primary-fg-color: #393f80;
+    --md-primary-bg-color: #fff;
+
+    --md-default-fg-color: #ffffff;
+    --md-default-fg-color--light: #ffffff;
+    --md-default-bg-color: #1f224a;
+
+    --md-typeset-a-color: #a6adfd;
+
+    --md-code-fg-color: #f5f5f5;
+    --md-code-bg-color: #21222c;
+  }
+
+  [data-md-color-scheme="light"] {
+    --md-primary-fg-color: #a6adfd;
+    --md-primary-bg-color: #6254fb;
+  }
+
+  body {
+    font-size: 0.8rem;
+  }
+
+  .mdx-logo {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  .mdx-logo:hover {
+    opacity: 0.6;
+  }
+
+  @media screen and (min-width: 60em) {
+    .md-search__form {
+      background-color: rgba(255, 255, 255, 0.26);
+    }
+  }
+
+  @media screen and (max-width: 76.1875em) {
+    .mdx-logo {
+      display: none;
+    }
+  }
+</style>
+
+<!-- Header -->
+<header class="md-header" data-md-component="header" data-md-state="">
+  <nav class="md-header__inner md-grid" aria-label="header.title">
+
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <!-- Link to home -->
+    <a href=".." title="Dj-Stripe"
+      aria-label="Dj-Stripe" data-md-component="logo">
+      <img class="mdx-logo" src="../assets/logo.svg" alt="logo" />
+    </a>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dj-Stripe
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+            Upgrade dj-stripe
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    
+
+<style>
+  .md-tabs li {
+    height: auto;
+  }
+
+  .md-tabs a {
+    font-weight: bold;
+  }
+
+  .md-tabs a:hover {
+    opacity: 0.6;
+  }
+
+  .md-container > .md-tabs {
+    display: none;
+  }
+</style>
+
+<!-- Navigation tabs -->
+<nav class="md-tabs" aria-label="tabs.title">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+    
+        
+            /installation/
+        
+    
+
+    
+" class="md-tabs">
+            Documentation
+        </a>
+    
+
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+            /project/sponsors/
+        
+    
+" class="md-tabs">
+            Sponsors
+        </a>
+    
+
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+            /history/3_0_0/
+        
+    
+" class="md-tabs">
+            History
+        </a>
+    
+
+      
+    </ul>
+  </div>
+</nav>
+
+    <!-- Color palette -->
+    
+    <form class="md-header__option" data-md-component="palette">
+      
+      
+      
+      <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="light"
+        data-md-color-primary="" data-md-color-accent="" 
+        aria-label="Switch to dark mode"  type="radio" name="__palette"
+        id="__palette_1" />
+      
+      <label class="md-header__button md-icon" title="Switch to dark mode"
+        for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+      
+      
+      
+      
+      <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="dark"
+        data-md-color-primary="" data-md-color-accent="" 
+        aria-label="Switch to light mode"  type="radio" name="__palette"
+        id="__palette_2" />
+      
+      <label class="md-header__button md-icon" title="Switch to light mode"
+        for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+      
+      
+    </form>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+    <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repository information -->
+    
+    <div class="md-header__source">
+      <a href="https://github.com/dj-stripe/dj-stripe/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dj-stripe
+  </div>
+</a>
+    </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+
+<style>
+  .md-tabs li {
+    height: auto;
+  }
+
+  .md-tabs a {
+    font-weight: bold;
+  }
+
+  .md-tabs a:hover {
+    opacity: 0.6;
+  }
+
+  .md-container > .md-tabs {
+    display: none;
+  }
+</style>
+
+<!-- Navigation tabs -->
+<nav class="md-tabs" aria-label="tabs.title">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+    
+        
+            /installation/
+        
+    
+
+    
+" class="md-tabs">
+            Documentation
+        </a>
+    
+
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+            /project/sponsors/
+        
+    
+" class="md-tabs">
+            Sponsors
+        </a>
+    
+
+      
+      <!-- tabs-item.html -->
+
+
+<li class="md-tabs__item">
+    
+        
+        <a href="
+    
+        
+            /history/3_0_0/
+        
+    
+" class="md-tabs">
+            History
+        </a>
+    
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Dj-Stripe" class="md-nav__button md-logo" aria-label="Dj-Stripe" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    Dj-Stripe
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dj-stripe/dj-stripe/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dj-stripe
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_keys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing Stripe API Keys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_versions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A note on Stripe API Versions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Upgrade dj-stripe
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Upgrade dj-stripe
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-do-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to do it?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternatives
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stripe_elements_js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integrating Stripe Elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/webhooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Stripe Webhooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/local_webhook_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local Webhook Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/subscribing_customers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Subscribing a customer to a plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/add_payment_method_to_customer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add a payment method to customer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/managing_subscriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing subscriptions and payment sources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/manually_syncing_with_stripe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manually syncing data with Stripe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/creating_individual_charges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating individual charges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/creating_usage_record/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating Usage Records
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/using_stripe_checkout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Stripe Checkout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/using_with_docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using with Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Project
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/test_fixtures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test Fixtures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/authors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/release_process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/enums/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enumerations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/managers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Utilities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sponsors
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sponsors
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/sponsors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Our Sponsors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    History
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            History
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/3_0_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 3.0 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/2_9_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.9 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/2_8_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.8 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/2_7_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.7 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/2_6_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.6 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/2_5_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.5 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/2_4_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.4.1 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/2_4_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.4 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/2_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 2.0 ~ 2.3 release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/1_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 1.x release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/0_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dj-stripe 0.x release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-do-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to do it?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternatives
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="upgrading-dj-stripe-smooth-and-carefully">Upgrading dj-stripe Smooth and Carefully</h1>
+<h2 id="background">Background</h2>
+<p>In this article, we will share how to upgrade the <code>dj-stripe</code> package flawlessly and carefully.</p>
+<div class="admonition attention">
+<p class="admonition-title">Important Note</p>
+<p>Please keep in mind that <code>dj-stripe</code> always squashes the migration files.
+Which means its migration files are completely changed, and leading to migration issues.
+<strong>So, you can't immediately upgrade your package too far, for example, from <code>2.4.0</code> to <code>2.7.0</code> because it will cause breaking changes, especially in your database migrations.</strong></p>
+</div>
+<h2 id="how-to-do-it">How to do it?</h2>
+<p>For example, if your <code>dj-stripe</code> version is <code>2.4.0</code> and your migration files are referring to the old version.</p>
+<p><img alt="old migration file" src="https://github.com/agusmakmun/agusmakmun.github.io/assets/7134451/d433d048-d3cf-4385-a7f6-f1890acfe206" /></p>
+<p>First, you need to find which version has that old migration. For example:</p>
+<ol>
+<li>Search for the latest version that is closest to your package version, for example: <code>2.4.0</code> to <code>2.5.0</code>.</li>
+<li>Visit this link to find it: <a href="https://github.com/dj-stripe/dj-stripe/releases">https://github.com/dj-stripe/dj-stripe/releases</a></li>
+<li>Cross-check the release notes.</li>
+<li>Find which dj-stripe version is still compatible with your migration file, for example: <code>0006_2_3.py</code>.</li>
+<li>Find the last migration file of the latest version at <a href="https://github.com/dj-stripe/dj-stripe/tree/2.5.0/djstripe/migrations">https://github.com/dj-stripe/dj-stripe/tree/2.5.0/djstripe/migrations</a> (for example: <code>0008_2_5.py</code>) (both files must exist; if not, it means the new version is no longer compatible with your version).</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Old Migration</th>
+<th>New Migration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="old migration" src="https://github.com/agusmakmun/agusmakmun.github.io/assets/7134451/6958e5a5-2e6d-4dd7-a9e3-5f067a819378" /></td>
+<td><img alt="new migration" src="https://github.com/agusmakmun/agusmakmun.github.io/assets/7134451/4b075b78-5a34-4ed5-a23a-7dd1c8884bfa" /></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Update your <code>requirements.txt</code> file from <code>dj-stripe==2.4.0</code> to <code>dj-stripe==2.5.0</code></li>
+<li>Run the <code>manage.py migrate djstripe</code> command <em>(this command must not fail; if it does, cross-check steps 1-6).</em></li>
+</ol>
+<div class="highlight"><pre><span></span><code>(env-my-project) ➜  my-project git:(development) ✗ docker-compose -f local.yml run django python manage.py migrate djstripe
+[+] Creating 3/0
+ ✔ Container my-project-redis-1     Running                                                                                                                                                                                  0.0s
+ ✔ Container my-project-mailhog-1   Running                                                                                                                                                                                  0.0s
+ ✔ Container my-project-postgres-1  Running                                                                                                                                                                                  0.0s
+PostgreSQL is available
+System check identified some issues:
+
+Operations to perform:
+  Apply all migrations: djstripe
+Running migrations:
+  Applying djstripe.0008_2_5... OK
+</code></pre></div>
+<ol>
+<li>And then, after migrating it, change your migration file to refer to the new version (e.g., from <code>0006_2_3</code> to <code>0008_2_5</code>).</li>
+</ol>
+<p><img alt="change migration file" src="https://github.com/agusmakmun/agusmakmun.github.io/assets/7134451/70ebe2d4-d780-4994-b05b-e361fc95dd3d" /></p>
+<ol>
+<li>Repeat the same process for higher version.</li>
+</ol>
+<p>If you have an issue with the Stripe version, we can also try upgrading it in the <code>requirements.txt</code> file.
+Check out this issue for more information: <a href="https://github.com/dj-stripe/dj-stripe/issues/1842#issuecomment-1319185657">https://github.com/dj-stripe/dj-stripe/issues/1842#issuecomment-1319185657</a>.</p>
+<div class="highlight"><pre><span></span><code>stripe&gt;=4.0.0,&lt;5.0.0  # https://github.com/dj-stripe/dj-stripe/issues/1842#issuecomment-1319185657
+</code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<ol>
+<li>Find the closest version that compatible with your version <em>(for doing migration)</em>.</li>
+<li>Update the dependency in <code>requirements.txt</code> file and then deploy it.</li>
+<li>Don't forget to run the <code>python manage.py migrate djstripe</code> command.</li>
+<li>Change your migration file to refer to the new version (e.g., from <code>0006_2_3</code> to <code>0008_2_5</code>), and then deploy it.</li>
+</ol>
+<h2 id="alternatives">Alternatives</h2>
+<ul>
+<li><a href="https://stackoverflow.com/a/31122841">https://stackoverflow.com/a/31122841</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+
+
+
+<style>
+  [data-md-color-scheme="dark"] {
+    --md-footer-fg-color: #A6ADFD;
+
+    --md-footer-fg-color: #BDC2FC;
+    --md-footer-fg-color--light: #6254FB;
+    --md-footer-bg-color: #1F224A;
+
+    --md-admonition-bg-color: #393f80;
+  }
+
+  [data-md-color-scheme="light"] {
+    --md-footer-fg-color: #363E99;
+    --md-footer-fg-color--light: #6254FB;
+
+    --md-footer-bg-color: #BDC2FC;
+  }
+
+  [data-md-color-scheme="light"] .md-footer {
+    background-color: var(--md-footer-fg-color--light);
+  }
+
+  [data-md-color-scheme="light"] .md-footer__inner {
+    color: var(--md-default-bg-color);
+  }
+
+  [data-md-color-scheme="dark"] .md-footer {
+    background-color: var(--md-primary-fg-color);
+  }
+
+  [data-md-color-scheme="dark"] .md-footer__inner {
+    color: var(--md-default-fg-color);
+  }
+
+  .mdx-footer {
+    background-color: var(--md-footer-bg-color);
+  }
+
+  .mdx-footer__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 4rem 0.5rem;
+    max-width: 61rem;
+
+    border-bottom: 1px solid var(--md-footer-fg-color);
+  }
+
+  .mdx-footer__content {
+    margin-top: 1.5rem;
+
+  }
+
+  .mdx-footer__logo {
+    height: 3rem;
+    width: auto;
+  }
+
+  .mdx-footer__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .mdx-footer__nav-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mdx-footer__nav-item p {
+    color: var(--md-footer-fg-color--light);
+
+    font-weight: bold;
+  }
+
+  .mdx-footer__copyright {
+    padding: 1.5rem 0;
+
+    text-align: center;
+
+  }
+
+  @media screen and (max-width: 76.1875em) {
+    .mdx-footer__wrapper {
+      flex-direction: column;
+    }
+
+    .mdx-footer__nav {
+      flex-direction: column;
+    }
+
+    .mdx-footer__wrapper {
+      margin: 0 1rem;
+    }
+
+  }
+</style>
+
+<!-- Footer -->
+
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+  <nav class="md-footer__inner md-grid" aria-label="footer.title">
+
+    <!-- Link to previous page -->
+    
+    
+    <a href="../api_versions/" class="md-footer__link md-footer__link--prev"
+      aria-label="Previous: A note on Stripe API Versions" rel="prev">
+      <div class="md-footer__button md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </div>
+      <div class="md-footer__title">
+        <div class="md-ellipsis">
+          <span class="md-footer__direction">
+            Previous
+          </span>
+          A note on Stripe API Versions
+        </div>
+      </div>
+    </a>
+    
+
+    <!-- Link to next page -->
+    
+    
+    <a href="../stripe_elements_js/" class="md-footer__link md-footer__link--next"
+      aria-label="Next: Integrating Stripe Elements" rel="next">
+      <div class="md-footer__title">
+        <div class="md-ellipsis">
+          <span class="md-footer__direction">
+            Next
+          </span>
+          Integrating Stripe Elements
+        </div>
+      </div>
+      <div class="md-footer__button md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+      </div>
+    </a>
+    
+  </nav>
+  
+
+
+  <div class="mdx-footer">
+    <!-- Further information -->
+    <div class="mdx-footer__wrapper">
+
+      <div>
+
+        <img class="mdx-footer__logo" src="../assets/logo.svg" alt="logo" />
+        <div class="mdx-footer__content">
+          The link between your Django project and stripe.
+
+        </div>
+
+      </div>
+      <div class="mdx-footer__nav">
+        
+        <div class="mdx-footer__nav-item">
+          <p>Documentation</p>
+          
+            
+              
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                
+                <div class="md-nav__link">
+                  <a href="../installation/
+        
+    
+
+    
+">
+                    Getting Started
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                
+                <div class="md-nav__link">
+                  <a href="../usage/webhooks/
+        
+    
+
+    
+">
+                    Usage
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                
+                <div class="md-nav__link">
+                  <a href="../project/contributing/
+        
+    
+
+    
+">
+                    Project
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Recursive case: Item has further children, fetch the first link -->
+                
+                <div class="md-nav__link">
+                  <a href="../reference/enums/
+        
+    
+
+    
+">
+                    Reference
+                  </a>
+                </div>
+              
+            
+          
+        </div>
+        
+        <div class="mdx-footer__nav-item">
+          <p>Sponsors</p>
+          
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../project/sponsors/">
+                    Our Sponsors
+                  </a>
+                </div>
+              
+            
+          
+        </div>
+        
+        <div class="mdx-footer__nav-item">
+          <p>History</p>
+          
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/3_0_0/">
+                    dj-stripe 3.0 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/2_9_0/">
+                    dj-stripe 2.9 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/2_8_x/">
+                    dj-stripe 2.8 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/2_7_x/">
+                    dj-stripe 2.7 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/2_6_x/">
+                    dj-stripe 2.6 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/2_5_x/">
+                    dj-stripe 2.5 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/2_4_x/">
+                    dj-stripe 2.4.1 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/2_4_0/">
+                    dj-stripe 2.4 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/2_x/">
+                    dj-stripe 2.0 ~ 2.3 release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/1_x/">
+                    dj-stripe 1.x release notes
+                  </a>
+                </div>
+              
+            
+              
+                <!-- Base case: Direct link available -->
+                <div class="md-nav__link">
+                  <a href="../history/0_x/">
+                    dj-stripe 0.x release notes
+                  </a>
+                </div>
+              
+            
+          
+        </div>
+        
+      </div>
+
+      <!-- Social links -->
+      <!-- <div class="md-social">
+  
+</div> -->
+    </div>
+    <div class="mdx-footer__copyright">
+      Copyright © 2024. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.indexes", "navigation.tabs", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>
