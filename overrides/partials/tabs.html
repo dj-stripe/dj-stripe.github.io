@@ -1,5 +1,3 @@
-{% set class = "md-tabs" %}
-
 <style>
   .md-tabs li {
     height: auto;
@@ -18,12 +16,12 @@
   }
 </style>
 
-<!-- Navigation tabs -->
-<nav class="{{ class }}" aria-label="{{ lang.t('tabs.title') }}">
-  <div class="md-tabs__inner md-grid">
+{% import "partials/tabs-item.html" as item with context %}
+<nav class="md-tabs" aria-label="{{ lang.t('tabs') }}" data-md-component="tabs">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       {% for nav_item in nav %}
-      {% include "partials/tabs-item.html" %}
+        {{ item.render(nav_item) }}
       {% endfor %}
     </ul>
   </div>
