@@ -1,5 +1,10 @@
 dj-stripe
 docs
 tests
+site
 mkdocs.yml
+poetry.lock
+pyproject.toml
+
+
 .idea
