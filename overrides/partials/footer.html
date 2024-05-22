@@ -5,9 +5,7 @@
         {{ get_first_link(item.children|first) }}
     {% else %}
         {% if item.url.startswith('/') %}
-            {{ item.url | url }}
-        {% else %}
-            {{ '/' + item.url | url }}
+            {{ item.url }}
         {% endif %}
     {% endif %}
 {% endmacro %}
@@ -118,47 +116,48 @@
 <footer class="md-footer">
 
   <!-- Link to previous and/or next page -->
-  {% if page.previous_page or page.next_page %}
-  <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer.title') }}">
-
-    <!-- Link to previous page -->
-    {% if page.previous_page %}
-    {% set direction = lang.t("footer.previous") %}
-    <a href="{{ page.previous_page.url | url }}" class="md-footer__link md-footer__link--prev"
-      aria-label="{{ direction }}: {{ page.previous_page.title | e }}" rel="prev">
-      <div class="md-footer__button md-icon">
-        {% include ".icons/material/arrow-left.svg" %}
-      </div>
-      <div class="md-footer__title">
-        <div class="md-ellipsis">
-          <span class="md-footer__direction">
-            {{ direction }}
-          </span>
-          {{ page.previous_page.title }}
-        </div>
-      </div>
-    </a>
+  {% if "navigation.footer" in features %}
+    {% if page.previous_page or page.next_page %}
+      {% if page.meta and page.meta.hide %}
+        {% set hidden = "hidden" if "footer" in page.meta.hide %}
+      {% endif %}
+      <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer') }}" {{ hidden }}>
+        {% if page.previous_page %}
+          {% set direction = lang.t("footer.previous") %}
+          <a href="{{ page.previous_page.url | url }}" class="md-footer__link md-footer__link--prev" aria-label="{{ direction }}: {{ page.previous_page.title | e }}">
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.previous or "material/arrow-left" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                {{ direction }}
+              </span>
+              <div class="md-ellipsis">
+                {{ page.previous_page.title }}
+              </div>
+            </div>
+          </a>
+        {% endif %}
+        {% if page.next_page %}
+          {% set direction = lang.t("footer.next") %}
+          <a href="{{ page.next_page.url | url }}" class="md-footer__link md-footer__link--next" aria-label="{{ direction }}: {{ page.next_page.title | e }}">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                {{ direction }}
+              </span>
+              <div class="md-ellipsis">
+                {{ page.next_page.title }}
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.next or "material/arrow-right" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+          </a>
+        {% endif %}
+      </nav>
     {% endif %}
-
-    <!-- Link to next page -->
-    {% if page.next_page %}
-    {% set direction = lang.t("footer.next") %}
-    <a href="{{ page.next_page.url | url }}" class="md-footer__link md-footer__link--next"
-      aria-label="{{ direction }}: {{ page.next_page.title | e }}" rel="next">
-      <div class="md-footer__title">
-        <div class="md-ellipsis">
-          <span class="md-footer__direction">
-            {{ direction }}
-          </span>
-          {{ page.next_page.title }}
-        </div>
-      </div>
-      <div class="md-footer__button md-icon">
-        {% include ".icons/material/arrow-right.svg" %}
-      </div>
-    </a>
-    {% endif %}
-  </nav>
   {% endif %}
 
 
@@ -179,13 +178,12 @@
         {% for nav_item in nav %}
         <div class="mdx-footer__nav-item">
           <p>{{ nav_item.title }}</p>
-          {% if nav_item.children %}
             {% for item in nav_item.children %}
               {% if item.children %}
                 <!-- Recursive case: Item has further children, fetch the first link -->
-                {% set first_link = get_first_link(item) %}
+                {% set first_child = item.children|first %}
                 <div class="md-nav__link">
-                  <a href="{{ first_link | url }}">
+                  <a href="{{ first_child.url | url }}">
                     {{ item.title }}
                   </a>
                 </div>
@@ -198,16 +196,19 @@
                 </div>
               {% endif %}
             {% endfor %}
-          {% endif %}
         </div>
         {% endfor %}
       </div>
 
       <!-- Social links -->
-      <!-- {% include "partials/social.html" %} -->
     </div>
-    <div class="mdx-footer__copyright">
-      {{ config.copyright }}
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      {% include "partials/copyright.html" %}
+      {% if config.extra.social %}
+        {% include "partials/social.html" %}
+      {% endif %}
     </div>
+  </div>
   </div>
 </footer>
