@@ -171,6 +171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dj-stripe.dev/2.8/usage/</loc>
+         <lastmod>2024-05-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dj-stripe.dev/2.8/usage/add_payment_method_to_customer/</loc>
          <lastmod>2024-05-22</lastmod>
          <changefreq>daily</changefreq>
