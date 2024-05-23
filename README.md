@@ -40,7 +40,7 @@ Initialize the `pyproject.toml` and other files from `dj-stripe`:
 ```
 cp -r ../dj-stripe/pyproject.toml ../dj-stripe/mkdocs.yml ../dj-stripe/docs ../dj-stripe/tests .
 sed -i 's|name = "dj-stripe"|name = "dj-stripe-docs"|' pyproject.toml
-sed -i 's|include = "djstripe"|include = "dj-stripe/djstripe"|' pyproject.toml
+sed -i 's|include = "djstripe"|include = "../dj-stripe/djstripe"|' pyproject.toml
 ```
 
 Add dj-stripe local dependency:
