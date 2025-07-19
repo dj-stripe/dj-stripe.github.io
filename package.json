@@ -1,0 +1,62 @@
+{
+	"name": "dj-stripe.github.io",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"fetch-docs": "node scripts/fetch-docs-content.js",
+		"build": "npm run fetch-docs && next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write src/ *.md *.json",
+		"type-check": "tsc --noEmit",
+		"ci": "next lint; tsc --noEmit"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^6.7.2",
+		"@tailwindcss/typography": "^0.5.16",
+		"gray-matter": "^4.0.3",
+		"highlight.js": "^11.11.1",
+		"next": "15.4.2",
+		"next-mdx-remote": "^5.0.0",
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
+		"rehype-highlight": "^7.0.2",
+		"remark-gfm": "^4.0.1"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3",
+		"@tailwindcss/postcss": "^4.1.11",
+		"@types/node": "^24",
+		"@types/react": "19.1.8",
+		"@types/react-dom": "19.1.6",
+		"eslint": "^9",
+		"eslint-config-next": "15.4.2",
+		"prettier": "^3.6.2",
+		"tailwindcss": "^4.1.11",
+		"tailwindcss-animate": "^1.0.7",
+		"typescript": "^5",
+		"whatwg-fetch": "^3.6.20"
+	},
+	"postcss": {
+		"plugins": {
+			"@tailwindcss/postcss": {}
+		}
+	},
+	"prettier": {
+		"trailingComma": "all",
+		"printWidth": 88,
+		"useTabs": true,
+		"tabWidth": 4,
+		"experimentalOperatorPosition": "start",
+		"overrides": [
+			{
+				"files": "*.yml",
+				"options": {
+					"tabWidth": 2,
+					"useTabs": false
+				}
+			}
+		]
+	}
+}

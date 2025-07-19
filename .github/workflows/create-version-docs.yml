@@ -1,0 +1,48 @@
+# Workflow for creating versioned documentation on stable releases
+name: Create Versioned Documentation
+
+on:
+  push:
+    tags:
+      - "v*.*.*" # Triggers on version tags like v2.10.0
+
+jobs:
+  create-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Checkout dj-stripe repo
+        uses: actions/checkout@v4
+        with:
+          path: dj-stripe
+
+      - name: Checkout dj-stripe.github.io repo
+        uses: actions/checkout@v4
+        with:
+          repository: dj-stripe/dj-stripe.github.io
+          path: dj-stripe.github.io
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create versioned docs
+        run: |
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          MAJOR_MINOR=$(echo $VERSION | cut -d. -f1,2)
+
+          # Copy docs to versioned folder
+          mkdir -p dj-stripe.github.io/docs-versions/$MAJOR_MINOR
+          cp -r dj-stripe/docs/* dj-stripe.github.io/docs-versions/$MAJOR_MINOR/
+
+          # Update latest symlink (handled in NextJS app)
+          echo $MAJOR_MINOR > dj-stripe.github.io/docs-versions/LATEST_VERSION
+
+      - name: Commit and push changes
+        run: |
+          cd dj-stripe.github.io
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Add documentation for version ${{ steps.get_version.outputs.VERSION }}"
+          git push

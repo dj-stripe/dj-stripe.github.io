@@ -1,69 +1,90 @@
 # dj-stripe.dev
 
-This is the codebase that hosts [dj-stripe.dev](https://dj-stripe.dev/) and contains custom "overrides" for the [mkdocs-material](https://github.com/squidfunk/mkdocs-material) theme
+This repository hosts the [dj-stripe.dev](https://dj-stripe.dev/) website and documentation for all versions of dj-stripe.
 
-## Deployment Process
-The Github action that build and deploys the site is locaded in [dj-stripe](https://github.com/dj-stripe/dj-stripe) repo in the [docs](https://github.com/dj-stripe/dj-stripe/blob/b2dff48f2c3bbef445c6ff3d99f44df6a7576ff6/.github/workflows/docs.yml) action.
+## Architecture
+
+- **Website**: NextJS static site deployed to GitHub Pages
+- **Documentation**: Markdown files rendered with NextJS
+    - `/docs/dev/` - Latest development docs (auto-synced from main repo)
+    - `/docs/2.9/`, `/docs/2.8/` etc - Stable version documentation
+    - `/docs/latest` - Redirects to the latest stable version
+
+## Tech Stack
+
+- [NextJS](https://nextjs.org/) with TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Bun](https://bun.sh/) package manager
+- Static export for GitHub Pages
 
 ## Development
 
-These are the steps to get up and running locally.
+### Prerequisites
 
-Install poetry:
+Install Bun:
 
+```bash
+curl -fsSL https://bun.sh/install | bash
 ```
-curl -sSL https://install.python-poetry.org | python3.11 -
-```
 
-Clone dj-stripe and this repos side by side
+### Local Development
 
-```
-git clone https://github.com/dj-stripe/dj-stripe.git
+Clone the repository:
+
+```bash
 git clone https://github.com/dj-stripe/dj-stripe.github.io.git
-```
-
-This should leave you with a file structure:
-```
-/your-directory/
-    ├── dj-stripe/
-    └── dj-stripe.github.io/
-```
-
-`cd` into `dj-stripe.github.io`
-```
 cd dj-stripe.github.io
 ```
 
+Install dependencies:
 
-Initialize the `pyproject.toml` and other files from `dj-stripe`:
-
-```
-cp -r ../dj-stripe/pyproject.toml ../dj-stripe/mkdocs.yml ../dj-stripe/docs ../dj-stripe/tests .
-sed -i 's|name = "dj-stripe"|name = "dj-stripe-docs"|' pyproject.toml
-sed -i 's|include = "djstripe"|include = "../dj-stripe/djstripe"|' pyproject.toml
+```bash
+bun install
 ```
 
-Add dj-stripe local dependency:
+Run development server:
 
-```
-poetry add ../dj-stripe
-```
-
-Install the dependencies:
-
-```
-poetry install --with docs
+```bash
+bun dev
 ```
 
-Build the docs:
+Build for production:
+
+```bash
+bun run build
+```
+
+## Documentation Structure
 
 ```
-poetry run mike deploy dev
+docs/
+├── dev/           # Development docs (synced from main repo)
+├── 2.9/           # Stable version 2.9
+├── 2.8/           # Stable version 2.8
+└── ...            # Other stable versions
 ```
 
-Serve the docs:
+## Deployment
 
-```
-cd site
-python3 -m http.server
-```
+The site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+
+### Updating Development Docs
+
+Development documentation (`/docs/dev/`) is automatically updated via GitHub Actions whenever changes are pushed to the main dj-stripe repository.
+
+### Creating a New Stable Version
+
+When releasing a new stable version of dj-stripe:
+
+1. Copy the current dev docs to a new version folder (e.g., `docs/2.10/`)
+2. Update the version switcher configuration
+3. Update the `/docs/latest` redirect
+4. Commit and push changes
+
+## Contributing
+
+Please see the main [dj-stripe repository](https://github.com/dj-stripe/dj-stripe) for contribution guidelines.
+
+## License
+
+This project is licensed under the MIT License - see the main dj-stripe repository for details.

@@ -1,0 +1,67 @@
+name: Update Documentation
+
+on:
+  repository_dispatch:
+    types: [update-docs]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to update (e.g., dev, 2.9)"
+        required: true
+        default: "dev"
+      branch:
+        description: "Branch to pull docs from"
+        required: true
+        default: "main"
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout documentation site
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout docs-content
+        uses: actions/checkout@v4
+        with:
+          repository: dj-stripe/docs-content
+          path: docs-content
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine version
+        id: version
+        run: |
+          VERSION=${{ github.event.client_payload.version || github.event.inputs.version }}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Copy documentation
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+
+          # Check if version exists in docs-content
+          if [ ! -d "docs-content/${VERSION}" ]; then
+            echo "Error: Version ${VERSION} not found in docs-content repository"
+            exit 1
+          fi
+
+          mkdir -p docs-versions/${VERSION}
+          cp -r docs-content/${VERSION}/* docs-versions/${VERSION}/
+
+          # Remove assets directory as it's in public/
+          rm -rf docs-versions/${VERSION}/assets
+          rm -rf docs-versions/${VERSION}/logos
+
+          # Copy metadata if exists
+          if [ -f "docs-content/${VERSION}/.meta.json" ]; then
+            cp docs-content/${VERSION}/.meta.json docs-versions/${VERSION}/
+          fi
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs-versions/
+          git commit -m "Update ${{ steps.version.outputs.version }} documentation from ${{ github.event.client_payload.branch || github.event.inputs.branch }}" || exit 0
+          git push
