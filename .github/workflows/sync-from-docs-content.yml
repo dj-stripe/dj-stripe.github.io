@@ -1,0 +1,81 @@
+name: Sync Documentation from docs-content
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [docs-content-updated]
+
+jobs:
+  sync-all-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website
+        uses: actions/checkout@v4
+
+      - name: Checkout docs-content
+        uses: actions/checkout@v4
+        with:
+          repository: dj-stripe/docs-content
+          path: docs-content
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync all documentation versions
+        run: |
+          # Clear existing docs-versions (preserve .gitkeep if exists)
+          find docs-versions -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
+
+          # Copy all versions from docs-content
+          for version_dir in docs-content/*/; do
+            if [ -d "$version_dir" ]; then
+              version=$(basename "$version_dir")
+              mkdir -p "docs-versions/${version}"
+              cp -r "${version_dir}"* "docs-versions/${version}/" || true
+
+              # Remove assets as they're in public/
+              rm -rf "docs-versions/${version}/assets"
+              rm -rf "docs-versions/${version}/logos"
+            fi
+          done
+
+          # Copy version metadata from docs-content if available
+          if [ -f "docs-content/versions.json" ]; then
+            cp docs-content/versions.json docs-versions/
+          else
+            # Fallback: Create index of available versions
+            echo '{"versions": [' > docs-versions/versions.json
+            first=true
+            for version_dir in docs-versions/*/; do
+              if [ -d "$version_dir" ] && [ "$version_dir" != "docs-versions/./" ]; then
+                version=$(basename "$version_dir")
+                if [ "$first" = false ]; then
+                  echo ',' >> docs-versions/versions.json
+                fi
+                echo -n "  \"$version\"" >> docs-versions/versions.json
+                first=false
+              fi
+            done
+            echo -e '\n]}' >> docs-versions/versions.json
+          fi
+
+          # Copy LATEST marker if available
+          if [ -f "docs-content/LATEST" ]; then
+            cp docs-content/LATEST docs-versions/
+          fi
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add docs-versions/
+          git commit -m "Sync documentation from docs-content repository"
+          git push
