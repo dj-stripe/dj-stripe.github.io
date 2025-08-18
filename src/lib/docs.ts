@@ -6,60 +6,14 @@ const DEFAULT_VERSION = "dev"; // Default version to return if no versions are f
 const DOCS_BASE_PATH = path.join(process.cwd(), "docs-versions");
 
 export async function getVersions(): Promise<string[]> {
-	try {
-		// Try to read versions.json first
-		const versionsPath = path.join(DOCS_BASE_PATH, "versions.json");
-		try {
-			const versionsData = await fs.readFile(versionsPath, "utf-8");
-			const { versions } = JSON.parse(versionsData);
-			// Add "dev" if not present
-			if (!versions.includes("dev")) {
-				versions.push("dev");
-			}
-			return versions;
-		} catch {
-			// Fallback to directory listing
-			const entries = await fs.readdir(DOCS_BASE_PATH, { withFileTypes: true });
-			const versions = entries
-				.filter((entry) => entry.isDirectory())
-				.map((entry) => entry.name)
-				.sort((a, b) => {
-					// Sort versions with "latest" first, then by version number
-					if (a === "latest") return -1;
-					if (b === "latest") return 1;
-					if (a === "dev") return 1;
-					if (b === "dev") return -1;
-					return b.localeCompare(a, undefined, { numeric: true });
-				});
-			return versions;
-		}
-	} catch {
-		// If docs-versions doesn't exist yet, return default versions
-		return ["2.9", "2.8", "dev"];
-	}
+	// Hardcoded supported versions for now
+	// Note: 2.10 branch doesn't exist yet, will add when available
+	return ["2.9", "2.8", "2.7", "2.6", "2.5", "dev"];
 }
 
 export async function getLatestVersion(): Promise<string> {
-	try {
-		// Check for LATEST file
-		const latestPath = path.join(DOCS_BASE_PATH, "LATEST");
-		const latest = await fs.readFile(latestPath, "utf-8");
-		return latest.trim();
-	} catch {
-		// Fallback: get versions and return the highest stable version
-		const versions = await getVersions();
-		const stableVersions = versions.filter(
-			(v) => v !== "dev" && /^\d+\.\d+$/.test(v),
-		);
-		if (stableVersions.length > 0) {
-			return (
-				stableVersions.sort((a, b) =>
-					b.localeCompare(a, undefined, { numeric: true }),
-				)[0] || DEFAULT_VERSION
-			);
-		}
-		return DEFAULT_VERSION;
-	}
+	// Return the latest stable version
+	return "2.9";
 }
 
 export async function getDocumentationContent(
@@ -98,6 +52,42 @@ interface NavigationItem {
 	title: string;
 	path: string;
 	children?: NavigationItem[];
+}
+
+export async function getAllDocumentPaths(version: string): Promise<string[]> {
+	const versionPath = path.join(DOCS_BASE_PATH, version);
+	const paths: string[] = [];
+
+	async function scanDir(dir: string, prefix = ""): Promise<void> {
+		try {
+			const entries = await fs.readdir(dir, { withFileTypes: true });
+
+			for (const entry of entries) {
+				const fullPath = path.join(dir, entry.name);
+				const relativePath = prefix
+					? path.join(prefix, entry.name)
+					: entry.name;
+
+				if (entry.isDirectory()) {
+					await scanDir(fullPath, relativePath);
+				} else if (entry.name.endsWith(".md")) {
+					const docPath = relativePath
+						.replace(/\.md$/, "")
+						.replace(/\\/g, "/");
+					// Don't add index as a path, it's represented by empty slug
+					if (docPath !== "index") {
+						paths.push(docPath);
+					}
+				}
+			}
+		} catch (error) {
+			// Directory might not exist for this version yet
+			console.log(`Warning: Could not scan ${dir}:`, error);
+		}
+	}
+
+	await scanDir(versionPath);
+	return paths;
 }
 
 export async function getNavigation(): Promise<NavigationItem[]> {

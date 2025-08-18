@@ -6,8 +6,10 @@ const { promisify } = require("util");
 const execAsync = promisify(exec);
 
 const DOCS_BASE_PATH = path.join(process.cwd(), "docs-versions");
-const CONTENT_REPO = "dj-stripe/docs-content";
 const MAIN_REPO = "dj-stripe/dj-stripe";
+
+// Hardcoded supported versions
+const SUPPORTED_VERSIONS = ["2.10", "2.9", "2.8", "2.7", "2.6", "2.5"];
 
 async function ensureDir(dir) {
 	try {
@@ -20,7 +22,7 @@ async function ensureDir(dir) {
 async function fetchZipArchive(owner, repo, branch) {
 	const url = `https://api.github.com/repos/${owner}/${repo}/zipball/${branch}`;
 
-	console.log(`Fetching zip archive from: ${url}`);
+	console.log(`Fetching zip archive from: ${url} (branch: ${branch})`);
 
 	const response = await fetch(url, {
 		headers: {
@@ -83,55 +85,24 @@ async function moveExtractedContent(extractPath, targetPath, subPath = "") {
 	}
 }
 
-async function fetchVersionsMetadata(owner, repo) {
-	const url = `https://api.github.com/repos/${owner}/${repo}/contents/?ref=main`;
+async function checkBranchExists(owner, repo, branch) {
+	const url = `https://api.github.com/repos/${owner}/${repo}/branches/${branch}`;
 
-	console.log(`Fetching repository root contents from: ${url}`);
+	try {
+		const response = await fetch(url, {
+			headers: {
+				Accept: "application/vnd.github.v3+json",
+				"User-Agent": "dj-stripe-docs-builder",
+				...(process.env.GITHUB_TOKEN && {
+					Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+				}),
+			},
+		});
 
-	const response = await fetch(url, {
-		headers: {
-			Accept: "application/vnd.github.v3+json",
-			"User-Agent": "dj-stripe-docs-builder",
-			...(process.env.GITHUB_TOKEN && {
-				Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-			}),
-		},
-	});
-
-	if (!response.ok) {
-		throw new Error(
-			`Failed to fetch from GitHub: ${response.status} ${response.statusText}`,
-		);
+		return response.ok;
+	} catch {
+		return false;
 	}
-
-	const items = await response.json();
-
-	// Find version directories and metadata files
-	const versionDirs = items
-		.filter((item) => item.type === "dir" && /^\d+\.\d+$/.test(item.name))
-		.map((item) => item.name);
-
-	const metadataFiles = {};
-
-	// Check for LATEST file
-	const latestFile = items.find((item) => item.name === "LATEST");
-	if (latestFile) {
-		const response = await fetch(latestFile.download_url);
-		if (response.ok) {
-			metadataFiles.LATEST = await response.text();
-		}
-	}
-
-	// Check for versions.json
-	const versionsFile = items.find((item) => item.name === "versions.json");
-	if (versionsFile) {
-		const response = await fetch(versionsFile.download_url);
-		if (response.ok) {
-			metadataFiles["versions.json"] = await response.text();
-		}
-	}
-
-	return { versionDirs, metadataFiles };
 }
 
 async function fetchDocsContent() {
@@ -146,7 +117,7 @@ async function fetchDocsContent() {
 
 	try {
 		// Fetch dev docs from main repository
-		console.log("\nFetching dev docs from main repository as zip...");
+		console.log("\n=== Fetching dev docs from main branch ===");
 		const [mainOwner, mainRepoName] = MAIN_REPO.split("/");
 		const mainZipBuffer = await fetchZipArchive(mainOwner, mainRepoName, "main");
 
@@ -165,51 +136,69 @@ async function fetchDocsContent() {
 		await fs.unlink(mainZipPath);
 		await fs.rm(mainExtractPath, { recursive: true, force: true });
 
-		// Fetch versioned docs from docs-content repository
-		console.log("\nFetching versioned docs from docs-content repository as zip...");
-		const [contentOwner, contentRepoName] = CONTENT_REPO.split("/");
+		// Fetch versioned docs from stable branches
+		console.log("\n=== Fetching versioned docs from stable branches ===");
 
-		// First get metadata about versions
-		const { versionDirs, metadataFiles } = await fetchVersionsMetadata(
-			contentOwner,
-			contentRepoName,
-		);
+		for (const version of SUPPORTED_VERSIONS) {
+			const branchName = `stable/${version}`;
+			console.log(`\nChecking for branch: ${branchName}`);
 
-		// Save metadata files
-		for (const [filename, content] of Object.entries(metadataFiles)) {
-			await fs.writeFile(path.join(DOCS_BASE_PATH, filename), content);
-			console.log(`Saved metadata file: ${filename}`);
+			// Check if the stable branch exists
+			const branchExists = await checkBranchExists(
+				mainOwner,
+				mainRepoName,
+				branchName,
+			);
+
+			if (branchExists) {
+				console.log(`Fetching docs from ${branchName}...`);
+
+				try {
+					// Fetch the stable branch
+					const versionZipBuffer = await fetchZipArchive(
+						mainOwner,
+						mainRepoName,
+						branchName,
+					);
+
+					// Save and extract version zip
+					const versionZipPath = path.join(tempDir, `${version}-repo.zip`);
+					await fs.writeFile(versionZipPath, versionZipBuffer);
+
+					const versionExtractPath = path.join(tempDir, `${version}-extract`);
+					await extractZip(versionZipPath, versionExtractPath);
+
+					// Move docs to version folder
+					const versionPath = path.join(DOCS_BASE_PATH, version);
+					await moveExtractedContent(versionExtractPath, versionPath, "docs");
+
+					// Clean up version files
+					await fs.unlink(versionZipPath);
+					await fs.rm(versionExtractPath, { recursive: true, force: true });
+
+					console.log(`✓ Successfully fetched docs for version ${version}`);
+				} catch (error) {
+					console.error(
+						`✗ Failed to fetch docs for version ${version}:`,
+						error.message,
+					);
+				}
+			} else {
+				console.log(`✗ Branch ${branchName} does not exist, skipping...`);
+			}
 		}
-
-		// Fetch the entire docs-content repo as zip
-		const contentZipBuffer = await fetchZipArchive(
-			contentOwner,
-			contentRepoName,
-			"main",
-		);
-
-		// Save and extract content repo zip
-		const contentZipPath = path.join(tempDir, "content-repo.zip");
-		await fs.writeFile(contentZipPath, contentZipBuffer);
-
-		const contentExtractPath = path.join(tempDir, "content-extract");
-		await extractZip(contentZipPath, contentExtractPath);
-
-		// Move each version directory
-		for (const versionDir of versionDirs) {
-			console.log(`\nProcessing version ${versionDir}...`);
-			const versionPath = path.join(DOCS_BASE_PATH, versionDir);
-			await moveExtractedContent(contentExtractPath, versionPath, versionDir);
-		}
-
-		// Clean up content repo files
-		await fs.unlink(contentZipPath);
-		await fs.rm(contentExtractPath, { recursive: true, force: true });
 
 		// Clean up temp directory
 		await fs.rm(tempDir, { recursive: true, force: true });
 
-		console.log("\nDocumentation content fetched successfully!");
+		console.log("\n=== Documentation content fetched successfully! ===");
+
+		// List what was fetched
+		const fetchedVersions = await fs.readdir(DOCS_BASE_PATH);
+		console.log(
+			"\nFetched documentation for versions:",
+			fetchedVersions.join(", "),
+		);
 	} catch (error) {
 		console.error("Error fetching documentation:", error);
 

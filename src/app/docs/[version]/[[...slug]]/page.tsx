@@ -5,6 +5,7 @@ import {
 	getLatestVersion,
 	getNavigation,
 	getVersions,
+	getAllDocumentPaths,
 } from "@/lib/docs";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
@@ -133,30 +134,21 @@ export async function generateStaticParams() {
 	const params: Array<{ version: string; slug?: string[] }> = [];
 
 	for (const version of allVersions) {
-		const navigation = await getNavigation();
-
 		// Add index page (no slug)
 		params.push({ version, slug: undefined });
 
-		// Add all other pages
-		for (const item of navigation) {
-			if (item.path && item.path !== "") {
-				params.push({
-					version,
-					slug: item.path.slice(1).split("/"),
-				});
-			}
+		// For "latest", use the actual latest version for path discovery
+		const versionToScan = version === "latest" ? await getLatestVersion() : version;
 
-			if (item.children) {
-				for (const child of item.children) {
-					if (child.path && child.path !== "") {
-						params.push({
-							version,
-							slug: child.path.slice(1).split("/"),
-						});
-					}
-				}
-			}
+		// Get all document paths from the file system
+		const allPaths = await getAllDocumentPaths(versionToScan);
+
+		// Add all discovered paths
+		for (const docPath of allPaths) {
+			params.push({
+				version,
+				slug: docPath.split("/"),
+			});
 		}
 	}
 
