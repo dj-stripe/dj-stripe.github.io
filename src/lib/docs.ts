@@ -6,13 +6,12 @@ const DOCS_BASE_PATH = path.join(process.cwd(), "docs-versions");
 
 export async function getVersions(): Promise<string[]> {
 	// Hardcoded supported versions for now
-	// Note: 2.10 branch doesn't exist yet, will add when available
-	return ["2.9", "2.8", "2.7", "2.6", "2.5", "dev"];
+	return ["2.10", "2.9", "2.8", "2.7", "2.6", "2.5", "dev"];
 }
 
 export async function getLatestVersion(): Promise<string> {
 	// Return the latest stable version
-	return "2.9";
+	return "2.10";
 }
 
 export async function getDocumentationContent(
