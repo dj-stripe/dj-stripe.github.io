@@ -28,13 +28,21 @@ export function GitHubRepoWidget() {
 
 		// Fetch fresh data
 		fetch("https://api.github.com/repos/dj-stripe/dj-stripe")
-			.then((res) => res.json())
+			.then((res) => {
+				if (!res.ok) {
+					throw new Error(`GitHub API error: ${res.status}`);
+				}
+				return res.json();
+			})
 			.then((data) => {
-				setRepoData(data);
+				// Validate the response has expected properties
+				if (data && typeof data.stargazers_count === 'number' && typeof data.forks_count === 'number') {
+					setRepoData(data);
+					// Cache the data
+					localStorage.setItem("github-repo-data", JSON.stringify(data));
+					localStorage.setItem("github-repo-cache-time", Date.now().toString());
+				}
 				setLoading(false);
-				// Cache the data
-				localStorage.setItem("github-repo-data", JSON.stringify(data));
-				localStorage.setItem("github-repo-cache-time", Date.now().toString());
 			})
 			.catch(() => {
 				setLoading(false);
