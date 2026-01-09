@@ -7,46 +7,129 @@ interface GitHubRepo {
 	forks_count: number;
 }
 
+const CACHE_TTL_MS = 60 * 60 * 1000;
+const FETCH_TIMEOUT_MS = 8000;
+
+function isValidRepoData(data: unknown): data is GitHubRepo {
+	if (!data || typeof data !== "object") {
+		return false;
+	}
+
+	const repo = data as Record<string, unknown>;
+	return (
+		typeof repo.stargazers_count === "number" &&
+		Number.isFinite(repo.stargazers_count) &&
+		typeof repo.forks_count === "number" &&
+		Number.isFinite(repo.forks_count)
+	);
+}
+
+function readCachedRepo() {
+	try {
+		const cached = localStorage.getItem("github-repo-data");
+		const cacheTime = localStorage.getItem("github-repo-cache-time");
+
+		if (!cached || !cacheTime) {
+			return null;
+		}
+
+		const parsed = JSON.parse(cached);
+		const time = Number(cacheTime);
+
+		if (!Number.isFinite(time) || !isValidRepoData(parsed)) {
+			return null;
+		}
+
+		return { data: parsed, time };
+	} catch {
+		return null;
+	}
+}
+
+function writeCachedRepo(data: GitHubRepo) {
+	try {
+		localStorage.setItem("github-repo-data", JSON.stringify(data));
+		localStorage.setItem("github-repo-cache-time", Date.now().toString());
+	} catch {
+		// Ignore cache write errors (private mode, storage disabled, etc).
+	}
+}
+
+function formatCount(count: number) {
+	return Number.isFinite(count) ? count.toLocaleString() : "—";
+}
+
 export function GitHubRepoWidget() {
 	const [repoData, setRepoData] = useState<GitHubRepo | null>(null);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		// Check cache first
-		const cached = localStorage.getItem("github-repo-data");
-		const cacheTime = localStorage.getItem("github-repo-cache-time");
+		let ignore = false;
+		const cached = readCachedRepo();
 
-		if (cached && cacheTime) {
-			const timeDiff = Date.now() - parseInt(cacheTime);
-			// Use cache if less than 1 hour old
-			if (timeDiff < 3600000) {
-				setRepoData(JSON.parse(cached));
-				setLoading(false);
-				return;
-			}
+		if (cached) {
+			setRepoData(cached.data);
+			setLoading(false);
 		}
 
-		// Fetch fresh data
-		fetch("https://api.github.com/repos/dj-stripe/dj-stripe")
-			.then((res) => {
-				if (!res.ok) {
-					throw new Error(`GitHub API error: ${res.status}`);
+		const isCacheFresh =
+			cached && Date.now() - cached.time < CACHE_TTL_MS;
+		if (isCacheFresh) {
+			return () => {
+				ignore = true;
+			};
+		}
+
+		const controller = new AbortController();
+		const timeoutId = window.setTimeout(
+			() => controller.abort(),
+			FETCH_TIMEOUT_MS
+		);
+
+		const fetchRepo = async () => {
+			try {
+				const response = await fetch(
+					"https://api.github.com/repos/dj-stripe/dj-stripe",
+					{
+						signal: controller.signal,
+						headers: {
+							Accept: "application/vnd.github+json",
+						},
+					}
+				);
+
+				if (!response.ok) {
+					throw new Error(`GitHub API error: ${response.status}`);
 				}
-				return res.json();
-			})
-			.then((data) => {
-				// Validate the response has expected properties
-				if (data && typeof data.stargazers_count === 'number' && typeof data.forks_count === 'number') {
+
+				const data = await response.json();
+				if (!isValidRepoData(data)) {
+					throw new Error("GitHub API returned unexpected data");
+				}
+
+				if (!ignore) {
 					setRepoData(data);
-					// Cache the data
-					localStorage.setItem("github-repo-data", JSON.stringify(data));
-					localStorage.setItem("github-repo-cache-time", Date.now().toString());
+					writeCachedRepo(data);
 				}
-				setLoading(false);
-			})
-			.catch(() => {
-				setLoading(false);
-			});
+			} catch {
+				if (!ignore && !cached) {
+					setRepoData(null);
+				}
+			} finally {
+				if (!ignore) {
+					setLoading(false);
+				}
+				window.clearTimeout(timeoutId);
+			}
+		};
+
+		fetchRepo();
+
+		return () => {
+			ignore = true;
+			controller.abort();
+			window.clearTimeout(timeoutId);
+		};
 	}, []);
 
 	return (
@@ -67,14 +150,18 @@ export function GitHubRepoWidget() {
 					<div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
 						<span className="flex items-center gap-1">
 							<i className="far fa-star"></i>
-							{repoData.stargazers_count.toLocaleString()}
+							{formatCount(repoData.stargazers_count)}
 						</span>
 						<span className="flex items-center gap-1">
 							<i className="fas fa-code-branch"></i>
-							{repoData.forks_count.toLocaleString()}
+							{formatCount(repoData.forks_count)}
 						</span>
 					</div>
-				) : null}
+				) : (
+					<div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
+						<span>Unavailable</span>
+					</div>
+				)}
 			</div>
 		</a>
 	);
