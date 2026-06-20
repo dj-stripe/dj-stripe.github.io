@@ -1,0 +1,466 @@
+<!DOCTYPE html><!--467OoS7_srv1hAcS8DzcF--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/797e433ab948586e-s.p.29207c2f.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/_next/static/chunks/72124298f2c7f682.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/830f332d5fe57fa9.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/53dd1b46408513d9.js"/><script src="/_next/static/chunks/f8c0db758fb27563.js" async=""></script><script src="/_next/static/chunks/a4334da1ef74bf9f.js" async=""></script><script src="/_next/static/chunks/turbopack-c69e902881d2ad26.js" async=""></script><script src="/_next/static/chunks/a91aed018f1fbf4b.js" async=""></script><script src="/_next/static/chunks/ff1a16fafef87110.js" async=""></script><script src="/_next/static/chunks/7340adf74ff47ec0.js" async=""></script><script src="/_next/static/chunks/c4f00520444ed76b.js" async=""></script><meta name="next-size-adjust" content=""/><title>dj-stripe - Stripe Made Easy for Django Developers</title><meta name="description" content="The easiest way to integrate Stripe with your Django project. Handle payments, subscriptions, and webhooks with just a few lines of code."/><script src="/_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script></head><body class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased"><div hidden=""><!--$--><!--/$--></div><div class="min-h-screen bg-white dark:bg-gray-900"><header class="border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-white dark:bg-gray-900 z-10"><nav class="container mx-auto px-4 sm:px-6 py-4"><div class="flex items-center justify-between"><a class="text-2xl font-bold z-50" href="/">dj-<span class="text-stripe-blurple">stripe</span></a><div class="hidden lg:flex gap-6 items-center"><a class="hover:text-blue-600 transition-colors" href="/about/">About</a><a class="text-blue-600 font-semibold" href="/docs/latest/">Documentation</a><a class="hover:text-blue-600 transition-colors" href="/changes/">Changelog</a><a class="hover:text-blue-600 transition-colors" href="/sponsors/">Sponsors</a><a class="hover:text-blue-600 transition-colors" href="/team/">Team</a><a class="hover:text-blue-600 transition-colors" href="/support/">Support</a><a href="https://github.com/dj-stripe/dj-stripe" class="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300" target="_blank" rel="noopener noreferrer"><i class="fab fa-github text-lg sm:text-xl"></i><div class="hidden sm:flex flex-col"><span class="text-sm font-medium">dj-stripe</span><div class="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400"><span>Loading...</span></div></div></a><select class="px-3 py-1 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800"><option value="2.10" selected="">v2.10</option><option value="2.9">v2.9</option><option value="2.8">v2.8</option><option value="2.7">v2.7</option><option value="2.6">v2.6</option><option value="2.5">v2.5</option><option value="dev">vdev</option></select><div class="relative"><button class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg><span>Search</span><kbd class="hidden sm:inline-block px-1.5 py-0.5 text-xs bg-gray-200 dark:bg-gray-700 rounded">⌘K</kbd></button></div><button class="group relative p-2.5 rounded-full hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-200 hover:scale-105 active:scale-95" aria-label="Switch to dark mode"><div class="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-200/20 to-orange-300/20 dark:from-purple-400/20 dark:to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="relative transition-all duration-300 "><div class="relative w-5 h-5"><svg class="w-full h-full text-amber-500 transition-all duration-300 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" class="animate-pulse"></circle><g class="animate-spin" style="transform-origin:12px 12px;animation-duration:8s"><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></g></svg></div></div><div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 text-xs text-white bg-gray-900 dark:bg-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">Switch to <!-- -->dark<!-- --> mode</div></button></div><button class="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-50" aria-label="Toggle mobile menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div></nav></header><div class="container mx-auto px-6 py-8"><div class="flex gap-8"><aside class="w-64 flex-shrink-0"><nav class="sticky top-24"><h3 class="font-semibold mb-4">Documentation</h3><ul class="space-y-2"><li><a class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors " href="/docs/2.10">Getting Started</a><ul class="ml-4 mt-2 space-y-1"><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/installation/">Installation</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/api_keys/">API Keys</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/api_versions/">API Versions</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/upgrade_dj_stripe/">Upgrade Guide</a></li></ul></li><li><a class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors " href="/docs/2.10/usage/">Usage</a><ul class="ml-4 mt-2 space-y-1"><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/usage/webhooks/">Webhooks</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/usage/subscribing_customers/">Subscribing Customers</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/usage/add_payment_method_to_customer/">Payment Methods</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/usage/managing_subscriptions/">Managing Subscriptions</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/usage/using_stripe_checkout/">Stripe Checkout</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.10/usage/manually_syncing_with_stripe/">Manual Syncing</a></li></ul></li></ul></nav></aside><main class="flex-1 max-w-4xl"><article class="prose prose-lg max-w-none"><h1>dj-stripe 1.x release notes</h1>
+<h2>1.2.4 (2019-02-27)</h2>
+<p>This is a bugfix-only version:</p>
+<ul>
+<li>Allow billing_cycle_anchor argument when creating a subscription
+(#814)</li>
+<li>Fixup plan amount null with tier plans (#781)</li>
+<li>Update Cancel subscription view tests to match backport in f64af57</li>
+<li>Implement Invoice._manipulate_stripe_object_hook for
+compatability with API 2018-11-08 (#771)</li>
+<li>Fix product webhook for type=&quot;good&quot; (#724)</li>
+<li>Add trial_from_plan, trial_period_days args to
+Customer.subscribe() (#709)</li>
+</ul>
+<h2>1.2.3 (2018-10-13)</h2>
+<p>This is a bugfix-only version:</p>
+<ul>
+<li>Updated Subscription.cancel() for compatibility with Stripe
+2018-08-23 (#723)</li>
+</ul>
+<h2>1.2.2 (2018-08-11)</h2>
+<p>This is a bugfix-only version:</p>
+<ul>
+<li>Fixed an error with request.urlconf in some setups (#562)</li>
+<li>Always save text-type fields as empty strings in db instead of null
+(#713)</li>
+<li>Fix support for DJSTRIPE_SUBSCRIBER_MODEL_MIGRATION_DEPENDENCY
+(#707)</li>
+<li>Fix reactivate() with Stripe API 2018-02-28 and above</li>
+</ul>
+<h2>1.2.1 (2018-07-18)</h2>
+<p>This is a bugfix-only version:</p>
+<ul>
+<li>Fixed various Python 2.7 compatibility issues</li>
+<li>Fixed issues with max_length of receipt_number</li>
+<li>Fixed various fields incorrectly marked as required</li>
+<li>Handle product webhook calls</li>
+<li>Fix compatibility with stripe-python 2.0.0</li>
+</ul>
+<h2>1.2.0 (2018-06-11)</h2>
+<p>The dj-stripe 1.2.0 release resets all migrations.</p>
+<p><strong>Do not upgrade to 1.2.0 directly from 1.0.1 or below. You must upgrade
+to 1.1.0 first.</strong></p>
+<p>Please read the 1.1.0 release notes below for more information.</p>
+<h2>1.1.0 (2018-06-11)</h2>
+<p>In dj-stripe 1.1.0, we made a <em>lot</em> of changes to models in order to
+bring the dj-stripe model state much closer to the upstream API objects.
+If you are a current user of dj-stripe, you will most likely have to
+make changes in order to upgrade. Please read the full changelog below.
+If you are having trouble upgrading, you may ask for help <a href="https://github.com/dj-stripe/dj-stripe/issues">by filing an
+issue on GitHub</a>.</p>
+<h3>Migration reset</h3>
+<p>The next version of dj-stripe, <strong>1.2.0</strong>, will reset all the migrations
+to <code>0001_initial</code>. Migrations are currently in an unmaintainable state.</p>
+<p><strong>What this means is you will not be able to upgrade directly to
+dj-stripe 1.2.0. You must go through 1.1.0 first, run ``manage.py
+migrate djstripe``, then upgrade to 1.2.0.</strong></p>
+<h3>Python 2.7 end-of-life</h3>
+<p>dj-stripe 1.1.0 drops support for Django 1.10 and adds support for
+Django 2.0. Django 1.11+ and Python 2.7+ or 3.4+ are required.</p>
+<p>Support for Python versions older than 3.5, and Django versions older
+than 2.0, will be dropped in dj-stripe 2.0.0.</p>
+<h3>Backwards-incompatible changes and deprecations</h3>
+<h4>Removal of polymorphic models</h4>
+<p>The model architecture of dj-stripe has been simplified. Polymorphic
+models have been dropped and the old base StripeCustomer, StripeCharge,
+StripeInvoice, etc models have all been merged into the top-level
+Customer, Charge, Invoice, etc models.</p>
+<p>Importing those legacy models from <code>djstripe.stripe_objects</code> will yield
+the new ones. This is deprecated and support for this will be dropped in
+dj-stripe 2.0.0.</p>
+<h4>Full support for Stripe Sources (Support for v3 stripe.js)</h4>
+<p>Stripe sources (<code>src_XXXX</code>) are objects that can arbitrarily reference
+any of the payment method types that Stripe supports. However, the
+legacy <code>Card</code> object (with object IDs like <code>card_XXXX</code> or <code>cc_XXXX</code>) is
+not a Source object, and cannot be turned into a Source object at this
+time.</p>
+<p>In order to support both Card and Source objects in ForeignKeys, a new
+model <code>PaymentMethod</code> has been devised (renamed to
+<code>DjstripePaymentMethod</code> in 2.0). That model can resolve into a Card, a
+Source, or a BankAccount object.</p>
+<ul>
+<li><strong>The ``default_source`` attribute on ``Customer`` now
+refers to a ``PaymentMethod`` object</strong>. You will need to call
+<code>.resolve()</code> on it to get the Card or Source in question.</li>
+<li>References to <code>Customer.sources</code> expecting a queryset of Card
+objects should be updated to <code>Customer.legacy_cards</code>.</li>
+<li>The legacy <code>StripeSource</code> name refers to the <code>Card</code> model. This will
+be removed in dj-stripe 2.0.0. Update your references to either
+<code>Card</code> or <code>Source</code>.</li>
+<li><code>enums.SourceType</code> has been renamed to <code>enums.LegacySourceType</code>.
+<code>enums.SourceType</code> now refers to the actual Stripe Source types
+enum.</li>
+</ul>
+<h4>Core fields renamed</h4>
+<ul>
+<li>The numeric <code>id</code> field has been renamed to <code>djstripe_id</code>. This
+avoids a clash with the upstream stripe id. Accessing <code>.id</code> is
+deprecated and **will reference the upstream <code>stripe_id</code> in
+dj-stripe 2.0.0</li>
+</ul>
+<h2>1.0.0 (2017-08-12)</h2>
+<p>It&#x27;s finally here! We&#x27;ve made significant changes to the codebase and
+are now compliant with stripe API version <strong>2017-06-05</strong>.</p>
+<p>I want to give a huge thanks to all of our contributors for their help
+in making this happen, especially Bill Huneke (@wahuneke) for his
+impressive design work and @jleclanche for really pushing this release
+along.</p>
+<p>I also want to welcome onboard two more maintainers, @jleclanche and
+@lskillen. They&#x27;ve stepped up and have graciously dedicated their
+resources to making dj-stripe such an amazing package.</p>
+<p>Almost all methods now mimic the parameters of those same methods in the
+stripe API. Note that some methods do not have some parameters
+implemented. This is intentional. That being said, expect all method
+signatures to be different than those in previous versions of dj-stripe.</p>
+<p>Finally, please note that there is still a bit of work ahead of us. Not
+everything in the Stripe API is currently supported by dj-stripe --
+we&#x27;re working on it. That said, v1.0.0 has been thoroughly tested and is
+verified stable in production applications.</p>
+<h3>A few things to get excited for</h3>
+<ul>
+<li>Multiple subscription support (finally)</li>
+<li>Multiple sources support (currently limited to Cards)</li>
+<li>Idempotency support (See #455, #460 for discussion -- big thanks
+to @jleclanche)</li>
+<li>Full model documentation</li>
+<li>Objects that come through webhooks are now tied to the API version
+set in dj-stripe. No more errors if dj-stripe falls behind the
+newest stripe API version.</li>
+<li>Any create/update action on an object automatically syncs the
+object.</li>
+<li>Concurrent LIVE and TEST mode support (Thanks to @jleclanche). Note
+that you&#x27;ll run into issues if <code>livemode</code> isn&#x27;t set on your existing
+customer objects.</li>
+<li>All choices are now enum-based (Thanks @jleclanche, See #520).
+Access them from the new <code>djstripe.enums</code> module. The ability to
+check against model property based choices will be deprecated in 1.1</li>
+<li>Support for the Coupon model, and coupons on Customer objects.</li>
+<li>Support for the <a href="https://stripe.com/docs/transfer-payout-split">Payout/Transfer
+split</a> from api
+version <code>2017-04-06</code>.</li>
+</ul>
+<h3>What still needs to be done (in v1.1.0)</h3>
+<ul>
+<li>
+<p><strong>Documentation</strong>. Our original documentation was not very helpful,
+but it covered the important bits. It will be very out of date after
+this update and will need to be rewritten. If you feel like helping,
+we could use all the help we can get to get this pushed out asap.</p>
+</li>
+<li>
+<p><strong>Master sync re-write</strong>. This sounds scary, but really isn&#x27;t. The
+current management methods run sync methods on Customer that aren&#x27;t
+very helpful and are due for removal. My plan is to write something
+that first updates local data (via <code>api_retrieve</code> and
+<code>sync_from_stripe_data</code>) and then pulls all objects from Stripe and
+populates the local database with any records that don&#x27;t already
+exist there.</p>
+<p>You might be wondering, &quot;Why are they releasing this if there are
+only a few things left?&quot; Well, that thinking turned this into a two
+year release... Trust me, this is a good thing.</p>
+</li>
+</ul>
+<h3>Significant changes (mostly backwards-incompatible)</h3>
+<ul>
+<li><strong>Idempotency</strong>. #460 introduces idempotency keys and implements
+idempotency for <code>Customer.get_or_create()</code>. Idempotency will be
+enabled for all calls that need it.</li>
+<li><strong>Improved Admin Interface</strong>. This is almost complete. See #451 and
+#452.</li>
+<li><strong>Drop non-trivial endpoint views</strong>. We&#x27;re dropping everything
+except the webhook endpoint and the subscription cancel endpoint.
+See #428.</li>
+<li><strong>Drop support for sending receipts</strong>. Stripe now handles this for
+you. See #478.</li>
+<li><strong>Drop support for plans as settings</strong>, including custom plan
+hierarchy (if you want this, write something custom) and the dynamic
+trial callback. We&#x27;ve decided to gut having plans as settings.
+Stripe should be your source of truth; create your plans there and
+sync them down manually. If you need to create plans locally for
+testing, etc., simply use the ORM to create Plan models. The sync
+rewrite will make this drop less annoying.</li>
+<li><strong>Orphan Customer Sync</strong>. We will now sync Customer objects from
+Stripe even if they aren&#x27;t linked to local subscriber objects. You
+can link up subscribers to those Customers manually.</li>
+<li><strong>Concurrent Live and Test Mode</strong>. dj-stripe now supports test-mode
+and live-mode Customer objects concurrently. As a result, the
+User.customer One-to-One reverse-relationship is now the
+User.djstripe_customers RelatedManager. (Thanks @jleclanche) #440.
+You&#x27;ll run into some dj-stripe check issues if you don&#x27;t update your
+KEY settings accordingly. Check our GitHub issue tracker for help on
+this.</li>
+</ul>
+<h3>SETTINGS</h3>
+<ul>
+<li>The <code>PLAN_CHOICES</code>, <code>PLAN_LIST</code>, and <code>PAYMENT_PLANS</code> objects are
+removed. Use Plan.objects.all() instead.</li>
+<li>The <code>plan_from_stripe_id</code> function is removed. Use
+Plan.objects.get(stripe_id=)</li>
+</ul>
+<h3>SYNCING</h3>
+<ul>
+<li>sync_plans no longer takes an api_key</li>
+<li>sync methods no longer take a <code>cu</code> parameter</li>
+<li>All sync methods are now private. We&#x27;re in the process of building a
+better syncing mechanism.</li>
+</ul>
+<h3>UTILITIES</h3>
+<ul>
+<li>dj-stripe decorators now take a plan argument. If you&#x27;re passing in
+a custom test function to <code>subscriber_passes_pay_test</code>, be sure to
+account for this new argument.</li>
+</ul>
+<h3>MIXINS</h3>
+<ul>
+<li>The context provided by dj-stripe&#x27;s mixins has changed.
+<code>PaymentsContextMixin</code> now provides <code>STRIPE_PUBLIC_KEY</code> and <code>plans</code>
+(changed to <code>Plan.objects.all()</code>). <code>SubscriptionMixin</code> now provides
+<code>customer</code> and <code>is_plans_plural</code>.</li>
+<li>We&#x27;ve removed the SubscriptionPaymentRequiredMixin. Use
+<code>@method_decorator(&quot;dispatch&quot;,</code><a href="https://github.com/kavdev/dj-stripe/blob/1.0.0/djstripe/decorators.py#L39">subscription_payment_required</a><code>)</code>
+instead.</li>
+</ul>
+<h3>MIDDLEWARE</h3>
+<ul>
+<li>dj-stripe middleware doesn&#x27;t support multiple subscriptions.</li>
+</ul>
+<h3>SIGNALS</h3>
+<ul>
+<li>Local custom signals are deprecated in favor of Stripe webhooks:</li>
+<li><code>cancelled</code> -&gt;
+WEBHOOK_SIGNALS[&quot;customer.subscription.deleted&quot;]</li>
+<li><code>card_changed</code> -&gt; WEBHOOK_SIGNALS[&quot;customer.source.updated&quot;]</li>
+<li><code>subscription_made</code> -&gt;
+WEBHOOK_SIGNALS[&quot;customer.subscription.created&quot;]</li>
+</ul>
+<h3>WEBHOOK EVENTS</h3>
+<ul>
+<li>The Event Handlers designed by @wahuneke are the new way to handle
+events that come through webhooks. Definitely take a look at
+<code>event_handlers.py</code> and <code>webhooks.py</code>.</li>
+</ul>
+<h3>EXCEPTIONS</h3>
+<ul>
+<li><code>SubscriptionUpdateFailure</code> and <code>SubscriptionCancellationFailure</code>
+exceptions are removed. There should no longer be a case where they
+would have been useful. Catch native stripe errors in their place
+instead.</li>
+</ul>
+<h3>MODELS</h3>
+<blockquote>
+<p><strong>CHARGE</strong></p>
+</blockquote>
+<ul>
+<li>
+<p><code>Charge.charge_created</code> -&gt; <code>Charge.stripe_timestamp</code></p>
+</li>
+<li>
+<p><code>Charge.card_last_4</code> and <code>Charge.card_kind</code> are removed. Use
+<code>Charge.source.last4</code> and <code>Charge.source.brand</code> (if the source is a
+Card)</p>
+</li>
+<li>
+<p><code>Charge.invoice</code> is no longer a foreign key to the Invoice model.
+<code>Invoice</code> now has a OneToOne relationship with <code>Charge</code>.
+(<code>Charge.invoice</code> will still work, but will no longer be represented
+in the database).</p>
+<p><strong>CUSTOMER</strong></p>
+</li>
+<li>
+<p>dj-stripe now supports test mode and live mode Customer objects
+concurrently (See #440). As a result, the
+<code>{subscriber_model}.customer</code> OneToOne reverse relationship is no
+longer a thing. You should now instead add a <code>customer</code> property to
+your subscriber model that checks whether you&#x27;re in live or test
+mode (see djstripe.settings.STRIPE_LIVE_MODE as an example) and
+grabs the customer from <code>{subscriber_model}.djstripe_customers</code> with
+a simple <code>livemode=</code> filter.</p>
+</li>
+<li>
+<p>Customer no longer has a <code>current_subscription</code> property. We&#x27;ve
+added a <code>subscription</code> property that should suit your needs.</p>
+</li>
+<li>
+<p>With the advent of multiple subscriptions, the behavior of
+<code>Customer.subscribe()</code> has changed. Before, <code>calling subscribe()</code>
+when a customer was already subscribed to a plan would switch the
+customer to the new plan with an option to prorate. Now calling
+<code>subscribe()</code> simply subscribes that customer to a new plan in
+addition to its current subscription. Use <code>Subscription.update()</code> to
+change a subscription&#x27;s plan instead.</p>
+</li>
+<li>
+<p><code>Customer.cancel_subscription()</code> is removed. Use
+<code>Subscription.cancel()</code> instead.</p>
+</li>
+<li>
+<p>The <code>Customer.update_plan_quantity()</code> method is removed. Use
+<code>Subscription.update()</code> instead.</p>
+</li>
+<li>
+<p><code>CustomerManager</code> is now <code>SubscriptionManager</code> and works on the
+<code>Subscription</code> model instead of the <code>Customer</code> model.</p>
+</li>
+<li>
+<p><code>Customer.has_valid_card()</code> is now <code>Customer.has_valid_source()</code>.</p>
+</li>
+<li>
+<p><code>Customer.update_card()</code> now takes an id. If the id is not supplied,
+the default source is updated.</p>
+</li>
+<li>
+<p><code>Customer.stripe_customer</code> property is removed. Use
+<code>Customer.api_retrieve()</code> instead.</p>
+</li>
+<li>
+<p>The <code>at_period_end</code> parameter of <code>Customer.cancel_subscription()</code>
+now actually follows the
+<a href="../reference/settings.md#djstripe_proration_policy-false">DJSTRIPE_PRORATION_POLICY</a>
+setting.</p>
+</li>
+<li>
+<p><code>Customer.card_fingerprint</code>, <code>Customer.card_last_4</code>,
+<code>Customer.card_kind</code>, <code>Customer.card_exp_month</code>,
+<code>Customer.card_exp_year</code> are all removed. Check
+<code>Customer.default_source</code> (if it&#x27;s a Card) or one of the sources in
+<code>Customer.sources</code> (again, if it&#x27;s a Card) instead.</p>
+</li>
+<li>
+<p>The <code>invoice_id</code> parameter of <code>Customer.add_invoice_item</code> is now
+named <code>invoice</code> and can be either an Invoice object or the
+stripe_id of an Invoice.</p>
+<p><strong>EVENT</strong></p>
+</li>
+<li>
+<p><code>Event.kind</code> -&gt; <code>Event.type</code></p>
+</li>
+<li>
+<p>Removed <code>Event.validated_message</code>. Just check if the event is valid</p>
+<ul>
+<li>no need to double check (we do that for you)</li>
+</ul>
+<p><strong>TRANSFER</strong></p>
+</li>
+<li>
+<p>Removed <code>Transfer.update_status()</code></p>
+</li>
+<li>
+<p>Removed <code>Transfer.event</code></p>
+</li>
+<li>
+<p><code>TransferChargeFee</code> is removed. It hasn&#x27;t been used in a while due
+to a broken API version. Use <code>Transfer.fee_details</code> instead.</p>
+</li>
+<li>
+<p>Any fields that were in <code>Transfer.summary</code> no longer exist and are
+therefore deprecated (unused but not removed from the database).
+Because of this, <code>TransferManager</code> now only aggregates <code>total_sum</code></p>
+<p><strong>INVOICE</strong></p>
+</li>
+<li>
+<p><code>Invoice.attempts</code> -&gt; <code>Invoice.attempt_count</code></p>
+</li>
+<li>
+<p>InvoiceItems are no longer created when Invoices are synced. You
+must now sync InvoiceItems directly.</p>
+<p><strong>INVOICEITEM</strong></p>
+</li>
+<li>
+<p>Removed <code>InvoiceItem.line_type</code></p>
+<p><strong>PLAN</strong></p>
+</li>
+<li>
+<p>Plan no longer has a <code>stripe_plan</code> property. Use <code>api_retrieve()</code>
+instead.</p>
+</li>
+<li>
+<p><code>Plan.currency</code> no longer uses choices. Use the
+<code>get_supported_currency_choices()</code> utility and create your own
+custom choices list instead.</p>
+</li>
+<li>
+<p>Plan interval choices are now in <code>Plan.INTERVAL_TYPE_CHOICES</code></p>
+<p><strong>SUBSCRIPTION</strong></p>
+</li>
+<li>
+<p><code>Subscription.is_period_current()</code> now checks for a current trial
+end if the current period has ended. This change means subscriptions
+extended with <code>Subscription.extend()</code> will now be seen as valid.</p>
+</li>
+</ul>
+<h3>MIGRATIONS</h3>
+<p>We&#x27;ll sync your current records with Stripe in a migration. It will take
+a while, but it&#x27;s the only way we can ensure data integrity. There were
+some fields for which we needed to temporarily add placeholder defaults,
+so just make sure you have a customer with ID 1 and a plan with ID 1 and
+you shouldn&#x27;t run into any issues (create dummy values for these if need
+be and delete them after the migration).</p>
+<h3>BIG HUGE NOTE - DON&#x27;T OVERLOOK THIS</h3>
+<p><em>WARNING</em>: Subscription and InvoiceItem migration is not possible because old
+records don&#x27;t have Stripe IDs (so we can&#x27;t sync them). Our approach is
+to delete all local subscription and invoiceitem objects and re-sync
+them from Stripe.</p>
+<p>We 100% recommend you create a backup of your database before performing
+this upgrade.</p>
+<h3>Other changes</h3>
+<ul>
+<li>Postgres users now have access to the
+<code>DJSTRIPE_USE_NATIVE_JSONFIELD</code> setting. (Thanks @jleclanche) #517,
+#523</li>
+<li>Charge receipts now take <code>DJSTRIPE_SEND_INVOICE_RECEIPT_EMAILS</code> into
+account (Thanks @r0fls)</li>
+<li>Clarified/modified installation documentation (Thanks @pydanny)</li>
+<li>Corrected and revised ANONYMOUS_USER_ERROR_MSG (Thanks @pydanny)</li>
+<li>Added fnmatching to <code>SubscriptionPaymentMiddleware</code>
+(Thanks @pydanny)</li>
+<li><code>SubscriptionPaymentMiddleware.process_request()</code> functionality
+broken up into multiple methods, making local customizations easier
+(Thanks @pydanny)</li>
+<li>Fully qualified events are now supported by event handlers as
+strings e.g. &#x27;customer.subscription.deleted&#x27; (Thanks @lskillen)
+#316</li>
+<li>runtests now accepts positional arguments for declaring which tests
+to run (Thanks @lskillen) #317</li>
+<li>It is now possible to reprocess events in both code and the admin
+interface (Thanks @lskillen) #318</li>
+<li>The confirm page now checks that a valid card exists.
+(Thanks @scream4ik) #325</li>
+<li>Added support for viewing upcoming invoices (Thanks @lskillen) #320</li>
+<li>Event handler improvements and bugfixes (Thanks @lskillen) #321</li>
+<li>API list() method bugfixes (Thanks @lskillen) #322</li>
+<li>Added support for a custom webhook event handler (Thanks @lskillen)
+#323</li>
+<li>Django REST Framework contrib package improvements
+(Thanks @aleccool213) #334</li>
+<li>Added <code>tax_percent</code> to CreateSubscriptionSerializer
+(Thanks @aleccool213) #349</li>
+<li>Fixed incorrectly assigned <code>application_fee</code> in Charge calls
+(Thanks @kronok) #382</li>
+<li>Fixed bug caused by API change (Thanks @jessamynsmith) #353</li>
+<li>Added inline documentation to pretty much everything and enforced
+docsytle via flake8 (Thanks @aleccool213)</li>
+<li>Fixed outdated method call in template (Thanks @kandoio) #391</li>
+<li>Customer is correctly purged when subscriber is deleted, regardless
+of how the deletion happened (Thanks @lskillen) #396</li>
+<li>Test webhooks are now properly captured and logged. No more bounced
+requests to Stripe! (Thanks @jameshiew) #408</li>
+<li>CancelSubscriptionView redirect is now more flexible
+(Thanks @jleclanche) #418</li>
+<li>Customer.sync_cards() (Thanks @jleclanche) #438</li>
+<li>Many stability fixes, bugfixes, and code cleanup
+(Thanks @jleclanche)</li>
+<li>Support syncing canceled subscriptions (Thanks @jleclanche) #443</li>
+<li>Improved admin interface (Thanks @jleclanche with @jameshiew) #451</li>
+<li>Support concurrent TEST + LIVE API keys (Fix webhook event
+processing for both modes) (Thanks @jleclanche) #461</li>
+<li>Added Stripe Dashboard link to admin change panel
+(Thanks @jleclanche) #465</li>
+<li>Implemented <code>Plan.amount_in_cents</code> (Thanks @jleclanche) #466</li>
+<li>Implemented <code>Subscription.reactivate()</code> (Thanks @jleclanche) #470</li>
+<li>Added <code>Plan.human_readable_price</code> (Thanks @jleclanche) #498</li>
+<li>(Re)attach the Subscriber when we find its id attached to a
+customer on Customer sync (Thanks @jleclanche) #500</li>
+<li>Made API version configurable (with dj-stripe recommended default)
+(Thanks @lskillen) #504</li>
+</ul></article></main></div></div></div><!--$--><!--/$--><script src="/_next/static/chunks/53dd1b46408513d9.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[27423,[\"/_next/static/chunks/a91aed018f1fbf4b.js\"],\"ThemeProvider\"]\n3:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"default\"]\n4:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"OutletBoundary\"]\n7:\"$Sreact.suspense\"\n9:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"ViewportBoundary\"]\nb:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"MetadataBoundary\"]\nd:I[68027,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"default\"]\n:HL[\"/_next/static/chunks/72124298f2c7f682.css\",\"style\"]\n:HL[\"/_next/static/chunks/830f332d5fe57fa9.css\",\"style\"]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.29207c2f.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"467OoS7_srv1hAcS8DzcF\",\"c\":[\"\",\"docs\",\"2.10\",\"changes\",\"1_x\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"docs\",{\"children\":[[\"version\",\"2.10\",\"d\"],{\"children\":[[\"slug\",\"changes/1_x\",\"oc\"],{\"children\":[\"__PAGE__\",{}]}]}]}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/72124298f2c7f682.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/830f332d5fe57fa9.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/a91aed018f1fbf4b.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased\",\"children\":[\"$\",\"$L2\",null,{\"defaultTheme\":\"system\",\"storageKey\":\"dj-stripe-theme\",\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/c4f00520444ed76b.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L6\",null,{\"children\":[\"$\",\"$7\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@8\"}]}]]}],{},null,false,false]},null,false,false]},null,false,false]},null,false,false]},null,false,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L9\",null,{\"children\":\"$La\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Lb\",null,{\"children\":[\"$\",\"$7\",null,{\"name\":\"Next.Metadata\",\"children\":\"$Lc\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$d\",[]],\"S\":true}\n"])</script><script>self.__next_f.push([1,"a:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"8:null\nc:[[\"$\",\"title\",\"0\",{\"children\":\"dj-stripe - Stripe Made Easy for Django Developers\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"The easiest way to integrate Stripe with your Django project. Handle payments, subscriptions, and webhooks with just a few lines of code.\"}]]\n"])</script><script>self.__next_f.push([1,"e:I[73477,[\"/_next/static/chunks/a91aed018f1fbf4b.js\",\"/_next/static/chunks/c4f00520444ed76b.js\"],\"Navigation\"]\nf:I[85170,[\"/_next/static/chunks/a91aed018f1fbf4b.js\",\"/_next/static/chunks/c4f00520444ed76b.js\"],\"VersionSelector\"]\n10:I[22016,[\"/_next/static/chunks/a91aed018f1fbf4b.js\",\"/_next/static/chunks/c4f00520444ed76b.js\"],\"\"]\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"div\",null,{\"className\":\"min-h-screen bg-white dark:bg-gray-900\",\"children\":[[\"$\",\"$Le\",null,{\"className\":\"sticky top-0 bg-white dark:bg-gray-900 z-10\",\"children\":[\"$\",\"$Lf\",null,{\"currentVersion\":\"2.10\",\"versions\":[\"2.10\",\"2.9\",\"2.8\",\"2.7\",\"2.6\",\"2.5\",\"dev\"],\"currentPath\":\"changes/1_x\"}]}],[\"$\",\"div\",null,{\"className\":\"container mx-auto px-6 py-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex gap-8\",\"children\":[[\"$\",\"aside\",null,{\"className\":\"w-64 flex-shrink-0\",\"children\":[\"$\",\"nav\",null,{\"className\":\"sticky top-24\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"font-semibold mb-4\",\"children\":\"Documentation\"}],[\"$\",\"ul\",null,{\"className\":\"space-y-2\",\"children\":[[\"$\",\"li\",\"\",{\"children\":[[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10\",\"className\":\"block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors \",\"children\":\"Getting Started\"}],[\"$\",\"ul\",null,{\"className\":\"ml-4 mt-2 space-y-1\",\"children\":[[\"$\",\"li\",\"/installation\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/installation\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Installation\"}]}],[\"$\",\"li\",\"/api_keys\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/api_keys\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"API Keys\"}]}],[\"$\",\"li\",\"/api_versions\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/api_versions\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"API Versions\"}]}],[\"$\",\"li\",\"/upgrade_dj_stripe\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/upgrade_dj_stripe\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Upgrade Guide\"}]}]]}]]}],[\"$\",\"li\",\"/usage\",{\"children\":[[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/usage\",\"className\":\"block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors \",\"children\":\"Usage\"}],[\"$\",\"ul\",null,{\"className\":\"ml-4 mt-2 space-y-1\",\"children\":[[\"$\",\"li\",\"/usage/webhooks\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/usage/webhooks\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Webhooks\"}]}],[\"$\",\"li\",\"/usage/subscribing_customers\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/usage/subscribing_customers\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Subscribing Customers\"}]}],[\"$\",\"li\",\"/usage/add_payment_method_to_customer\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/usage/add_payment_method_to_customer\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Payment Methods\"}]}],[\"$\",\"li\",\"/usage/managing_subscriptions\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/usage/managing_subscriptions\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Managing Subscriptions\"}]}],[\"$\",\"li\",\"/usage/using_stripe_checkout\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/usage/using_stripe_checkout\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Stripe Checkout\"}]}],[\"$\",\"li\",\"/usage/manually_syncing_with_stripe\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.10/usage/manually_syncing_with_stripe\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Manual Syncing\"}]}]]}]]}]]}]]}]}],\"$L11\"]}]}]]}]\n"])</script><script>self.__next_f.push([1,"11:[\"$\",\"main\",null,{\"className\":\"flex-1 max-w-4xl\",\"children\":[\"$\",\"article\",null,{\"className\":\"prose prose-lg max-w-none\",\"children\":\"$L12\"}]}]\n"])</script><script>self.__next_f.push([1,"12:[[\"$\",\"h1\",null,{\"children\":\"dj-stripe 1.x release notes\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"1.2.4 (2019-02-27)\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"This is a bugfix-only version:\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Allow billing_cycle_anchor argument when creating a subscription\\n(#814)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixup plan amount null with tier plans (#781)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Update Cancel subscription view tests to match backport in f64af57\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Implement Invoice._manipulate_stripe_object_hook for\\ncompatability with API 2018-11-08 (#771)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix product webhook for type=\\\"good\\\" (#724)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Add trial_from_plan, trial_period_days args to\\nCustomer.subscribe() (#709)\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"1.2.3 (2018-10-13)\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"This is a bugfix-only version:\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Updated Subscription.cancel() for compatibility with Stripe\\n2018-08-23 (#723)\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"1.2.2 (2018-08-11)\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"This is a bugfix-only version:\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed an error with request.urlconf in some setups (#562)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Always save text-type fields as empty strings in db instead of null\\n(#713)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix support for DJSTRIPE_SUBSCRIBER_MODEL_MIGRATION_DEPENDENCY\\n(#707)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix reactivate() with Stripe API 2018-02-28 and above\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"1.2.1 (2018-07-18)\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"This is a bugfix-only version:\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed various Python 2.7 compatibility issues\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed issues with max_length of receipt_number\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed various fields incorrectly marked as required\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Handle product webhook calls\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix compatibility with stripe-python 2.0.0\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"1.2.0 (2018-06-11)\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"The dj-stripe 1.2.0 release resets all migrations.\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"Do not upgrade to 1.2.0 directly from 1.0.1 or below. You must upgrade\\nto 1.1.0 first.\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Please read the 1.1.0 release notes below for more information.\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"1.1.0 (2018-06-11)\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"In dj-stripe 1.1.0, we made a \",[\"$\",\"em\",null,{\"children\":\"lot\"}],\" of changes to models in order to\\nbring the dj-stripe model state much closer to the upstream API objects.\\nIf you are a current user of dj-stripe, you will most likely have to\\nmake changes in order to upgrade. Please read the full changelog below.\\nIf you are having trouble upgrading, you may ask for help \",[\"$\",\"a\",null,{\"href\":\"https://github.com/dj-stripe/dj-stripe/issues\",\"children\":\"by filing an\\nissue on GitHub\"}],\".\"]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Migration reset\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"The next version of dj-stripe, \",[\"$\",\"strong\",null,{\"children\":\"1.2.0\"}],\", will reset all the migrations\\nto \",[\"$\",\"code\",null,{\"children\":\"0001_initial\"}],\". Migrations are currently in an unmaintainable state.\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"What this means is you will not be able to upgrade directly to\\ndj-stripe 1.2.0. You must go through 1.1.0 first, run ``manage.py\\nmigrate djstripe``, then upgrade to 1.2.0.\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Python 2.7 end-of-life\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"dj-stripe 1.1.0 drops support for Django 1.10 and adds support for\\nDjango 2.0. Django 1.11+ and Python 2.7+ or 3.4+ are required.\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Support for Python versions older than 3.5, and Django versions older\\nthan 2.0, will be dropped in dj-stripe 2.0.0.\"}],\"\\n\",\"$L13\",\"\\n\",\"$L14\",\"\\n\",\"$L15\",\"\\n\",\"$L16\",\"\\n\",\"$L17\",\"\\n\",\"$L18\",\"\\n\",\"$L19\",\"\\n\",\"$L1a\",\"\\n\",\"$L1b\",\"\\n\",\"$L1c\",\"\\n\",\"$L1d\",\"\\n\",\"$L1e\",\"\\n\",\"$L1f\",\"\\n\",\"$L20\",\"\\n\",\"$L21\",\"\\n\",\"$L22\",\"\\n\",\"$L23\",\"\\n\",\"$L24\",\"\\n\",\"$L25\",\"\\n\",\"$L26\",\"\\n\",\"$L27\",\"\\n\",\"$L28\",\"\\n\",\"$L29\",\"\\n\",\"$L2a\",\"\\n\",\"$L2b\",\"\\n\",\"$L2c\",\"\\n\",\"$L2d\",\"\\n\",\"$L2e\",\"\\n\",\"$L2f\",\"\\n\",\"$L30\",\"\\n\",\"$L31\",\"\\n\",\"$L32\",\"\\n\",\"$L33\",\"\\n\",\"$L34\",\"\\n\",\"$L35\",\"\\n\",\"$L36\",\"\\n\",\"$L37\",\"\\n\",\"$L38\",\"\\n\",\"$L39\",\"\\n\",\"$L3a\",\"\\n\",\"$L3b\",\"\\n\",\"$L3c\",\"\\n\",\"$L3d\",\"\\n\",\"$L3e\",\"\\n\",\"$L3f\",\"\\n\",\"$L40\",\"\\n\",\"$L41\",\"\\n\",\"$L42\"]\n"])</script><script>self.__next_f.push([1,"13:[\"$\",\"h3\",null,{\"children\":\"Backwards-incompatible changes and deprecations\"}]\n14:[\"$\",\"h4\",null,{\"children\":\"Removal of polymorphic models\"}]\n15:[\"$\",\"p\",null,{\"children\":\"The model architecture of dj-stripe has been simplified. Polymorphic\\nmodels have been dropped and the old base StripeCustomer, StripeCharge,\\nStripeInvoice, etc models have all been merged into the top-level\\nCustomer, Charge, Invoice, etc models.\"}]\n16:[\"$\",\"p\",null,{\"children\":[\"Importing those legacy models from \",[\"$\",\"code\",null,{\"children\":\"djstripe.stripe_objects\"}],\" will yield\\nthe new ones. This is deprecated and support for this will be dropped in\\ndj-stripe 2.0.0.\"]}]\n17:[\"$\",\"h4\",null,{\"children\":\"Full support for Stripe Sources (Support for v3 stripe.js)\"}]\n18:[\"$\",\"p\",null,{\"children\":[\"Stripe sources (\",[\"$\",\"code\",null,{\"children\":\"src_XXXX\"}],\") are objects that can arbitrarily reference\\nany of the payment method types that Stripe supports. However, the\\nlegacy \",[\"$\",\"code\",null,{\"children\":\"Card\"}],\" object (with object IDs like \",[\"$\",\"code\",null,{\"children\":\"card_XXXX\"}],\" or \",[\"$\",\"code\",null,{\"children\":\"cc_XXXX\"}],\") is\\nnot a Source object, and cannot be turned into a Source object at this\\ntime.\"]}]\n19:[\"$\",\"p\",null,{\"children\":[\"In order to support both Card and Source objects in ForeignKeys, a new\\nmodel \",[\"$\",\"code\",null,{\"children\":\"PaymentMethod\"}],\" has been devised (renamed to\\n\",[\"$\",\"code\",null,{\"children\":\"DjstripePaymentMethod\"}],\" in 2.0). That model can resolve into a Card, a\\nSource, or a BankAccount object.\"]}]\n1a:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"The ``default_source`` attribute on ``Customer`` now\\nrefers to a ``PaymentMethod`` object\"}],\". You will need to call\\n\",[\"$\",\"code\",null,{\"children\":\".resolve()\"}],\" on it to get the Card or Source in question.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"References to \",[\"$\",\"code\",null,{\"children\":\"Customer.sources\"}],\" expecting a queryset of Card\\nobjects should be updated to \",[\"$\",\"code\",null,{\"children\":\"Customer.legacy_cards\"}],\".\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"The legacy \",[\"$\",\"code\",null,{\"children\":\"StripeSource\"}],\" name refers to the \",[\"$\",\"code\",null,{\"children\":\"Card\"}],\" model. This will\\nbe removed in dj-stripe 2.0.0. Update your references to either\\n\",[\"$\",\"code\",null,{\"children\":\"Card\"}],\" or \",[\"$\",\"code\",null,{\"children\":\"Source\"}],\".\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"enums.SourceType\"}],\" has been renamed to \",[\"$\",\"code\",null,{\"children\":\"enums.LegacySourceType\"}],\".\\n\",[\"$\",\"code\",null,{\"children\":\"enums.SourceType\"}],\" now refers to the actual Stripe Source types\\nenum.\"]}],\"\\n\"]}]\n1b:[\"$\",\"h4\",null,{\"children\":\"Core fields renamed\"}]\n1c:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"The numeric \",[\"$\",\"code\",null,{\"children\":\"id\"}],\" field has been renamed to \",[\"$\",\"code\",null,{\"children\":\"djstripe_id\"}],\". This\\navoids a clash with the upstream stripe id. Accessing \",[\"$\",\"code\",null,{\"children\":\".id\"}],\" is\\ndeprecated and **will reference the upstream \",[\"$\",\"code\",null,{\"children\":\"stripe_id\"}],\" in\\ndj-stripe 2.0.0\"]}],\"\\n\"]}]\n1d:[\"$\",\"h2\",null,{\"children\":\"1.0.0 (2017-08-12)\"}]\n1e:[\"$\",\"p\",null,{\"children\":[\"It's finally here! We've made significant changes to the codebase and\\nare now compliant with stripe API version \",[\"$\",\"strong\",null,{\"children\":\"2017-06-05\"}],\".\"]}]\n1f:[\"$\",\"p\",null,{\"children\":\"I want to give a huge thanks to all of our contributors for their help\\nin making this happen, especially Bill Huneke (@wahuneke) for his\\nimpressive design work and @jleclanche for really pushing this release\\nalong.\"}]\n20:[\"$\",\"p\",null,{\"children\":\"I also want to welcome onboard two more maintainers, @jleclanche and\\n@lskillen. They've stepped up and have graciously dedicated their\\nresources to making dj-stripe such an amazing package.\"}]\n21:[\"$\",\"p\",null,{\"children\":\"Almost all methods now mimic the parameters of those same methods in the\\nstripe API. Note that some methods do not have some parameters\\nimplemented. "])</script><script>self.__next_f.push([1,"This is intentional. That being said, expect all method\\nsignatures to be different than those in previous versions of dj-stripe.\"}]\n22:[\"$\",\"p\",null,{\"children\":\"Finally, please note that there is still a bit of work ahead of us. Not\\neverything in the Stripe API is currently supported by dj-stripe --\\nwe're working on it. That said, v1.0.0 has been thoroughly tested and is\\nverified stable in production applications.\"}]\n23:[\"$\",\"h3\",null,{\"children\":\"A few things to get excited for\"}]\n"])</script><script>self.__next_f.push([1,"24:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Multiple subscription support (finally)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Multiple sources support (currently limited to Cards)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Idempotency support (See #455, #460 for discussion -- big thanks\\nto @jleclanche)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Full model documentation\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Objects that come through webhooks are now tied to the API version\\nset in dj-stripe. No more errors if dj-stripe falls behind the\\nnewest stripe API version.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Any create/update action on an object automatically syncs the\\nobject.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Concurrent LIVE and TEST mode support (Thanks to @jleclanche). Note\\nthat you'll run into issues if \",[\"$\",\"code\",null,{\"children\":\"livemode\"}],\" isn't set on your existing\\ncustomer objects.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"All choices are now enum-based (Thanks @jleclanche, See #520).\\nAccess them from the new \",[\"$\",\"code\",null,{\"children\":\"djstripe.enums\"}],\" module. The ability to\\ncheck against model property based choices will be deprecated in 1.1\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Support for the Coupon model, and coupons on Customer objects.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Support for the \",[\"$\",\"a\",null,{\"href\":\"https://stripe.com/docs/transfer-payout-split\",\"children\":\"Payout/Transfer\\nsplit\"}],\" from api\\nversion \",[\"$\",\"code\",null,{\"children\":\"2017-04-06\"}],\".\"]}],\"\\n\"]}]\n"])</script><script>self.__next_f.push([1,"25:[\"$\",\"h3\",null,{\"children\":\"What still needs to be done (in v1.1.0)\"}]\n26:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Documentation\"}],\". Our original documentation was not very helpful,\\nbut it covered the important bits. It will be very out of date after\\nthis update and will need to be rewritten. If you feel like helping,\\nwe could use all the help we can get to get this pushed out asap.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Master sync re-write\"}],\". This sounds scary, but really isn't. The\\ncurrent management methods run sync methods on Customer that aren't\\nvery helpful and are due for removal. My plan is to write something\\nthat first updates local data (via \",[\"$\",\"code\",null,{\"children\":\"api_retrieve\"}],\" and\\n\",[\"$\",\"code\",null,{\"children\":\"sync_from_stripe_data\"}],\") and then pulls all objects from Stripe and\\npopulates the local database with any records that don't already\\nexist there.\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"You might be wondering, \\\"Why are they releasing this if there are\\nonly a few things left?\\\" Well, that thinking turned this into a two\\nyear release... Trust me, this is a good thing.\"}],\"\\n\"]}],\"\\n\"]}]\n27:[\"$\",\"h3\",null,{\"children\":\"Significant changes (mostly backwards-incompatible)\"}]\n"])</script><script>self.__next_f.push([1,"28:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Idempotency\"}],\". #460 introduces idempotency keys and implements\\nidempotency for \",[\"$\",\"code\",null,{\"children\":\"Customer.get_or_create()\"}],\". Idempotency will be\\nenabled for all calls that need it.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Improved Admin Interface\"}],\". This is almost complete. See #451 and\\n#452.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Drop non-trivial endpoint views\"}],\". We're dropping everything\\nexcept the webhook endpoint and the subscription cancel endpoint.\\nSee #428.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Drop support for sending receipts\"}],\". Stripe now handles this for\\nyou. See #478.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Drop support for plans as settings\"}],\", including custom plan\\nhierarchy (if you want this, write something custom) and the dynamic\\ntrial callback. We've decided to gut having plans as settings.\\nStripe should be your source of truth; create your plans there and\\nsync them down manually. If you need to create plans locally for\\ntesting, etc., simply use the ORM to create Plan models. The sync\\nrewrite will make this drop less annoying.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Orphan Customer Sync\"}],\". We will now sync Customer objects from\\nStripe even if they aren't linked to local subscriber objects. You\\ncan link up subscribers to those Customers manually.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"Concurrent Live and Test Mode\"}],\". dj-stripe now supports test-mode\\nand live-mode Customer objects concurrently. As a result, the\\nUser.customer One-to-One reverse-relationship is now the\\nUser.djstripe_customers RelatedManager. (Thanks @jleclanche) #440.\\nYou'll run into some dj-stripe check issues if you don't update your\\nKEY settings accordingly. Check our GitHub issue tracker for help on\\nthis.\"]}],\"\\n\"]}]\n"])</script><script>self.__next_f.push([1,"29:[\"$\",\"h3\",null,{\"children\":\"SETTINGS\"}]\n2a:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"The \",[\"$\",\"code\",null,{\"children\":\"PLAN_CHOICES\"}],\", \",[\"$\",\"code\",null,{\"children\":\"PLAN_LIST\"}],\", and \",[\"$\",\"code\",null,{\"children\":\"PAYMENT_PLANS\"}],\" objects are\\nremoved. Use Plan.objects.all() instead.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"The \",[\"$\",\"code\",null,{\"children\":\"plan_from_stripe_id\"}],\" function is removed. Use\\nPlan.objects.get(stripe_id=)\"]}],\"\\n\"]}]\n2b:[\"$\",\"h3\",null,{\"children\":\"SYNCING\"}]\n2c:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"sync_plans no longer takes an api_key\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"sync methods no longer take a \",[\"$\",\"code\",null,{\"children\":\"cu\"}],\" parameter\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"All sync methods are now private. We're in the process of building a\\nbetter syncing mechanism.\"}],\"\\n\"]}]\n2d:[\"$\",\"h3\",null,{\"children\":\"UTILITIES\"}]\n2e:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"dj-stripe decorators now take a plan argument. If you're passing in\\na custom test function to \",[\"$\",\"code\",null,{\"children\":\"subscriber_passes_pay_test\"}],\", be sure to\\naccount for this new argument.\"]}],\"\\n\"]}]\n2f:[\"$\",\"h3\",null,{\"children\":\"MIXINS\"}]\n30:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"The context provided by dj-stripe's mixins has changed.\\n\",[\"$\",\"code\",null,{\"children\":\"PaymentsContextMixin\"}],\" now provides \",[\"$\",\"code\",null,{\"children\":\"STRIPE_PUBLIC_KEY\"}],\" and \",[\"$\",\"code\",null,{\"children\":\"plans\"}],\"\\n(changed to \",[\"$\",\"code\",null,{\"children\":\"Plan.objects.all()\"}],\"). \",[\"$\",\"code\",null,{\"children\":\"SubscriptionMixin\"}],\" now provides\\n\",[\"$\",\"code\",null,{\"children\":\"customer\"}],\" and \",[\"$\",\"code\",null,{\"children\":\"is_plans_plural\"}],\".\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"We've removed the SubscriptionPaymentRequiredMixin. Use\\n\",[\"$\",\"code\",null,{\"children\":\"@method_decorator(\\\"dispatch\\\",\"}],[\"$\",\"a\",null,{\"href\":\"https://github.com/kavdev/dj-stripe/blob/1.0.0/djstripe/decorators.py#L39\",\"children\":\"subscription_payment_required\"}],[\"$\",\"code\",null,{\"children\":\")\"}],\"\\ninstead.\"]}],\"\\n\"]}]\n31:[\"$\",\"h3\",null,{\"children\":\"MIDDLEWARE\"}]\n32:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"dj-stripe middleware doesn't support multiple subscriptions.\"}],\"\\n\"]}]\n33:[\"$\",\"h3\",null,{\"children\":\"SIGNALS\"}]\n34:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Local custom signals are deprecated in favor of Stripe webhooks:\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"cancelled\"}],\" -\u003e\\nWEBHOOK_SIGNALS[\\\"customer.subscription.deleted\\\"]\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"card_changed\"}],\" -\u003e WEBHOOK_SIGNALS[\\\"customer.source.updated\\\"]\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"subscription_made\"}],\" -\u003e\\nWEBHOOK_SIGNALS[\\\"customer.subscription.created\\\"]\"]}],\"\\n\"]}]\n35:[\"$\",\"h3\",null,{\"children\":\"WEBHOOK EVENTS\"}]\n36:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"The Event Handlers designed by @wahuneke are the new way to handle\\nevents that come through webhooks. Definitely take a look at\\n\",[\"$\",\"code\",null,{\"children\":\"event_handlers.py\"}],\" and \",[\"$\",\"code\",null,{\"children\":\"webhooks.py\"}],\".\"]}],\"\\n\"]}]\n37:[\"$\",\"h3\",null,{\"children\":\"EXCEPTIONS\"}]\n38:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"SubscriptionUpdateFailure\"}],\" and \",[\"$\",\"code\",null,{\"children\":\"SubscriptionCancellationFailure\"}],\"\\nexceptions are removed. There should no longer be a case where they\\nwould have been useful. Catch native stripe errors in their place\\ninstead.\"]}],\"\\n\"]}]\n39:[\"$\",\"h3\",null,{\"children\":\"MODELS\"}]\n3a:[\"$\",\"blockquote\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"CHARGE\"}]}],\"\\n\"]}]\n"])</script><script>self.__next_f.push([1,"3b:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Charge.charge_created\"}],\" -\u003e \",[\"$\",\"code\",null,{\"children\":\"Charge.stripe_timestamp\"}]]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Charge.card_last_4\"}],\" and \",[\"$\",\"code\",null,{\"children\":\"Charge.card_kind\"}],\" are removed. Use\\n\",[\"$\",\"code\",null,{\"children\":\"Charge.source.last4\"}],\" and \",[\"$\",\"code\",null,{\"children\":\"Charge.source.brand\"}],\" (if the source is a\\nCard)\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Charge.invoice\"}],\" is no longer a foreign key to the Invoice model.\\n\",[\"$\",\"code\",null,{\"children\":\"Invoice\"}],\" now has a OneToOne relationship with \",[\"$\",\"code\",null,{\"children\":\"Charge\"}],\".\\n(\",[\"$\",\"code\",null,{\"children\":\"Charge.invoice\"}],\" will still work, but will no longer be represented\\nin the database).\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"CUSTOMER\"}]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"dj-stripe now supports test mode and live mode Customer objects\\nconcurrently (See #440). As a result, the\\n\",[\"$\",\"code\",null,{\"children\":\"{subscriber_model}.customer\"}],\" OneToOne reverse relationship is no\\nlonger a thing. You should now instead add a \",[\"$\",\"code\",null,{\"children\":\"customer\"}],\" property to\\nyour subscriber model that checks whether you're in live or test\\nmode (see djstripe.settings.STRIPE_LIVE_MODE as an example) and\\ngrabs the customer from \",[\"$\",\"code\",null,{\"children\":\"{subscriber_model}.djstripe_customers\"}],\" with\\na simple \",[\"$\",\"code\",null,{\"children\":\"livemode=\"}],\" filter.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Customer no longer has a \",[\"$\",\"code\",null,{\"children\":\"current_subscription\"}],\" property. We've\\nadded a \",[\"$\",\"code\",null,{\"children\":\"subscription\"}],\" property that should suit your needs.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"With the advent of multiple subscriptions, the behavior of\\n\",[\"$\",\"code\",null,{\"children\":\"Customer.subscribe()\"}],\" has changed. Before, \",[\"$\",\"code\",null,{\"children\":\"calling subscribe()\"}],\"\\nwhen a customer was already subscribed to a plan would switch the\\ncustomer to the new plan with an option to prorate. Now calling\\n\",[\"$\",\"code\",null,{\"children\":\"subscribe()\"}],\" simply subscribes that customer to a new plan in\\naddition to its current subscription. Use \",[\"$\",\"code\",null,{\"children\":\"Subscription.update()\"}],\" to\\nchange a subscription's plan instead.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Customer.cancel_subscription()\"}],\" is removed. Use\\n\",[\"$\",\"code\",null,{\"children\":\"Subscription.cancel()\"}],\" instead.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"The \",[\"$\",\"code\",null,{\"children\":\"Customer.update_plan_quantity()\"}],\" method is removed. Use\\n\",[\"$\",\"code\",null,{\"children\":\"Subscription.update()\"}],\" instead.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"CustomerManager\"}],\" is now \",[\"$\",\"code\",null,{\"children\":\"SubscriptionManager\"}],\" and works on the\\n\",[\"$\",\"code\",null,{\"children\":\"Subscription\"}],\" model instead of the \",[\"$\",\"code\",null,{\"children\":\"Customer\"}],\" model.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Customer.has_valid_card()\"}],\" is now \",[\"$\",\"code\",null,{\"children\":\"Customer.has_valid_source()\"}],\".\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Customer.update_card()\"}],\" now takes an id. If the id is not supplied,\\nthe default source is updated.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Customer.stripe_customer\"}],\" property is removed. Use\\n\",[\"$\",\"code\",null,{\"children\":\"Customer.api_retrieve()\"}],\" instead.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"The \",[\"$\",\"code\",null,{\"children\":\"at_period_end\"}],\" parameter of \",[\"$\",\"code\",null,{\"children\":\"Customer.cancel_subscription()\"}],\"\\nnow actually follows the\\n\",[\"$\",\"a\",null,{\"href\":\"../reference/settings.md#djstripe_proration_policy-false\",\"children\":\"DJSTRIPE_PRORATION_POLICY\"}],\"\\nsetting.\"]}],\"\\n\"]}],\"\\n\",\"$L43\",\"\\n\",\"$L44\",\"\\n\",\"$L45\",\"\\n\",\"$L46\",\"\\n\",\"$L47\",\"\\n\",\"$L48\",\"\\n\",\"$L49\",\"\\n\",\"$L4a\",\"\\n\",\"$L4b\",\"\\n\",\"$L4c\",\"\\n\",\"$L4d\",\"\\n\",\"$L4e\",\"\\n\",\"$L4f\",\"\\n\",\"$L50\",\"\\n\",\"$L51\",\"\\n\"]}]\n"])</script><script>self.__next_f.push([1,"3c:[\"$\",\"h3\",null,{\"children\":\"MIGRATIONS\"}]\n3d:[\"$\",\"p\",null,{\"children\":\"We'll sync your current records with Stripe in a migration. It will take\\na while, but it's the only way we can ensure data integrity. There were\\nsome fields for which we needed to temporarily add placeholder defaults,\\nso just make sure you have a customer with ID 1 and a plan with ID 1 and\\nyou shouldn't run into any issues (create dummy values for these if need\\nbe and delete them after the migration).\"}]\n3e:[\"$\",\"h3\",null,{\"children\":\"BIG HUGE NOTE - DON'T OVERLOOK THIS\"}]\n3f:[\"$\",\"p\",null,{\"children\":[[\"$\",\"em\",null,{\"children\":\"WARNING\"}],\": Subscription and InvoiceItem migration is not possible because old\\nrecords don't have Stripe IDs (so we can't sync them). Our approach is\\nto delete all local subscription and invoiceitem objects and re-sync\\nthem from Stripe.\"]}]\n40:[\"$\",\"p\",null,{\"children\":\"We 100% recommend you create a backup of your database before performing\\nthis upgrade.\"}]\n41:[\"$\",\"h3\",null,{\"children\":\"Other changes\"}]\n"])</script><script>self.__next_f.push([1,"42:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Postgres users now have access to the\\n\",[\"$\",\"code\",null,{\"children\":\"DJSTRIPE_USE_NATIVE_JSONFIELD\"}],\" setting. (Thanks @jleclanche) #517,\\n#523\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Charge receipts now take \",[\"$\",\"code\",null,{\"children\":\"DJSTRIPE_SEND_INVOICE_RECEIPT_EMAILS\"}],\" into\\naccount (Thanks @r0fls)\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Clarified/modified installation documentation (Thanks @pydanny)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Corrected and revised ANONYMOUS_USER_ERROR_MSG (Thanks @pydanny)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Added fnmatching to \",[\"$\",\"code\",null,{\"children\":\"SubscriptionPaymentMiddleware\"}],\"\\n(Thanks @pydanny)\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"SubscriptionPaymentMiddleware.process_request()\"}],\" functionality\\nbroken up into multiple methods, making local customizations easier\\n(Thanks @pydanny)\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fully qualified events are now supported by event handlers as\\nstrings e.g. 'customer.subscription.deleted' (Thanks @lskillen)\\n#316\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"runtests now accepts positional arguments for declaring which tests\\nto run (Thanks @lskillen) #317\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"It is now possible to reprocess events in both code and the admin\\ninterface (Thanks @lskillen) #318\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"The confirm page now checks that a valid card exists.\\n(Thanks @scream4ik) #325\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added support for viewing upcoming invoices (Thanks @lskillen) #320\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Event handler improvements and bugfixes (Thanks @lskillen) #321\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"API list() method bugfixes (Thanks @lskillen) #322\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added support for a custom webhook event handler (Thanks @lskillen)\\n#323\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Django REST Framework contrib package improvements\\n(Thanks @aleccool213) #334\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Added \",[\"$\",\"code\",null,{\"children\":\"tax_percent\"}],\" to CreateSubscriptionSerializer\\n(Thanks @aleccool213) #349\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Fixed incorrectly assigned \",[\"$\",\"code\",null,{\"children\":\"application_fee\"}],\" in Charge calls\\n(Thanks @kronok) #382\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed bug caused by API change (Thanks @jessamynsmith) #353\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added inline documentation to pretty much everything and enforced\\ndocsytle via flake8 (Thanks @aleccool213)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed outdated method call in template (Thanks @kandoio) #391\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer is correctly purged when subscriber is deleted, regardless\\nof how the deletion happened (Thanks @lskillen) #396\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Test webhooks are now properly captured and logged. No more bounced\\nrequests to Stripe! (Thanks @jameshiew) #408\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"CancelSubscriptionView redirect is now more flexible\\n(Thanks @jleclanche) #418\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer.sync_cards() (Thanks @jleclanche) #438\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Many stability fixes, bugfixes, and code cleanup\\n(Thanks @jleclanche)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Support syncing canceled subscriptions (Thanks @jleclanche) #443\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Improved admin interface (Thanks @jleclanche with @jameshiew) #451\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Support concurrent TEST + LIVE API keys (Fix webhook event\\nprocessing for both modes) (Thanks @jleclanche) #461\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added Stripe Dashboard link to admin change panel\\n(Thanks @jleclanche) #465\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Implemented \",[\"$\",\"code\",null,{\"children\":\"Plan.amount_in_cents\"}],\" (Thanks @jleclanche) #466\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Implemented \",[\"$\",\"code\",null,{\"children\":\"Subscription.reactivate()\"}],\" (Thanks @jleclanche) #470\"]}],\"\\n\",\"$L52\",\"\\n\",\"$L53\",\"\\n\",\"$L54\",\"\\n\"]}]\n"])</script><script>self.__next_f.push([1,"43:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Customer.card_fingerprint\"}],\", \",[\"$\",\"code\",null,{\"children\":\"Customer.card_last_4\"}],\",\\n\",[\"$\",\"code\",null,{\"children\":\"Customer.card_kind\"}],\", \",[\"$\",\"code\",null,{\"children\":\"Customer.card_exp_month\"}],\",\\n\",[\"$\",\"code\",null,{\"children\":\"Customer.card_exp_year\"}],\" are all removed. Check\\n\",[\"$\",\"code\",null,{\"children\":\"Customer.default_source\"}],\" (if it's a Card) or one of the sources in\\n\",[\"$\",\"code\",null,{\"children\":\"Customer.sources\"}],\" (again, if it's a Card) instead.\"]}],\"\\n\"]}]\n44:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"The \",[\"$\",\"code\",null,{\"children\":\"invoice_id\"}],\" parameter of \",[\"$\",\"code\",null,{\"children\":\"Customer.add_invoice_item\"}],\" is now\\nnamed \",[\"$\",\"code\",null,{\"children\":\"invoice\"}],\" and can be either an Invoice object or the\\nstripe_id of an Invoice.\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"EVENT\"}]}],\"\\n\"]}]\n45:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Event.kind\"}],\" -\u003e \",[\"$\",\"code\",null,{\"children\":\"Event.type\"}]]}],\"\\n\"]}]\n46:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Removed \",[\"$\",\"code\",null,{\"children\":\"Event.validated_message\"}],\". Just check if the event is valid\"]}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"no need to double check (we do that for you)\"}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"TRANSFER\"}]}],\"\\n\"]}]\n47:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Removed \",[\"$\",\"code\",null,{\"children\":\"Transfer.update_status()\"}]]}],\"\\n\"]}]\n48:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Removed \",[\"$\",\"code\",null,{\"children\":\"Transfer.event\"}]]}],\"\\n\"]}]\n49:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"TransferChargeFee\"}],\" is removed. It hasn't been used in a while due\\nto a broken API version. Use \",[\"$\",\"code\",null,{\"children\":\"Transfer.fee_details\"}],\" instead.\"]}],\"\\n\"]}]\n4a:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Any fields that were in \",[\"$\",\"code\",null,{\"children\":\"Transfer.summary\"}],\" no longer exist and are\\ntherefore deprecated (unused but not removed from the database).\\nBecause of this, \",[\"$\",\"code\",null,{\"children\":\"TransferManager\"}],\" now only aggregates \",[\"$\",\"code\",null,{\"children\":\"total_sum\"}]]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"INVOICE\"}]}],\"\\n\"]}]\n4b:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Invoice.attempts\"}],\" -\u003e \",[\"$\",\"code\",null,{\"children\":\"Invoice.attempt_count\"}]]}],\"\\n\"]}]\n4c:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"InvoiceItems are no longer created when Invoices are synced. You\\nmust now sync InvoiceItems directly.\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"INVOICEITEM\"}]}],\"\\n\"]}]\n4d:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Removed \",[\"$\",\"code\",null,{\"children\":\"InvoiceItem.line_type\"}]]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"PLAN\"}]}],\"\\n\"]}]\n4e:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Plan no longer has a \",[\"$\",\"code\",null,{\"children\":\"stripe_plan\"}],\" property. Use \",[\"$\",\"code\",null,{\"children\":\"api_retrieve()\"}],\"\\ninstead.\"]}],\"\\n\"]}]\n4f:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Plan.currency\"}],\" no longer uses choices. Use the\\n\",[\"$\",\"code\",null,{\"children\":\"get_supported_currency_choices()\"}],\" utility and create your own\\ncustom choices list instead.\"]}],\"\\n\"]}]\n50:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Plan interval choices are now in \",[\"$\",\"code\",null,{\"children\":\"Plan.INTERVAL_TYPE_CHOICES\"}]]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"SUBSCRIPTION\"}]}],\"\\n\"]}]\n51:[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"Subscription.is_period_current()\"}],\" now"])</script><script>self.__next_f.push([1," checks for a current trial\\nend if the current period has ended. This change means subscriptions\\nextended with \",[\"$\",\"code\",null,{\"children\":\"Subscription.extend()\"}],\" will now be seen as valid.\"]}],\"\\n\"]}]\n52:[\"$\",\"li\",null,{\"children\":[\"Added \",[\"$\",\"code\",null,{\"children\":\"Plan.human_readable_price\"}],\" (Thanks @jleclanche) #498\"]}]\n53:[\"$\",\"li\",null,{\"children\":\"(Re)attach the Subscriber when we find its id attached to a\\ncustomer on Customer sync (Thanks @jleclanche) #500\"}]\n54:[\"$\",\"li\",null,{\"children\":\"Made API version configurable (with dj-stripe recommended default)\\n(Thanks @lskillen) #504\"}]\n"])</script></body></html>

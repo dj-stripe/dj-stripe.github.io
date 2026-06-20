@@ -1,0 +1,287 @@
+<!DOCTYPE html><!--467OoS7_srv1hAcS8DzcF--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/797e433ab948586e-s.p.29207c2f.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/_next/static/chunks/72124298f2c7f682.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/830f332d5fe57fa9.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/53dd1b46408513d9.js"/><script src="/_next/static/chunks/f8c0db758fb27563.js" async=""></script><script src="/_next/static/chunks/a4334da1ef74bf9f.js" async=""></script><script src="/_next/static/chunks/turbopack-c69e902881d2ad26.js" async=""></script><script src="/_next/static/chunks/a91aed018f1fbf4b.js" async=""></script><script src="/_next/static/chunks/ff1a16fafef87110.js" async=""></script><script src="/_next/static/chunks/7340adf74ff47ec0.js" async=""></script><script src="/_next/static/chunks/c4f00520444ed76b.js" async=""></script><meta name="next-size-adjust" content=""/><title>dj-stripe - Stripe Made Easy for Django Developers</title><meta name="description" content="The easiest way to integrate Stripe with your Django project. Handle payments, subscriptions, and webhooks with just a few lines of code."/><script src="/_next/static/chunks/a6dad97d9634a72d.js" noModule=""></script></head><body class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased"><div hidden=""><!--$--><!--/$--></div><div class="min-h-screen bg-white dark:bg-gray-900"><header class="border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-white dark:bg-gray-900 z-10"><nav class="container mx-auto px-4 sm:px-6 py-4"><div class="flex items-center justify-between"><a class="text-2xl font-bold z-50" href="/">dj-<span class="text-stripe-blurple">stripe</span></a><div class="hidden lg:flex gap-6 items-center"><a class="hover:text-blue-600 transition-colors" href="/about/">About</a><a class="text-blue-600 font-semibold" href="/docs/latest/">Documentation</a><a class="hover:text-blue-600 transition-colors" href="/changes/">Changelog</a><a class="hover:text-blue-600 transition-colors" href="/sponsors/">Sponsors</a><a class="hover:text-blue-600 transition-colors" href="/team/">Team</a><a class="hover:text-blue-600 transition-colors" href="/support/">Support</a><a href="https://github.com/dj-stripe/dj-stripe" class="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300" target="_blank" rel="noopener noreferrer"><i class="fab fa-github text-lg sm:text-xl"></i><div class="hidden sm:flex flex-col"><span class="text-sm font-medium">dj-stripe</span><div class="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400"><span>Loading...</span></div></div></a><select class="px-3 py-1 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800"><option value="2.10">v2.10</option><option value="2.9" selected="">v2.9</option><option value="2.8">v2.8</option><option value="2.7">v2.7</option><option value="2.6">v2.6</option><option value="2.5">v2.5</option><option value="dev">vdev</option></select><div class="relative"><button class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg><span>Search</span><kbd class="hidden sm:inline-block px-1.5 py-0.5 text-xs bg-gray-200 dark:bg-gray-700 rounded">⌘K</kbd></button></div><button class="group relative p-2.5 rounded-full hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-200 hover:scale-105 active:scale-95" aria-label="Switch to dark mode"><div class="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-200/20 to-orange-300/20 dark:from-purple-400/20 dark:to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="relative transition-all duration-300 "><div class="relative w-5 h-5"><svg class="w-full h-full text-amber-500 transition-all duration-300 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" class="animate-pulse"></circle><g class="animate-spin" style="transform-origin:12px 12px;animation-duration:8s"><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></g></svg></div></div><div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 text-xs text-white bg-gray-900 dark:bg-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">Switch to <!-- -->dark<!-- --> mode</div></button></div><button class="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-50" aria-label="Toggle mobile menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div></nav></header><div class="container mx-auto px-6 py-8"><div class="flex gap-8"><aside class="w-64 flex-shrink-0"><nav class="sticky top-24"><h3 class="font-semibold mb-4">Documentation</h3><ul class="space-y-2"><li><a class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors " href="/docs/2.9">Getting Started</a><ul class="ml-4 mt-2 space-y-1"><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/installation/">Installation</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/api_keys/">API Keys</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/api_versions/">API Versions</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/upgrade_dj_stripe/">Upgrade Guide</a></li></ul></li><li><a class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors " href="/docs/2.9/usage/">Usage</a><ul class="ml-4 mt-2 space-y-1"><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/usage/webhooks/">Webhooks</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/usage/subscribing_customers/">Subscribing Customers</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/usage/add_payment_method_to_customer/">Payment Methods</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/usage/managing_subscriptions/">Managing Subscriptions</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/usage/using_stripe_checkout/">Stripe Checkout</a></li><li><a class="block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400" href="/docs/2.9/usage/manually_syncing_with_stripe/">Manual Syncing</a></li></ul></li></ul></nav></aside><main class="flex-1 max-w-4xl"><article class="prose prose-lg max-w-none"><h1>dj-stripe 0.x release notes</h1>
+<h2>0.8.0 (2015-12-30)</h2>
+<ul>
+<li>better plan ordering documentation (Thanks @cjrh)</li>
+<li>added a confirmation page when choosing a subscription (Thanks
+@chrissmejia, @areski)</li>
+<li>setup.py reverse dependency fix (#258/#268) (Thanks @ticosax)</li>
+<li>Dropped official support for Django 1.7 (no code changes were made)</li>
+<li>Python 3.5 support, Django 1.9.1 support</li>
+<li>Migration improvements (Thanks @michi88)</li>
+<li>Fixed &quot;Invoice matching query does not exist&quot; bug (#263)
+(Thanks @mthornhill)</li>
+<li>Fixed duplicate content in account view (Thanks @areski)</li>
+</ul>
+<h2>0.7.0 (2015-09-22)</h2>
+<ul>
+<li>dj-stripe now responds to the invoice.created event
+(Thanks @wahuneke)</li>
+<li>dj-stripe now cancels subscriptions and purges customers during sync
+if they were deleted from the stripe dashboard (Thanks @unformatt)</li>
+<li>dj-stripe now checks for an active stripe subscription in the
+<code>update_plan_quantity</code> call (Thanks @ctrengove)</li>
+<li>Event processing is now handled by &quot;event handlers&quot; - functions
+outside of models that respond to various event types and subtypes.
+Documentation on how to tie into the event handler system coming
+soon. (Thanks @wahuneke)</li>
+<li>Experimental Python 3.5 support</li>
+<li>Support for Django 1.6 and lower is now officially gone.</li>
+<li>Much, much more!</li>
+</ul>
+<h2>0.6.0 (2015-07-12)</h2>
+<ul>
+<li>Support for Django 1.6 and lower is now deprecated.</li>
+<li>Improved test harness now tests coverage and pep8</li>
+<li>SubscribeFormView and ChangePlanView no longer populate self.error
+with form errors</li>
+<li>InvoiceItems.plan can now be null (as it is with individual
+charges), resolving #140 (Thanks @awechsler and @MichelleGlauser
+for help troubleshooting)</li>
+<li>Email templates are now packaged during distribution.</li>
+<li>sync_plans now takes an optional api_key</li>
+<li>100% test coverage</li>
+<li>Stripe ID is now returned as part of each model&#x27;s str method
+(Thanks @areski)</li>
+<li>Customer model now stores card expiration month and year
+(Thanks @jpadilla)</li>
+<li>Ability to extend subscriptions (Thanks @TigerDX)</li>
+<li>Support for plan heirarchies (Thanks @chrissmejia)</li>
+<li>Rest API endpoints for Subscriptions [contrib]
+(Thanks @philippeluickx)</li>
+<li>Admin interface search by email funtionality is removed (#221)
+(Thanks @jpadilla)</li>
+</ul>
+<h2>0.5.0 (2015-05-25)</h2>
+<ul>
+<li>Began deprecation of support for Django 1.6 and lower.</li>
+<li>Added formal support for Django 1.8.</li>
+<li>Removed the StripeSubscriptionSignupForm</li>
+<li>Removed <code>djstripe.safe_settings</code>. Settings are now all located in
+<code>djstripe.settings</code></li>
+<li><code>DJSTRIPE_TRIAL_PERIOD_FOR_SUBSCRIBER_CALLBACK</code> can no longer be a
+module string</li>
+<li>The sync_subscriber argument has been renamed from
+subscriber_model to subscriber</li>
+<li>Moved available currencies to the DJSTRIPE_CURRENCIES setting
+(Thanks @martinhill)</li>
+<li>Allow passing of extra parameters to stripe Charge API
+(Thanks @mthornhill)</li>
+<li>Support for all available arguments when syncing plans
+(Thanks @jamesbrobb)</li>
+<li>charge.refund() now returns the refunded charge object
+(Thanks @mthornhill)</li>
+<li>Charge model now has captured field and a capture method
+(Thanks @mthornhill)</li>
+<li>Subscription deleted webhook bugfix</li>
+<li>South migrations are now up to date (Thanks @Tyrdall)</li>
+</ul>
+<h2>0.4.0 (2015-04-05)</h2>
+<ul>
+<li>Formal Python 3.3+/Django 1.7 Support (including migrations)</li>
+<li>Removed Python 2.6 from Travis CI build. (Thanks @audreyr)</li>
+<li>Dropped Django 1.4 support. (Thanks @audreyr)</li>
+<li>Deprecated the <code>djstripe.forms.StripeSubscriptionSignupForm</code>. Making
+this form work easily with both <code>dj-stripe</code> and <code>django-allauth</code>
+required too much abstraction. It will be removed in the 0.5.0
+release.</li>
+<li>Add the ability to add invoice items for a customer (Thanks @kavdev)</li>
+<li>Add the ability to use a custom customer model (Thanks @kavdev)</li>
+<li>Added setting to disable Invoice receipt emails (Thanks Chris
+Halpert)</li>
+<li>Enable proration when customer upgrades plan, and pass proration
+policy and cancellation at period end for upgrades in settings.
+(Thanks Yasmine Charif)</li>
+<li>Removed the redundant context processor. (Thanks @kavdev)</li>
+<li>Fixed create a token call in change_card.html (Thanks @dollydagr)</li>
+<li>Fix <code>charge.dispute.closed</code> typo. (Thanks @ipmb)</li>
+<li>Fix contributing docs formatting. (Thanks @audreyr)</li>
+<li>Fix subscription canceled_at_period_end field sync on plan
+upgrade (Thanks @nigma)</li>
+<li>Remove &quot;account&quot; bug in Middleware (Thanks @sromero84)</li>
+<li>Fix correct plan selection on subscription in subscribe_form
+template. (Thanks Yasmine Charif)</li>
+<li>Fix subscription status in account, _subscription_status, and
+cancel_subscription templates. (Thanks Yasmine Charif)</li>
+<li>Now using <code>user.get_username()</code> instead of <code>user.username</code>, to
+support custom User models. (Thanks @shvechikov)</li>
+<li>Update remaining DOM Ids for Bootstrap 3. (Thanks Yasmine Charif)</li>
+<li>Update publish command in setup.py. (Thanks @pydanny)</li>
+<li>Explicitly specify tox&#x27;s virtual environment names.
+(Thanks @audreyr)</li>
+<li>Manually call django.setup() to populate apps registry.
+(Thanks @audreyr)</li>
+</ul>
+<h2>0.3.5 (2014-05-01)</h2>
+<ul>
+<li>Fixed <code>djstripe_init_customers</code> management command so it works with
+custom user models.</li>
+</ul>
+<h2>0.3.4 (2014-05-01)</h2>
+<ul>
+<li>Clarify documentation for redirects on app_name.</li>
+<li>If settings.DEBUG is True, then django-debug-toolbar is exempt from
+redirect to subscription form.</li>
+<li>Use collections.OrderedDict to ensure that plans are listed in order
+of price.</li>
+<li>Add <code>ordereddict</code> library to support Python 2.6 users.</li>
+<li>Switch from <code>__unicode__</code> to <code>__str__</code> methods on models to better
+support Python 3.</li>
+<li>Add <code>python_2_unicode_compatible</code> decorator to Models.</li>
+<li>Check for PY3 so the <code>unicode(self.user)</code> in models.Customer doesn&#x27;t
+blow up in Python 3.</li>
+</ul>
+<h2>0.3.3 (2014-04-24)</h2>
+<ul>
+<li>Increased the extendability of the views by removing as many
+hard-coded URLs as possible and replacing them with <code>success_url</code>
+and other attributes/methods.</li>
+<li>Added single unit purchasing to the cookbook</li>
+</ul>
+<h2>0.3.2 (2014-01-16)</h2>
+<ul>
+<li>Made Yasmine Charif a core committer</li>
+<li>Take into account trial days in a subscription plan (Thanks Yasmine
+Charif)</li>
+<li>Correct invoice period end value (Thanks Yasmine Charif)</li>
+<li>Make plan cancellation and plan change consistently not prorating
+(Thanks Yasmine Charif)</li>
+<li>Fix circular import when ACCOUNT_SIGNUP_FORM_CLASS is defined
+(Thanks Dustin Farris)</li>
+<li>Add send e-mail receipt action in charges admin panel (Thanks Buddy
+Lindsay)</li>
+<li>Add <code>created</code> field to all ModelAdmins to help with internal
+auditing (Thanks Kulbir Singh)</li>
+</ul>
+<h2>0.3.1 (2013-11-14)</h2>
+<ul>
+<li>Cancellation fix (Thanks Yasmine Charif)</li>
+<li>Add setup.cfg for wheel generation (Thanks Charlie Denton)</li>
+</ul>
+<h2>0.3.0 (2013-11-12)</h2>
+<ul>
+<li>Fully tested against Django 1.6, 1.5, and 1.4</li>
+<li>Fix boolean default issue in models (from now on they are all
+default to <code>False</code>).</li>
+<li>Replace duplicated code with
+<code>djstripe.utils.user_has_active_subscription</code>.</li>
+</ul>
+<h2>0.2.9 (2013-09-06)</h2>
+<ul>
+<li>Cancellation added to views.</li>
+<li>Support for kwargs on charge and invoice fetching.</li>
+<li>def charge() now supports send_receipt flag, default to True.</li>
+<li>Fixed templates to work with Bootstrap 3.0.0 column design.</li>
+</ul>
+<h2>0.2.8 (2013-09-02)</h2>
+<ul>
+<li>Improved usage documentation.</li>
+<li>Corrected order of fields in StripeSubscriptionSignupForm.</li>
+<li>Corrected transaction history template layout.</li>
+<li>Updated models to take into account when settings.USE_TZ is
+disabled.</li>
+</ul>
+<h2>0.2.7 (2013-08-24)</h2>
+<ul>
+<li>Add handy rest_framework permission class.</li>
+<li>Fixing attribution for django-stripe-payments.</li>
+<li>Add new status to Invoice model.</li>
+</ul>
+<h2>0.2.6 (2013-08-20)</h2>
+<ul>
+<li>Changed name of division tag to djdiv.</li>
+<li>Added <code>safe_setting.py</code> module to handle edge cases when working
+with custom user models.</li>
+<li>Added cookbook page in the documentation.</li>
+</ul>
+<h2>0.2.5 (2013-08-18)</h2>
+<ul>
+<li>Fixed bug in initial checkout</li>
+<li>You can&#x27;t purchase the same plan that you currently have.</li>
+</ul>
+<h2>0.2.4 (2013-08-18)</h2>
+<ul>
+<li>Recursive package finding.</li>
+</ul>
+<h2>0.2.3 (2013-08-16)</h2>
+<ul>
+<li>Fix packaging so all submodules are loaded</li>
+</ul>
+<h2>0.2.2 (2013-08-15)</h2>
+<ul>
+<li>Added Registration + Subscription form</li>
+</ul>
+<h2>0.2.1 (2013-08-12)</h2>
+<ul>
+<li>Fixed a bug on CurrentSubscription tests</li>
+<li>Improved usage documentation</li>
+<li>Added to migration from other tools documentation</li>
+</ul>
+<h2>0.2.0 (2013-08-12)</h2>
+<ul>
+<li>Cancellation of plans now works.</li>
+<li>Upgrades and downgrades of plans now work.</li>
+<li>Changing of cards now works.</li>
+<li>Added breadcrumbs to improve navigation.</li>
+<li>Improved installation instructions.</li>
+<li>Consolidation of test instructions.</li>
+<li>Minor improvement to django-stripe-payments documentation</li>
+<li>Added coverage.py to test process.</li>
+<li>Added south migrations.</li>
+<li>Fixed the subscription_payment_required function-based view
+decorator.</li>
+<li>Removed unnecessary django-crispy-forms</li>
+</ul>
+<h2>0.1.7 (2013-08-08)</h2>
+<ul>
+<li>Middleware excepts all of the djstripe namespaced URLs. This way
+people can pay.</li>
+</ul>
+<h2>0.1.6 (2013-08-08)</h2>
+<ul>
+<li>Fixed a couple template paths</li>
+<li>Fixed the manifest so we include html, images.</li>
+</ul>
+<h2>0.1.5 (2013-08-08)</h2>
+<ul>
+<li>Fixed the manifest so we include html, css, js, images.</li>
+</ul>
+<h2>0.1.4 (2013-08-08)</h2>
+<ul>
+<li>Change PaymentRequiredMixin to SubscriptionPaymentRequiredMixin</li>
+<li>Add subscription_payment_required function-based view decorator</li>
+<li>Added SubscriptionPaymentRedirectMiddleware</li>
+<li>Much nicer accounts view display</li>
+<li>Much improved subscription form display</li>
+<li>Payment plans can have decimals</li>
+<li>Payment plans can have custom images</li>
+</ul>
+<h2>0.1.3 (2013-08-7)</h2>
+<ul>
+<li>Added account view</li>
+<li>Added Customer.get_or_create method</li>
+<li>Added djstripe_sync_customers management command</li>
+<li>sync file for all code that keeps things in sync with stripe</li>
+<li>Use client-side JavaScript to get history data asynchronously</li>
+<li>More user friendly action views</li>
+</ul>
+<h2>0.1.2 (2013-08-6)</h2>
+<ul>
+<li>Admin working</li>
+<li>Better publish statement</li>
+<li>Fix dependencies</li>
+</ul>
+<h2>0.1.1 (2013-08-6)</h2>
+<ul>
+<li>Ported internals from django-stripe-payments</li>
+<li>Began writing the views</li>
+<li>Travis-CI</li>
+<li>All tests passing on Python 2.7 and 3.3</li>
+<li>All tests passing on Django 1.4 and 1.5</li>
+<li>Began model cleanup</li>
+<li>Better form</li>
+<li>Provide better response from management commands</li>
+</ul>
+<h2>0.1.0 (2013-08-5)</h2>
+<ul>
+<li>First release on PyPI.</li>
+</ul></article></main></div></div></div><!--$--><!--/$--><script src="/_next/static/chunks/53dd1b46408513d9.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[27423,[\"/_next/static/chunks/a91aed018f1fbf4b.js\"],\"ThemeProvider\"]\n3:I[39756,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"default\"]\n4:I[37457,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"default\"]\n6:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"OutletBoundary\"]\n7:\"$Sreact.suspense\"\n9:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"ViewportBoundary\"]\nb:I[97367,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"MetadataBoundary\"]\nd:I[68027,[\"/_next/static/chunks/ff1a16fafef87110.js\",\"/_next/static/chunks/7340adf74ff47ec0.js\"],\"default\"]\n:HL[\"/_next/static/chunks/72124298f2c7f682.css\",\"style\"]\n:HL[\"/_next/static/chunks/830f332d5fe57fa9.css\",\"style\"]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.29207c2f.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"467OoS7_srv1hAcS8DzcF\",\"c\":[\"\",\"docs\",\"2.9\",\"history\",\"0_x\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"docs\",{\"children\":[[\"version\",\"2.9\",\"d\"],{\"children\":[[\"slug\",\"history/0_x\",\"oc\"],{\"children\":[\"__PAGE__\",{}]}]}]}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/72124298f2c7f682.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/830f332d5fe57fa9.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/a91aed018f1fbf4b.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased\",\"children\":[\"$\",\"$L2\",null,{\"defaultTheme\":\"system\",\"storageKey\":\"dj-stripe-theme\",\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/c4f00520444ed76b.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L6\",null,{\"children\":[\"$\",\"$7\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@8\"}]}]]}],{},null,false,false]},null,false,false]},null,false,false]},null,false,false]},null,false,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L9\",null,{\"children\":\"$La\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Lb\",null,{\"children\":[\"$\",\"$7\",null,{\"name\":\"Next.Metadata\",\"children\":\"$Lc\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$d\",[]],\"S\":true}\n"])</script><script>self.__next_f.push([1,"a:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])</script><script>self.__next_f.push([1,"8:null\nc:[[\"$\",\"title\",\"0\",{\"children\":\"dj-stripe - Stripe Made Easy for Django Developers\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"The easiest way to integrate Stripe with your Django project. Handle payments, subscriptions, and webhooks with just a few lines of code.\"}]]\n"])</script><script>self.__next_f.push([1,"e:I[73477,[\"/_next/static/chunks/a91aed018f1fbf4b.js\",\"/_next/static/chunks/c4f00520444ed76b.js\"],\"Navigation\"]\nf:I[85170,[\"/_next/static/chunks/a91aed018f1fbf4b.js\",\"/_next/static/chunks/c4f00520444ed76b.js\"],\"VersionSelector\"]\n10:I[22016,[\"/_next/static/chunks/a91aed018f1fbf4b.js\",\"/_next/static/chunks/c4f00520444ed76b.js\"],\"\"]\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"div\",null,{\"className\":\"min-h-screen bg-white dark:bg-gray-900\",\"children\":[[\"$\",\"$Le\",null,{\"className\":\"sticky top-0 bg-white dark:bg-gray-900 z-10\",\"children\":[\"$\",\"$Lf\",null,{\"currentVersion\":\"2.9\",\"versions\":[\"2.10\",\"2.9\",\"2.8\",\"2.7\",\"2.6\",\"2.5\",\"dev\"],\"currentPath\":\"history/0_x\"}]}],[\"$\",\"div\",null,{\"className\":\"container mx-auto px-6 py-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex gap-8\",\"children\":[[\"$\",\"aside\",null,{\"className\":\"w-64 flex-shrink-0\",\"children\":[\"$\",\"nav\",null,{\"className\":\"sticky top-24\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"font-semibold mb-4\",\"children\":\"Documentation\"}],[\"$\",\"ul\",null,{\"className\":\"space-y-2\",\"children\":[[\"$\",\"li\",\"\",{\"children\":[[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9\",\"className\":\"block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors \",\"children\":\"Getting Started\"}],[\"$\",\"ul\",null,{\"className\":\"ml-4 mt-2 space-y-1\",\"children\":[[\"$\",\"li\",\"/installation\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/installation\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Installation\"}]}],[\"$\",\"li\",\"/api_keys\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/api_keys\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"API Keys\"}]}],[\"$\",\"li\",\"/api_versions\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/api_versions\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"API Versions\"}]}],[\"$\",\"li\",\"/upgrade_dj_stripe\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/upgrade_dj_stripe\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Upgrade Guide\"}]}]]}]]}],[\"$\",\"li\",\"/usage\",{\"children\":[[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/usage\",\"className\":\"block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors \",\"children\":\"Usage\"}],[\"$\",\"ul\",null,{\"className\":\"ml-4 mt-2 space-y-1\",\"children\":[[\"$\",\"li\",\"/usage/webhooks\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/usage/webhooks\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Webhooks\"}]}],[\"$\",\"li\",\"/usage/subscribing_customers\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/usage/subscribing_customers\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Subscribing Customers\"}]}],[\"$\",\"li\",\"/usage/add_payment_method_to_customer\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/usage/add_payment_method_to_customer\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Payment Methods\"}]}],[\"$\",\"li\",\"/usage/managing_subscriptions\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/usage/managing_subscriptions\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Managing Subscriptions\"}]}],[\"$\",\"li\",\"/usage/using_stripe_checkout\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/usage/using_stripe_checkout\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Stripe Checkout\"}]}],[\"$\",\"li\",\"/usage/manually_syncing_with_stripe\",{\"children\":[\"$\",\"$L10\",null,{\"href\":\"/docs/2.9/usage/manually_syncing_with_stripe\",\"className\":\"block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-400\",\"children\":\"Manual Syncing\"}]}]]}]]}]]}]]}]}],[\"$\",\"main\",null,{\"className\":\"flex-1 max-w-4xl\",\"children\":\"$L11\"}]]}]}]]}]\n"])</script><script>self.__next_f.push([1,"11:[\"$\",\"article\",null,{\"className\":\"prose prose-lg max-w-none\",\"children\":\"$L12\"}]\n"])</script><script>self.__next_f.push([1,"12:[[\"$\",\"h1\",null,{\"children\":\"dj-stripe 0.x release notes\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"0.8.0 (2015-12-30)\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"better plan ordering documentation (Thanks @cjrh)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"added a confirmation page when choosing a subscription (Thanks\\n@chrissmejia, @areski)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"setup.py reverse dependency fix (#258/#268) (Thanks @ticosax)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Dropped official support for Django 1.7 (no code changes were made)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Python 3.5 support, Django 1.9.1 support\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Migration improvements (Thanks @michi88)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed \\\"Invoice matching query does not exist\\\" bug (#263)\\n(Thanks @mthornhill)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed duplicate content in account view (Thanks @areski)\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"0.7.0 (2015-09-22)\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"dj-stripe now responds to the invoice.created event\\n(Thanks @wahuneke)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"dj-stripe now cancels subscriptions and purges customers during sync\\nif they were deleted from the stripe dashboard (Thanks @unformatt)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"dj-stripe now checks for an active stripe subscription in the\\n\",[\"$\",\"code\",null,{\"children\":\"update_plan_quantity\"}],\" call (Thanks @ctrengove)\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Event processing is now handled by \\\"event handlers\\\" - functions\\noutside of models that respond to various event types and subtypes.\\nDocumentation on how to tie into the event handler system coming\\nsoon. (Thanks @wahuneke)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Experimental Python 3.5 support\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Support for Django 1.6 and lower is now officially gone.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Much, much more!\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"0.6.0 (2015-07-12)\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Support for Django 1.6 and lower is now deprecated.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Improved test harness now tests coverage and pep8\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"SubscribeFormView and ChangePlanView no longer populate self.error\\nwith form errors\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"InvoiceItems.plan can now be null (as it is with individual\\ncharges), resolving #140 (Thanks @awechsler and @MichelleGlauser\\nfor help troubleshooting)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Email templates are now packaged during distribution.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"sync_plans now takes an optional api_key\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"100% test coverage\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Stripe ID is now returned as part of each model's str method\\n(Thanks @areski)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Customer model now stores card expiration month and year\\n(Thanks @jpadilla)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Ability to extend subscriptions (Thanks @TigerDX)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Support for plan heirarchies (Thanks @chrissmejia)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Rest API endpoints for Subscriptions [contrib]\\n(Thanks @philippeluickx)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Admin interface search by email funtionality is removed (#221)\\n(Thanks @jpadilla)\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"0.5.0 (2015-05-25)\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Began deprecation of support for Django 1.6 and lower.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added formal support for Django 1.8.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Removed the StripeSubscriptionSignupForm\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Removed \",[\"$\",\"code\",null,{\"children\":\"djstripe.safe_settings\"}],\". Settings are now all located in\\n\",[\"$\",\"code\",null,{\"children\":\"djstripe.settings\"}]]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"DJSTRIPE_TRIAL_PERIOD_FOR_SUBSCRIBER_CALLBACK\"}],\" can no longer be a\\nmodule string\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"The sync_subscriber argument has been renamed from\\nsubscriber_model to subscriber\"}],\"\\n\",\"$L13\",\"\\n\",\"$L14\",\"\\n\",\"$L15\",\"\\n\",\"$L16\",\"\\n\",\"$L17\",\"\\n\",\"$L18\",\"\\n\",\"$L19\",\"\\n\"]}],\"\\n\",\"$L1a\",\"\\n\",\"$L1b\",\"\\n\",\"$L1c\",\"\\n\",\"$L1d\",\"\\n\",\"$L1e\",\"\\n\",\"$L1f\",\"\\n\",\"$L20\",\"\\n\",\"$L21\",\"\\n\",\"$L22\",\"\\n\",\"$L23\",\"\\n\",\"$L24\",\"\\n\",\"$L25\",\"\\n\",\"$L26\",\"\\n\",\"$L27\",\"\\n\",\"$L28\",\"\\n\",\"$L29\",\"\\n\",\"$L2a\",\"\\n\",\"$L2b\",\"\\n\",\"$L2c\",\"\\n\",\"$L2d\",\"\\n\",\"$L2e\",\"\\n\",\"$L2f\",\"\\n\",\"$L30\",\"\\n\",\"$L31\",\"\\n\",\"$L32\",\"\\n\",\"$L33\",\"\\n\",\"$L34\",\"\\n\",\"$L35\",\"\\n\",\"$L36\",\"\\n\",\"$L37\",\"\\n\",\"$L38\",\"\\n\",\"$L39\",\"\\n\",\"$L3a\",\"\\n\",\"$L3b\",\"\\n\",\"$L3c\",\"\\n\",\"$L3d\",\"\\n\",\"$L3e\",\"\\n\",\"$L3f\",\"\\n\",\"$L40\",\"\\n\",\"$L41\",\"\\n\",\"$L42\",\"\\n\",\"$L43\",\"\\n\",\"$L44\",\"\\n\",\"$L45\",\"\\n\",\"$L46\",\"\\n\",\"$L47\",\"\\n\",\"$L48\",\"\\n\",\"$L49\",\"\\n\",\"$L4a\",\"\\n\",\"$L4b\"]\n"])</script><script>self.__next_f.push([1,"13:[\"$\",\"li\",null,{\"children\":\"Moved available currencies to the DJSTRIPE_CURRENCIES setting\\n(Thanks @martinhill)\"}]\n14:[\"$\",\"li\",null,{\"children\":\"Allow passing of extra parameters to stripe Charge API\\n(Thanks @mthornhill)\"}]\n15:[\"$\",\"li\",null,{\"children\":\"Support for all available arguments when syncing plans\\n(Thanks @jamesbrobb)\"}]\n16:[\"$\",\"li\",null,{\"children\":\"charge.refund() now returns the refunded charge object\\n(Thanks @mthornhill)\"}]\n17:[\"$\",\"li\",null,{\"children\":\"Charge model now has captured field and a capture method\\n(Thanks @mthornhill)\"}]\n18:[\"$\",\"li\",null,{\"children\":\"Subscription deleted webhook bugfix\"}]\n19:[\"$\",\"li\",null,{\"children\":\"South migrations are now up to date (Thanks @Tyrdall)\"}]\n1a:[\"$\",\"h2\",null,{\"children\":\"0.4.0 (2015-04-05)\"}]\n"])</script><script>self.__next_f.push([1,"1b:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Formal Python 3.3+/Django 1.7 Support (including migrations)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Removed Python 2.6 from Travis CI build. (Thanks @audreyr)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Dropped Django 1.4 support. (Thanks @audreyr)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Deprecated the \",[\"$\",\"code\",null,{\"children\":\"djstripe.forms.StripeSubscriptionSignupForm\"}],\". Making\\nthis form work easily with both \",[\"$\",\"code\",null,{\"children\":\"dj-stripe\"}],\" and \",[\"$\",\"code\",null,{\"children\":\"django-allauth\"}],\"\\nrequired too much abstraction. It will be removed in the 0.5.0\\nrelease.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Add the ability to add invoice items for a customer (Thanks @kavdev)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Add the ability to use a custom customer model (Thanks @kavdev)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added setting to disable Invoice receipt emails (Thanks Chris\\nHalpert)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Enable proration when customer upgrades plan, and pass proration\\npolicy and cancellation at period end for upgrades in settings.\\n(Thanks Yasmine Charif)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Removed the redundant context processor. (Thanks @kavdev)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed create a token call in change_card.html (Thanks @dollydagr)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Fix \",[\"$\",\"code\",null,{\"children\":\"charge.dispute.closed\"}],\" typo. (Thanks @ipmb)\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix contributing docs formatting. (Thanks @audreyr)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix subscription canceled_at_period_end field sync on plan\\nupgrade (Thanks @nigma)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Remove \\\"account\\\" bug in Middleware (Thanks @sromero84)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix correct plan selection on subscription in subscribe_form\\ntemplate. (Thanks Yasmine Charif)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix subscription status in account, _subscription_status, and\\ncancel_subscription templates. (Thanks Yasmine Charif)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Now using \",[\"$\",\"code\",null,{\"children\":\"user.get_username()\"}],\" instead of \",[\"$\",\"code\",null,{\"children\":\"user.username\"}],\", to\\nsupport custom User models. (Thanks @shvechikov)\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Update remaining DOM Ids for Bootstrap 3. (Thanks Yasmine Charif)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Update publish command in setup.py. (Thanks @pydanny)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Explicitly specify tox's virtual environment names.\\n(Thanks @audreyr)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Manually call django.setup() to populate apps registry.\\n(Thanks @audreyr)\"}],\"\\n\"]}]\n"])</script><script>self.__next_f.push([1,"1c:[\"$\",\"h2\",null,{\"children\":\"0.3.5 (2014-05-01)\"}]\n1d:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Fixed \",[\"$\",\"code\",null,{\"children\":\"djstripe_init_customers\"}],\" management command so it works with\\ncustom user models.\"]}],\"\\n\"]}]\n1e:[\"$\",\"h2\",null,{\"children\":\"0.3.4 (2014-05-01)\"}]\n1f:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Clarify documentation for redirects on app_name.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"If settings.DEBUG is True, then django-debug-toolbar is exempt from\\nredirect to subscription form.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Use collections.OrderedDict to ensure that plans are listed in order\\nof price.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Add \",[\"$\",\"code\",null,{\"children\":\"ordereddict\"}],\" library to support Python 2.6 users.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Switch from \",[\"$\",\"code\",null,{\"children\":\"__unicode__\"}],\" to \",[\"$\",\"code\",null,{\"children\":\"__str__\"}],\" methods on models to better\\nsupport Python 3.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Add \",[\"$\",\"code\",null,{\"children\":\"python_2_unicode_compatible\"}],\" decorator to Models.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Check for PY3 so the \",[\"$\",\"code\",null,{\"children\":\"unicode(self.user)\"}],\" in models.Customer doesn't\\nblow up in Python 3.\"]}],\"\\n\"]}]\n20:[\"$\",\"h2\",null,{\"children\":\"0.3.3 (2014-04-24)\"}]\n21:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Increased the extendability of the views by removing as many\\nhard-coded URLs as possible and replacing them with \",[\"$\",\"code\",null,{\"children\":\"success_url\"}],\"\\nand other attributes/methods.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added single unit purchasing to the cookbook\"}],\"\\n\"]}]\n22:[\"$\",\"h2\",null,{\"children\":\"0.3.2 (2014-01-16)\"}]\n23:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Made Yasmine Charif a core committer\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Take into account trial days in a subscription plan (Thanks Yasmine\\nCharif)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Correct invoice period end value (Thanks Yasmine Charif)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Make plan cancellation and plan change consistently not prorating\\n(Thanks Yasmine Charif)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix circular import when ACCOUNT_SIGNUP_FORM_CLASS is defined\\n(Thanks Dustin Farris)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Add send e-mail receipt action in charges admin panel (Thanks Buddy\\nLindsay)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Add \",[\"$\",\"code\",null,{\"children\":\"created\"}],\" field to all ModelAdmins to help with internal\\nauditing (Thanks Kulbir Singh)\"]}],\"\\n\"]}]\n24:[\"$\",\"h2\",null,{\"children\":\"0.3.1 (2013-11-14)\"}]\n25:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cancellation fix (Thanks Yasmine Charif)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Add setup.cfg for wheel generation (Thanks Charlie Denton)\"}],\"\\n\"]}]\n26:[\"$\",\"h2\",null,{\"children\":\"0.3.0 (2013-11-12)\"}]\n27:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fully tested against Django 1.6, 1.5, and 1.4\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Fix boolean default issue in models (from now on they are all\\ndefault to \",[\"$\",\"code\",null,{\"children\":\"False\"}],\").\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Replace duplicated code with\\n\",[\"$\",\"code\",null,{\"children\":\"djstripe.utils.user_has_active_subscription\"}],\".\"]}],\"\\n\"]}]\n28:[\"$\",\"h2\",null,{\"children\":\"0.2.9 (2013-09-06)\"}]\n29:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cancellation added to views.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Support for kwargs on charge and invoice fetching.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"def charge() now supports send_receipt flag, default to True.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed templates to work with Bootstrap 3.0.0 column design.\"}],\"\\n\"]}]\n2a:[\"$\",\"h2\",null,{\"children\":\"0.2.8 (2013-09-02)\"}]\n2b:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Improved usage documentation.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Corrected order of fields in StripeSubscriptionSignupForm.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Corrected transaction history tem"])</script><script>self.__next_f.push([1,"plate layout.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Updated models to take into account when settings.USE_TZ is\\ndisabled.\"}],\"\\n\"]}]\n2c:[\"$\",\"h2\",null,{\"children\":\"0.2.7 (2013-08-24)\"}]\n2d:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Add handy rest_framework permission class.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixing attribution for django-stripe-payments.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Add new status to Invoice model.\"}],\"\\n\"]}]\n2e:[\"$\",\"h2\",null,{\"children\":\"0.2.6 (2013-08-20)\"}]\n2f:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Changed name of division tag to djdiv.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Added \",[\"$\",\"code\",null,{\"children\":\"safe_setting.py\"}],\" module to handle edge cases when working\\nwith custom user models.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added cookbook page in the documentation.\"}],\"\\n\"]}]\n30:[\"$\",\"h2\",null,{\"children\":\"0.2.5 (2013-08-18)\"}]\n31:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed bug in initial checkout\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"You can't purchase the same plan that you currently have.\"}],\"\\n\"]}]\n32:[\"$\",\"h2\",null,{\"children\":\"0.2.4 (2013-08-18)\"}]\n33:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Recursive package finding.\"}],\"\\n\"]}]\n34:[\"$\",\"h2\",null,{\"children\":\"0.2.3 (2013-08-16)\"}]\n35:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix packaging so all submodules are loaded\"}],\"\\n\"]}]\n36:[\"$\",\"h2\",null,{\"children\":\"0.2.2 (2013-08-15)\"}]\n37:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added Registration + Subscription form\"}],\"\\n\"]}]\n38:[\"$\",\"h2\",null,{\"children\":\"0.2.1 (2013-08-12)\"}]\n39:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed a bug on CurrentSubscription tests\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Improved usage documentation\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added to migration from other tools documentation\"}],\"\\n\"]}]\n3a:[\"$\",\"h2\",null,{\"children\":\"0.2.0 (2013-08-12)\"}]\n3b:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Cancellation of plans now works.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Upgrades and downgrades of plans now work.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Changing of cards now works.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added breadcrumbs to improve navigation.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Improved installation instructions.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Consolidation of test instructions.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Minor improvement to django-stripe-payments documentation\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added coverage.py to test process.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added south migrations.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed the subscription_payment_required function-based view\\ndecorator.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Removed unnecessary django-crispy-forms\"}],\"\\n\"]}]\n3c:[\"$\",\"h2\",null,{\"children\":\"0.1.7 (2013-08-08)\"}]\n3d:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Middleware excepts all of the djstripe namespaced URLs. This way\\npeople can pay.\"}],\"\\n\"]}]\n3e:[\"$\",\"h2\",null,{\"children\":\"0.1.6 (2013-08-08)\"}]\n3f:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed a couple template paths\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed the manifest so we include html, images.\"}],\"\\n\"]}]\n40:[\"$\",\"h2\",null,{\"children\":\"0.1.5 (2013-08-08)\"}]\n41:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fixed the manifest so we include html, css, js, images.\"}],\"\\n\"]}]\n42:[\"$\",\"h2\",null,{\"children\":\"0.1.4 (2013-08-08)\"}]\n43:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Change PaymentRequiredMixin to SubscriptionPaymentRequiredMixin\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Add subscription_payment_required function-based view decorator\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added SubscriptionPaymentRedirectMiddleware\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Much nicer accounts view display\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Much improved subscription form display\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Payment plans can have decimals\"}],\"\\n\",[\"$\",\"li\",null,"])</script><script>self.__next_f.push([1,"{\"children\":\"Payment plans can have custom images\"}],\"\\n\"]}]\n44:[\"$\",\"h2\",null,{\"children\":\"0.1.3 (2013-08-7)\"}]\n45:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added account view\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added Customer.get_or_create method\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Added djstripe_sync_customers management command\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"sync file for all code that keeps things in sync with stripe\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Use client-side JavaScript to get history data asynchronously\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"More user friendly action views\"}],\"\\n\"]}]\n46:[\"$\",\"h2\",null,{\"children\":\"0.1.2 (2013-08-6)\"}]\n47:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Admin working\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Better publish statement\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Fix dependencies\"}],\"\\n\"]}]\n48:[\"$\",\"h2\",null,{\"children\":\"0.1.1 (2013-08-6)\"}]\n49:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Ported internals from django-stripe-payments\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Began writing the views\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Travis-CI\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"All tests passing on Python 2.7 and 3.3\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"All tests passing on Django 1.4 and 1.5\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Began model cleanup\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Better form\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Provide better response from management commands\"}],\"\\n\"]}]\n4a:[\"$\",\"h2\",null,{\"children\":\"0.1.0 (2013-08-5)\"}]\n4b:[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"First release on PyPI.\"}],\"\\n\"]}]\n"])</script></body></html>
