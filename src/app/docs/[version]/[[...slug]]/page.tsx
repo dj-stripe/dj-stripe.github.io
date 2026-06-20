@@ -109,6 +109,10 @@ export default async function DocumentationPage({ params }: PageProps) {
 								options={{
 									parseFrontmatter: true,
 									mdxOptions: {
+										// Docs are plain Markdown (MkDocs/CommonMark),
+										// not MDX. Parsing as "md" avoids treating
+										// `{...}` in code blocks as JSX expressions.
+										format: "md",
 										remarkPlugins: [remarkGfm],
 										rehypePlugins: [rehypeHighlight],
 									},

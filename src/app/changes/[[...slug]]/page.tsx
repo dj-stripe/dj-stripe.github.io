@@ -73,6 +73,10 @@ export default async function ChangelogPage({ params }: PageProps) {
 								options={{
 									parseFrontmatter: true,
 									mdxOptions: {
+										// Changelog is plain Markdown, not MDX.
+										// Parsing as "md" avoids treating `{...}`
+										// in code blocks as JSX expressions.
+										format: "md",
 										remarkPlugins: [remarkGfm],
 										rehypePlugins: [rehypeHighlight],
 									},
