@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 
 export default function AboutPage() {
 	return (
-		<div className="min-h-screen bg-white dark:bg-gray-900">
+		<div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
 			<Navigation />
 
-			<main className="container mx-auto px-6 py-16 max-w-4xl">
+			<main className="container mx-auto flex-1 px-6 py-16 max-w-4xl">
 				<h1 className="text-4xl font-bold mb-8">About dj-stripe</h1>
 
 				<section className="prose prose-lg dark:prose-invert max-w-none">
@@ -177,6 +178,8 @@ export default function AboutPage() {
 					</p>
 				</section>
 			</main>
+
+			<Footer />
 		</div>
 	);
 }

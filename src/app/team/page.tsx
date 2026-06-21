@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -57,10 +58,10 @@ const formerCoreContributors = [
 
 export default function TeamPage() {
 	return (
-		<div className="min-h-screen bg-white dark:bg-gray-900">
+		<div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
 			<Navigation />
 
-			<main className="container mx-auto px-6 py-16 max-w-6xl">
+			<main className="container mx-auto flex-1 px-6 py-16 max-w-6xl">
 				<h1 className="text-4xl font-bold text-center mb-12">Meet the Team</h1>
 
 				{/* Core Team */}
@@ -251,6 +252,8 @@ export default function TeamPage() {
 					</Link>
 				</section>
 			</main>
+
+			<Footer />
 		</div>
 	);
 }

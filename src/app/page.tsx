@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -351,6 +352,8 @@ export default function HomePage() {
 					</a>
 				</div>
 			</section>
+
+			<Footer />
 		</div>
 	);
 }

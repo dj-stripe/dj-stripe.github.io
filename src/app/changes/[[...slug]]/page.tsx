@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { getChangelogContent, getAllChangelogPaths } from "@/lib/docs";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -37,10 +38,10 @@ export default async function ChangelogPage({ params }: PageProps) {
 	];
 
 	return (
-		<div className="min-h-screen bg-white dark:bg-gray-900">
+		<div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
 			<Navigation className="sticky top-0 bg-white dark:bg-gray-900 z-10" />
 
-			<div className="container mx-auto px-6 py-8">
+			<div className="container mx-auto flex-1 px-6 py-8">
 				<div className="flex gap-8">
 					<aside className="w-64 flex-shrink-0">
 						<nav className="sticky top-24">
@@ -91,6 +92,8 @@ export default async function ChangelogPage({ params }: PageProps) {
 					</main>
 				</div>
 			</div>
+
+			<Footer />
 		</div>
 	);
 }

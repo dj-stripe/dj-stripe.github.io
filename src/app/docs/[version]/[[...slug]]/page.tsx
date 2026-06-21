@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { VersionSelector } from "@/components/version-selector";
 import {
@@ -48,7 +49,7 @@ export default async function DocumentationPage({ params }: PageProps) {
 	const navigation = await getNavigation();
 
 	return (
-		<div className="min-h-screen bg-white dark:bg-gray-900">
+		<div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
 			<Navigation className="sticky top-0 bg-white dark:bg-gray-900 z-10">
 				<VersionSelector
 					currentVersion={version}
@@ -57,7 +58,7 @@ export default async function DocumentationPage({ params }: PageProps) {
 				/>
 			</Navigation>
 
-			<div className="container mx-auto px-6 py-8">
+			<div className="container mx-auto flex-1 px-6 py-8">
 				<div className="flex gap-8">
 					<aside className="w-64 flex-shrink-0">
 						<nav className="sticky top-24">
@@ -127,6 +128,8 @@ export default async function DocumentationPage({ params }: PageProps) {
 					</main>
 				</div>
 			</div>
+
+			<Footer />
 		</div>
 	);
 }

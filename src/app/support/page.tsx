@@ -1,14 +1,15 @@
 "use client";
 
+import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import Link from "next/link";
 
 export default function SupportPage() {
 	return (
-		<div className="min-h-screen bg-white dark:bg-gray-900">
+		<div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
 			<Navigation />
 
-			<main className="container mx-auto px-6 py-16 max-w-4xl">
+			<main className="container mx-auto flex-1 px-6 py-16 max-w-4xl">
 				<h1 className="text-4xl font-bold mb-8">Getting Support</h1>
 
 				<div className="prose prose-lg dark:prose-invert max-w-none">
@@ -201,6 +202,8 @@ export default function SupportPage() {
 					</Link>
 				</div>
 			</main>
+
+			<Footer />
 		</div>
 	);
 }
