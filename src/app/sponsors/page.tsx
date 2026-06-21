@@ -76,13 +76,13 @@ export default function SponsorsPage() {
 						className="block p-8 border-2 border-blue-200 dark:border-blue-800 rounded-xl hover:shadow-xl transition-shadow bg-blue-50 dark:bg-blue-900/20"
 					>
 						<div className="flex flex-col items-center text-center">
-							<div className="h-32 flex items-center justify-center mb-6">
+							<div className="h-32 w-full flex items-center justify-center mb-6 rounded-xl bg-white border border-blue-100 p-6">
 								<Image
 									src={platinumSponsor.logo}
 									alt={platinumSponsor.name}
 									width={200}
 									height={80}
-									className="object-contain"
+									className="max-h-full w-auto object-contain"
 								/>
 							</div>
 							<h3 className="text-2xl font-semibold mb-3">
@@ -103,16 +103,16 @@ export default function SponsorsPage() {
 							href={sponsor.url}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="block p-6 border border-gray-200 dark:border-gray-800 rounded-lg hover:shadow-lg transition-shadow"
+							className="group block p-6 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-lg transition-all"
 						>
 							<div className="flex flex-col items-center text-center">
-								<div className="h-24 flex items-center justify-center mb-4">
+								<div className="h-24 w-full flex items-center justify-center mb-4 rounded-lg bg-white border border-gray-100 p-4">
 									<Image
 										src={sponsor.logo}
 										alt={sponsor.name}
 										width={150}
 										height={60}
-										className="object-contain"
+										className="max-h-full w-auto object-contain"
 									/>
 								</div>
 								<h3 className="text-xl font-semibold mb-2">

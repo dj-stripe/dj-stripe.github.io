@@ -43,7 +43,7 @@ export default async function ChangelogPage({ params }: PageProps) {
 
 			<div className="container mx-auto flex-1 px-6 py-8">
 				<div className="flex gap-8">
-					<aside className="w-64 flex-shrink-0">
+					<aside className="hidden lg:block w-64 flex-shrink-0">
 						<nav className="sticky top-24">
 							<h3 className="font-semibold mb-4">Changelog</h3>
 							<ul className="space-y-2">

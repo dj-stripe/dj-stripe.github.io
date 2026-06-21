@@ -179,7 +179,7 @@ export default function TeamPage() {
 							href="https://ingram.tech"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-block mb-6 hover:opacity-80 transition-opacity"
+							className="inline-block mb-6 rounded-lg bg-white border border-gray-100 px-8 py-5 hover:opacity-80 transition-opacity"
 						>
 							<Image
 								src="/ingram-tech-logo.png"
