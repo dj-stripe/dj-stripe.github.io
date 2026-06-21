@@ -17,10 +17,10 @@ function isValidRepoData(data: unknown): data is GitHubRepo {
 
 	const repo = data as Record<string, unknown>;
 	return (
-		typeof repo.stargazers_count === "number" &&
-		Number.isFinite(repo.stargazers_count) &&
-		typeof repo.forks_count === "number" &&
-		Number.isFinite(repo.forks_count)
+		typeof repo.stargazers_count === "number"
+		&& Number.isFinite(repo.stargazers_count)
+		&& typeof repo.forks_count === "number"
+		&& Number.isFinite(repo.forks_count)
 	);
 }
 
@@ -72,8 +72,7 @@ export function GitHubRepoWidget() {
 			setLoading(false);
 		}
 
-		const isCacheFresh =
-			cached && Date.now() - cached.time < CACHE_TTL_MS;
+		const isCacheFresh = cached && Date.now() - cached.time < CACHE_TTL_MS;
 		if (isCacheFresh) {
 			return () => {
 				ignore = true;
@@ -81,10 +80,7 @@ export function GitHubRepoWidget() {
 		}
 
 		const controller = new AbortController();
-		const timeoutId = window.setTimeout(
-			() => controller.abort(),
-			FETCH_TIMEOUT_MS
-		);
+		const timeoutId = window.setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
 		const fetchRepo = async () => {
 			try {
@@ -95,7 +91,7 @@ export function GitHubRepoWidget() {
 						headers: {
 							Accept: "application/vnd.github+json",
 						},
-					}
+					},
 				);
 
 				if (!response.ok) {

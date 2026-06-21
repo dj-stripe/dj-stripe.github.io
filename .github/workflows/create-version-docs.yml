@@ -15,12 +15,12 @@ jobs:
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Checkout dj-stripe repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: dj-stripe
 
       - name: Checkout dj-stripe.github.io repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: dj-stripe/dj-stripe.github.io
           path: dj-stripe.github.io

@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout website
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Checkout docs-content
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: dj-stripe/docs-content
           path: docs-content

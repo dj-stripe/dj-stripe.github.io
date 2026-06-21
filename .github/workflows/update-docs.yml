@@ -19,12 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout documentation site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout docs-content
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: dj-stripe/docs-content
           path: docs-content
