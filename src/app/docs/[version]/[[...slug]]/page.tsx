@@ -61,50 +61,56 @@ export default async function DocumentationPage({ params }: PageProps) {
 			<div className="container mx-auto flex-1 px-6 py-8">
 				<div className="flex gap-8">
 					<aside className="hidden lg:block w-64 flex-shrink-0">
-						<nav className="sticky top-24">
-							<h3 className="font-semibold mb-4">Documentation</h3>
-							<ul className="space-y-2">
-								{navigation.map((item) => (
-									<li key={item.path}>
-										<Link
-											href={`/docs/${version}${item.path}`}
-											className={`block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${
-												item.path === `/${filePath}`
-												|| (item.path === ""
-													&& filePath === "index")
-													? "bg-blue-50 dark:bg-blue-900/20 text-blue-600"
-													: ""
-											}`}
-										>
-											{item.title}
-										</Link>
-										{item.children && (
-											<ul className="ml-4 mt-2 space-y-1">
-												{item.children.map((child) => (
-													<li key={child.path}>
-														<Link
-															href={`/docs/${version}${child.path}`}
-															className={`block px-3 py-1 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${
-																child.path
-																=== `/${filePath}`
-																	? "bg-blue-50 dark:bg-blue-900/20 text-blue-600"
-																	: "text-gray-600 dark:text-gray-400"
-															}`}
-														>
-															{child.title}
-														</Link>
-													</li>
-												))}
-											</ul>
-										)}
-									</li>
-								))}
+						<nav className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2 pb-8">
+							<p className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+								Documentation
+							</p>
+							<ul className="space-y-6">
+								{navigation.map((item) => {
+									const isActive = (path: string) =>
+										path === `/${filePath}`
+										|| (path === "" && filePath === "index");
+									return (
+										<li key={item.path}>
+											<Link
+												href={`/docs/${version}${item.path}`}
+												className={`block text-sm font-semibold transition-colors ${
+													isActive(item.path)
+														? "text-blue-600 dark:text-blue-400"
+														: "text-gray-900 hover:text-blue-600 dark:text-gray-100 dark:hover:text-blue-400"
+												}`}
+											>
+												{item.title}
+											</Link>
+											{item.children && (
+												<ul className="mt-2 space-y-px border-l border-gray-200 dark:border-gray-800">
+													{item.children.map((child) => (
+														<li key={child.path}>
+															<Link
+																href={`/docs/${version}${child.path}`}
+																className={`-ml-px block border-l-2 py-1.5 pl-4 text-sm transition-colors ${
+																	isActive(
+																		child.path,
+																	)
+																		? "border-blue-600 font-medium text-blue-600 dark:border-blue-400 dark:text-blue-400"
+																		: "border-transparent text-gray-600 hover:border-gray-300 hover:text-gray-900 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-100"
+																}`}
+															>
+																{child.title}
+															</Link>
+														</li>
+													))}
+												</ul>
+											)}
+										</li>
+									);
+								})}
 							</ul>
 						</nav>
 					</aside>
 
-					<main className="flex-1 max-w-4xl">
-						<article className="prose prose-lg max-w-none">
+					<main className="min-w-0 flex-1 max-w-3xl">
+						<article className="prose max-w-none">
 							<MDXRemote
 								source={content}
 								options={{

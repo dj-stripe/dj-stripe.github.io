@@ -56,7 +56,7 @@ export function Navigation({
 						</Link>
 
 						{/* Desktop Navigation */}
-						<div className="hidden lg:flex gap-6 items-center">
+						<div className="hidden lg:flex gap-3 xl:gap-6 items-center">
 							{navLinks.map((link) => (
 								<Link
 									key={link.href}
