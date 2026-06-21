@@ -1,130 +1,127 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import { Command } from "cmdk";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-interface SearchResult {
+interface SearchRecord {
 	title: string;
 	path: string;
+	section: string;
 	excerpt: string;
-	version: string;
+	headings: string[];
+	text: string;
+}
+
+interface ScoredRecord extends SearchRecord {
+	score: number;
+}
+
+const SECTION_ORDER = ["Documentation", "Changelog", "Pages"];
+const MAX_RESULTS = 24;
+
+function scoreRecord(record: SearchRecord, terms: string[]): number {
+	const title = record.title.toLowerCase();
+	const headings = record.headings.join(" \n ").toLowerCase();
+	let score = 0;
+
+	for (const term of terms) {
+		let termScore = 0;
+		if (title === term) termScore += 100;
+		else if (title.startsWith(term)) termScore += 60;
+		else if (title.includes(term)) termScore += 40;
+
+		if (headings.includes(term)) termScore += 12;
+		if (record.text.includes(term)) termScore += 5;
+
+		// Every term must match somewhere, otherwise this record is out.
+		if (termScore === 0) return 0;
+		score += termScore;
+	}
+
+	return score;
 }
 
 export function Search() {
-	const [isOpen, setIsOpen] = useState(false);
+	const router = useRouter();
+	const [open, setOpen] = useState(false);
 	const [query, setQuery] = useState("");
-	const [results, setResults] = useState<SearchResult[]>([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const searchRef = useRef<HTMLDivElement>(null);
-	const inputRef = useRef<HTMLInputElement>(null);
+	const [records, setRecords] = useState<SearchRecord[]>([]);
+	const [loaded, setLoaded] = useState(false);
+	const loadStarted = useRef(false);
 
-	// Close search when clicking outside
-	useEffect(() => {
-		function handleClickOutside(event: MouseEvent) {
-			if (
-				searchRef.current
-				&& !searchRef.current.contains(event.target as Node)
-			) {
-				setIsOpen(false);
-			}
+	const loadIndex = useCallback(async () => {
+		if (loadStarted.current) return;
+		loadStarted.current = true;
+		try {
+			const res = await fetch("/search-index.json");
+			if (!res.ok) throw new Error(`Search index error: ${res.status}`);
+			const data = (await res.json()) as SearchRecord[];
+			setRecords(data);
+		} catch {
+			setRecords([]);
+		} finally {
+			setLoaded(true);
 		}
-
-		document.addEventListener("mousedown", handleClickOutside);
-		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, []);
 
-	// Keyboard shortcuts
+	// Cmd/Ctrl+K toggles the palette from anywhere.
 	useEffect(() => {
-		function handleKeyDown(event: KeyboardEvent) {
-			// Cmd/Ctrl + K to open search
-			if ((event.metaKey || event.ctrlKey) && event.key === "k") {
+		function onKeyDown(event: KeyboardEvent) {
+			if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
 				event.preventDefault();
-				setIsOpen(true);
-				setTimeout(() => inputRef.current?.focus(), 0);
-			}
-			// Escape to close
-			if (event.key === "Escape") {
-				setIsOpen(false);
+				setOpen((prev) => !prev);
 			}
 		}
-
-		document.addEventListener("keydown", handleKeyDown);
-		return () => document.removeEventListener("keydown", handleKeyDown);
+		document.addEventListener("keydown", onKeyDown);
+		return () => document.removeEventListener("keydown", onKeyDown);
 	}, []);
 
-	// Mock search function - in a real app, this would call an API
-	const performSearch = async (searchQuery: string) => {
-		if (!searchQuery.trim()) {
-			setResults([]);
-			return;
+	useEffect(() => {
+		if (open) loadIndex();
+	}, [open, loadIndex]);
+
+	const grouped = useMemo(() => {
+		const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+		if (terms.length === 0) return [];
+
+		const scored: ScoredRecord[] = [];
+		for (const record of records) {
+			const score = scoreRecord(record, terms);
+			if (score > 0) scored.push({ ...record, score });
+		}
+		scored.sort((a, b) => b.score - a.score || a.title.localeCompare(b.title));
+
+		const top = scored.slice(0, MAX_RESULTS);
+		const bySection = new Map<string, ScoredRecord[]>();
+		for (const record of top) {
+			const list = bySection.get(record.section) ?? [];
+			list.push(record);
+			bySection.set(record.section, list);
 		}
 
-		setIsLoading(true);
-
-		// Simulate API delay
-		await new Promise((resolve) => setTimeout(resolve, 300));
-
-		// Mock search results
-		const mockResults: SearchResult[] = [
-			{
-				title: "Installation",
-				path: "/docs/latest/installation",
-				excerpt: "Learn how to install dj-stripe using pip or poetry...",
-				version: "latest",
-			},
-			{
-				title: "Webhooks",
-				path: "/docs/latest/usage/webhooks",
-				excerpt: "Configure webhook endpoints to receive events from Stripe...",
-				version: "latest",
-			},
-			{
-				title: "Customer Model",
-				path: "/docs/latest/reference/models#customer",
-				excerpt: "The Customer model represents a Stripe customer object...",
-				version: "latest",
-			},
-			{
-				title: "Subscribing Customers",
-				path: "/docs/latest/usage/subscribing_customers",
-				excerpt: "Guide to creating and managing customer subscriptions...",
-				version: "latest",
-			},
-			{
-				title: "API Keys",
-				path: "/docs/latest/api_keys",
-				excerpt:
-					"Configure your Stripe API keys for development and production...",
-				version: "latest",
-			},
-		].filter(
-			(result) =>
-				result.title.toLowerCase().includes(searchQuery.toLowerCase())
-				|| result.excerpt.toLowerCase().includes(searchQuery.toLowerCase()),
+		return SECTION_ORDER.filter((section) => bySection.has(section)).map(
+			(section) => ({ section, items: bySection.get(section)! }),
 		);
+	}, [query, records]);
 
-		setResults(mockResults);
-		setIsLoading(false);
-	};
+	const go = useCallback(
+		(path: string) => {
+			setOpen(false);
+			setQuery("");
+			router.push(path);
+		},
+		[router],
+	);
 
-	// Debounced search
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			performSearch(query);
-		}, 300);
-
-		return () => clearTimeout(timer);
-	}, [query]);
+	const openPalette = () => setOpen(true);
 
 	return (
-		<div ref={searchRef} className="relative">
-			{/* Search Button */}
+		<>
 			<button
-				onClick={() => {
-					setIsOpen(true);
-					setTimeout(() => inputRef.current?.focus(), 0);
-				}}
-				className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+				onClick={openPalette}
+				className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 rounded-md hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+				aria-label="Search documentation"
 			>
 				<svg
 					className="w-4 h-4"
@@ -140,101 +137,107 @@ export function Search() {
 					/>
 				</svg>
 				<span>Search</span>
-				<kbd className="hidden sm:inline-block px-1.5 py-0.5 text-xs bg-gray-200 dark:bg-gray-700 rounded">
+				<kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded">
 					⌘K
 				</kbd>
 			</button>
 
-			{/* Search Modal */}
-			{isOpen && (
-				<div className="absolute right-0 mt-2 w-full max-w-96 bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50">
-					<div className="p-4 border-b border-gray-200 dark:border-gray-700">
-						<div className="relative">
-							<svg
-								className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-								/>
-							</svg>
-							<input
-								ref={inputRef}
-								type="text"
-								value={query}
-								onChange={(e) => setQuery(e.target.value)}
-								placeholder="Search documentation..."
-								className="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
-							/>
-						</div>
-					</div>
-
-					{/* Search Results */}
-					<div className="max-h-96 overflow-y-auto">
-						{isLoading ? (
-							<div className="p-8 text-center text-gray-500 dark:text-gray-400">
-								Searching...
-							</div>
-						) : results.length > 0 ? (
-							<ul className="py-2">
-								{results.map((result, index) => (
-									<li key={index}>
-										<Link
-											href={result.path}
-											onClick={() => {
-												setIsOpen(false);
-												setQuery("");
-											}}
-											className="block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-										>
-											<div className="font-medium text-gray-900 dark:text-white">
-												{result.title}
-											</div>
-											<div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-												{result.excerpt}
-											</div>
-											<div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-												{result.path}
-											</div>
-										</Link>
-									</li>
-								))}
-							</ul>
-						) : query.trim() ? (
-							<div className="p-8 text-center text-gray-500 dark:text-gray-400">
-								No results found for "{query}"
-							</div>
-						) : (
-							<div className="p-8 text-center text-gray-500 dark:text-gray-400">
-								Start typing to search...
-							</div>
-						)}
-					</div>
-
-					{/* Footer */}
-					<div className="p-3 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
-						<div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-							<div>
-								<kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">
-									↑↓
-								</kbd>{" "}
-								to navigate
-							</div>
-							<div>
-								<kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">
-									esc
-								</kbd>{" "}
-								to close
-							</div>
-						</div>
-					</div>
+			<Command.Dialog
+				open={open}
+				onOpenChange={setOpen}
+				label="Search documentation"
+				shouldFilter={false}
+				loop
+				className="fixed left-1/2 top-[12vh] z-[100] w-[92vw] max-w-2xl -translate-x-1/2 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-900"
+				overlayClassName="fixed inset-0 z-[99] bg-gray-900/40 backdrop-blur-sm dark:bg-black/60"
+			>
+				<div className="flex items-center gap-3 border-b border-gray-200 px-4 dark:border-gray-700">
+					<svg
+						className="h-5 w-5 flex-shrink-0 text-gray-400"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+						/>
+					</svg>
+					<Command.Input
+						value={query}
+						onValueChange={setQuery}
+						placeholder="Search documentation, changelog, pages…"
+						className="flex-1 bg-transparent py-4 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none dark:text-gray-100"
+					/>
+					<kbd className="hidden flex-shrink-0 rounded border border-gray-200 px-1.5 py-0.5 text-[10px] font-medium text-gray-400 dark:border-gray-700 sm:inline-block">
+						ESC
+					</kbd>
 				</div>
-			)}
-		</div>
+
+				<Command.List className="max-h-[60vh] overflow-y-auto overscroll-contain p-2">
+					{!query.trim() ? (
+						<div className="px-3 py-10 text-center text-sm text-gray-400">
+							{loaded
+								? "Type to search the docs, changelog, and site."
+								: "Loading search index…"}
+						</div>
+					) : (
+						<>
+							<Command.Empty className="px-3 py-10 text-center text-sm text-gray-400">
+								No results for &ldquo;{query}&rdquo;
+							</Command.Empty>
+							{grouped.map(({ section, items }) => (
+								<Command.Group
+									key={section}
+									heading={section}
+									className="mb-2 [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-gray-400"
+								>
+									{items.map((item) => (
+										<Command.Item
+											key={item.path}
+											value={item.path}
+											onSelect={() => go(item.path)}
+											className="flex cursor-pointer flex-col gap-0.5 rounded-lg px-3 py-2.5 data-[selected=true]:bg-blue-50 dark:data-[selected=true]:bg-blue-900/30"
+										>
+											<span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+												{item.title}
+											</span>
+											{item.excerpt && (
+												<span className="line-clamp-1 text-xs text-gray-500 dark:text-gray-400">
+													{item.excerpt}
+												</span>
+											)}
+										</Command.Item>
+									))}
+								</Command.Group>
+							))}
+						</>
+					)}
+				</Command.List>
+
+				<div className="flex items-center justify-between border-t border-gray-200 bg-gray-50 px-4 py-2.5 text-xs text-gray-400 dark:border-gray-700 dark:bg-gray-800/50">
+					<div className="flex items-center gap-3">
+						<span className="flex items-center gap-1">
+							<kbd className="rounded border border-gray-200 px-1 dark:border-gray-700">
+								↑
+							</kbd>
+							<kbd className="rounded border border-gray-200 px-1 dark:border-gray-700">
+								↓
+							</kbd>
+							to navigate
+						</span>
+						<span className="flex items-center gap-1">
+							<kbd className="rounded border border-gray-200 px-1 dark:border-gray-700">
+								↵
+							</kbd>
+							to open
+						</span>
+					</div>
+					<span>dj-stripe</span>
+				</div>
+			</Command.Dialog>
+		</>
 	);
 }

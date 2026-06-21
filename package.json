@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"fetch-docs": "node scripts/fetch-docs-content.js",
-		"build": "npm run fetch-docs && next build",
+		"build-search-index": "node scripts/build-search-index.js",
+		"build": "npm run fetch-docs && npm run build-search-index && next build",
 		"start": "next start",
 		"lint": "next lint",
 		"format": "prettier --write src/ *.md *.json",
@@ -15,6 +16,7 @@
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^7.1.0",
 		"@tailwindcss/typography": "^0.5.19",
+		"cmdk": "^1.1.1",
 		"gray-matter": "^4.0.3",
 		"highlight.js": "^11.11.1",
 		"next": "16.1.1",

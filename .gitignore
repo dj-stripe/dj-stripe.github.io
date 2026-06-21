@@ -35,3 +35,6 @@ next-env.d.ts
 
 # documentation content (fetched during build)
 /docs-versions/
+
+# search index (generated from docs during build)
+/public/search-index.json
