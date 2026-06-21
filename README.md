@@ -32,8 +32,8 @@ curl -fsSL https://bun.sh/install | bash
 Clone the repository:
 
 ```bash
-git clone https://github.com/dj-stripe/dj-stripe.github.io.git
-cd dj-stripe.github.io
+git clone https://github.com/dj-stripe/dj-stripe.dev.git
+cd dj-stripe.dev
 ```
 
 Install dependencies:

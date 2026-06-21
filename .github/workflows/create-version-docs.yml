@@ -19,11 +19,11 @@ jobs:
         with:
           path: dj-stripe
 
-      - name: Checkout dj-stripe.github.io repo
+      - name: Checkout dj-stripe.dev repo
         uses: actions/checkout@v7
         with:
-          repository: dj-stripe/dj-stripe.github.io
-          path: dj-stripe.github.io
+          repository: dj-stripe/dj-stripe.dev
+          path: dj-stripe.dev
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create versioned docs
@@ -32,15 +32,15 @@ jobs:
           MAJOR_MINOR=$(echo $VERSION | cut -d. -f1,2)
 
           # Copy docs to versioned folder
-          mkdir -p dj-stripe.github.io/docs-versions/$MAJOR_MINOR
-          cp -r dj-stripe/docs/* dj-stripe.github.io/docs-versions/$MAJOR_MINOR/
+          mkdir -p dj-stripe.dev/docs-versions/$MAJOR_MINOR
+          cp -r dj-stripe/docs/* dj-stripe.dev/docs-versions/$MAJOR_MINOR/
 
           # Update latest symlink (handled in NextJS app)
-          echo $MAJOR_MINOR > dj-stripe.github.io/docs-versions/LATEST_VERSION
+          echo $MAJOR_MINOR > dj-stripe.dev/docs-versions/LATEST_VERSION
 
       - name: Commit and push changes
         run: |
-          cd dj-stripe.github.io
+          cd dj-stripe.dev
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add .
