@@ -101,8 +101,8 @@ export default function SupportPage() {
 										Bronze ($100/mo)
 									</h3>
 									<ul className="text-sm space-y-1">
-										<li>• Priority issue handling</li>
-										<li>• Direct developer contact</li>
+										<li>Priority issue handling</li>
+										<li>Direct developer contact</li>
 									</ul>
 								</div>
 								<div className="bg-white dark:bg-gray-800 rounded p-4">
@@ -110,9 +110,9 @@ export default function SupportPage() {
 										Silver ($500/mo)
 									</h3>
 									<ul className="text-sm space-y-1">
-										<li>• Everything in Bronze</li>
-										<li>• Dedicated support channel</li>
-										<li>• Integration assistance</li>
+										<li>Everything in Bronze</li>
+										<li>Dedicated support channel</li>
+										<li>Integration assistance</li>
 									</ul>
 								</div>
 							</div>
@@ -140,11 +140,11 @@ export default function SupportPage() {
 								for teams that need:
 							</p>
 							<ul className="space-y-2 mb-6">
-								<li>• Custom Stripe integration development</li>
-								<li>• Migration from other payment systems</li>
-								<li>• Performance optimization</li>
-								<li>• Architecture review and recommendations</li>
-								<li>• Training for your development team</li>
+								<li>Custom Stripe integration development</li>
+								<li>Migration from other payment systems</li>
+								<li>Performance optimization</li>
+								<li>Architecture review and recommendations</li>
+								<li>Training for your development team</li>
 							</ul>
 							<div className="text-center">
 								<a
