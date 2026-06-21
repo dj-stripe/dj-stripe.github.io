@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Rebuild when documentation is synced into the docs-content repository.
+  # The build fetches docs from docs-content at build time (npm run fetch-docs).
+  repository_dispatch:
+    types: [docs-updated]
 
 permissions:
   contents: read
