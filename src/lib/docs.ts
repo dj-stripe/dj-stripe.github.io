@@ -75,9 +75,17 @@ export async function getAllDocumentPaths(version: string): Promise<string[]> {
 	return paths;
 }
 
+// Changelog markdown lives inside the latest version's docs tree
+// (e.g. docs-versions/2.10/changes/*.md), not in a top-level folder.
+async function getChangelogDir(): Promise<string> {
+	const latest = await getLatestVersion();
+	return path.join(DOCS_BASE_PATH, latest, "changes");
+}
+
 export async function getChangelogContent(filePath: string): Promise<string | null> {
 	try {
-		const fullPath = path.join(DOCS_BASE_PATH, "changes", `${filePath}.md`);
+		const changelogDir = await getChangelogDir();
+		const fullPath = path.join(changelogDir, `${filePath}.md`);
 		const content = await fs.readFile(fullPath, "utf-8");
 		const { content: markdownContent } = matter(content);
 		return markdownContent;
@@ -103,7 +111,7 @@ Browse the changelog by version in the navigation menu.`;
 }
 
 export async function getAllChangelogPaths(): Promise<string[]> {
-	const changelogPath = path.join(DOCS_BASE_PATH, "changes");
+	const changelogPath = await getChangelogDir();
 	const paths: string[] = [];
 
 	try {
