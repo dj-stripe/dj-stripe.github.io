@@ -5,6 +5,27 @@ import { Navigation } from "@/components/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
+const features = [
+	{
+		icon: "fas fa-database",
+		title: "Django ORM Integration",
+		description:
+			"Query Stripe data using Django's ORM. Join Stripe data with your models, build complex queries, and lean on Django's powerful database features.",
+	},
+	{
+		icon: "fas fa-bolt",
+		title: "Automatic Webhooks",
+		description:
+			"Handle Stripe webhooks automatically with signature verification, idempotency, and automatic retries. Never miss an event.",
+	},
+	{
+		icon: "fas fa-diagram-project",
+		title: "Django Signals",
+		description:
+			"Use Django's native signals architecture to implement custom behavior on webhook events. Clean, decoupled, and testable.",
+	},
+];
+
 export default function HomePage() {
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
@@ -27,18 +48,22 @@ export default function HomePage() {
 
 				{/* Content */}
 				<div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-					<h1 className="text-7xl font-bold mb-6">
+					<span className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-800/70 backdrop-blur text-sm text-gray-600 dark:text-gray-300">
+						<span className="h-2 w-2 rounded-full bg-green-500" />
+						Open source &amp; battle-tested since 2014
+					</span>
+					<h1 className="text-6xl sm:text-7xl font-bold mb-6 tracking-tight">
 						dj-<span className="text-stripe-blurple">stripe</span>
 					</h1>
 					<p className="text-2xl text-gray-600 dark:text-gray-300 mb-4">
 						Stripe Made Easy for Django Developers
 					</p>
-					<p className="text-lg text-gray-500 dark:text-gray-400 max-w-3xl mx-auto mb-12">
+					<p className="text-lg text-gray-500 dark:text-gray-400 max-w-3xl mx-auto mb-10">
 						The easiest way to integrate Stripe with your Django project.
 						Handle payments, subscriptions, and webhooks with just a few
 						lines of code.
 					</p>
-					<div className="flex gap-4 justify-center flex-wrap">
+					<div className="flex gap-4 justify-center flex-wrap mb-8">
 						<Link
 							href="/docs/latest"
 							className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:scale-105 shadow-lg text-lg font-medium"
@@ -47,12 +72,17 @@ export default function HomePage() {
 						</Link>
 						<a
 							href="https://github.com/dj-stripe/dj-stripe"
-							className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all hover:scale-105 shadow-lg text-lg font-medium"
+							className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all hover:scale-105 shadow-lg text-lg font-medium"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
+							<i className="fab fa-github" />
 							View on GitHub
 						</a>
+					</div>
+					<div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg bg-gray-900 dark:bg-black/60 border border-gray-800 font-mono text-sm text-gray-100 shadow-md">
+						<span className="text-green-400 select-none">$</span>
+						<span>pip install dj-stripe</span>
 					</div>
 				</div>
 			</section>
@@ -60,37 +90,23 @@ export default function HomePage() {
 			{/* Features Section */}
 			<section className="py-20 px-6">
 				<div className="container mx-auto max-w-6xl">
-					<div className="grid md:grid-cols-3 gap-12">
-						<div className="text-center">
-							<h3 className="text-2xl font-semibold mb-4">
-								Django ORM Integration
-							</h3>
-							<p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-								Query Stripe data using Django&apos;s ORM. Join Stripe
-								data with your models, create complex queries, and
-								leverage Django&apos;s powerful database features.
-							</p>
-						</div>
-						<div className="text-center">
-							<h3 className="text-2xl font-semibold mb-4">
-								Automatic Webhooks
-							</h3>
-							<p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-								Handle Stripe webhooks automatically with signature
-								verification, idempotency, and automatic retries. Never
-								miss an event.
-							</p>
-						</div>
-						<div className="text-center">
-							<h3 className="text-2xl font-semibold mb-4">
-								Django Signals
-							</h3>
-							<p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-								Use Django&apos;s native signals architecture to
-								implement custom behavior on webhook events. Clean,
-								decoupled, and testable.
-							</p>
-						</div>
+					<div className="grid md:grid-cols-3 gap-8">
+						{features.map((feature) => (
+							<div
+								key={feature.title}
+								className="group rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/40 p-8 transition-all hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-lg"
+							>
+								<div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+									<i className={`${feature.icon} text-xl`} />
+								</div>
+								<h3 className="text-xl font-semibold mb-3">
+									{feature.title}
+								</h3>
+								<p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+									{feature.description}
+								</p>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>
