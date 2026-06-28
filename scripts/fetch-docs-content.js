@@ -8,6 +8,10 @@ const execAsync = promisify(exec);
 const DOCS_BASE_PATH = path.join(process.cwd(), "docs-versions");
 const MAIN_REPO = "dj-stripe/dj-stripe";
 
+// API reference generation (clean replacement for MkDocs + mkdocstrings).
+const API_REFERENCE_GENERATOR = path.join(__dirname, "generate_api_reference.py");
+const API_REFS_FILE = path.join(process.cwd(), "src", "lib", "api-refs.json");
+
 // Hardcoded supported versions
 const SUPPORTED_VERSIONS = ["2.10", "2.9", "2.8", "2.7", "2.6", "2.5"];
 
@@ -119,6 +123,33 @@ async function moveExtractedContent(extractPath, targetPath, subPath = "") {
 	}
 }
 
+async function findExtractedRoot(extractPath) {
+	// GitHub zipballs extract to a single prefixed directory (e.g.
+	// "dj-stripe-dj-stripe-<sha>") that contains the repo at its root.
+	const items = await fs.readdir(extractPath);
+	const dir = items.find((item) => item.includes("-"));
+	return dir ? path.join(extractPath, dir) : extractPath;
+}
+
+async function generateApiReference(sourceRoot, outDir, version) {
+	// Statically generate the API reference from the dj-stripe source using
+	// griffe. Failures are non-fatal: the prose docs still build without it.
+	console.log(`Generating API reference for version ${version}...`);
+	try {
+		const { stdout } = await execAsync(
+			`uv run --with griffe python3 "${API_REFERENCE_GENERATOR}" `
+				+ `"${sourceRoot}" "${outDir}" "${version}" "${API_REFS_FILE}"`,
+		);
+		if (stdout.trim()) console.log(stdout.trim());
+		console.log(`✓ Generated API reference for version ${version}`);
+	} catch (error) {
+		console.warn(
+			`Warning: API reference generation failed for ${version}:`,
+			error.message,
+		);
+	}
+}
+
 async function checkBranchExists(owner, repo, branch) {
 	const url = `https://api.github.com/repos/${owner}/${repo}/branches/${branch}`;
 
@@ -168,6 +199,10 @@ async function fetchDocsContent() {
 
 		// Note: main branch already has MDX-compatible docs, no fixes needed
 
+		// Generate the API reference from the dev source tree.
+		const mainSourceRoot = await findExtractedRoot(mainExtractPath);
+		await generateApiReference(mainSourceRoot, devPath, "dev");
+
 		// Clean up main repo files
 		await fs.unlink(mainZipPath);
 		await fs.rm(mainExtractPath, { recursive: true, force: true });
@@ -210,6 +245,11 @@ async function fetchDocsContent() {
 
 					// Fix MDX issues for stable branches (they use MkDocs)
 					await fixMDXIssues(versionPath);
+
+					// Generate the API reference from this version's source.
+					const versionSourceRoot =
+						await findExtractedRoot(versionExtractPath);
+					await generateApiReference(versionSourceRoot, versionPath, version);
 
 					// Clean up version files
 					await fs.unlink(versionZipPath);

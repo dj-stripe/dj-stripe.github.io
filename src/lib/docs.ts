@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import matter from "gray-matter";
 import path from "path";
+import { getApiRefs } from "./markdown";
 
 const DOCS_BASE_PATH = path.join(process.cwd(), "docs-versions");
 
@@ -75,11 +76,14 @@ export async function getAllDocumentPaths(version: string): Promise<string[]> {
 	return paths;
 }
 
-// Changelog markdown lives inside the latest version's docs tree
-// (e.g. docs-versions/2.10/changes/*.md), not in a top-level folder.
+// Changelog markdown lives inside each version's docs tree
+// (docs-versions/<version>/changes/*.md), not in a top-level folder. We source
+// it from "dev" so the published changelog always includes the newest entries,
+// including the unreleased section.
+const CHANGELOG_VERSION = "dev";
+
 async function getChangelogDir(): Promise<string> {
-	const latest = await getLatestVersion();
-	return path.join(DOCS_BASE_PATH, latest, "changes");
+	return path.join(DOCS_BASE_PATH, CHANGELOG_VERSION, "changes");
 }
 
 export async function getChangelogContent(filePath: string): Promise<string | null> {
@@ -133,19 +137,17 @@ export async function getAllChangelogPaths(): Promise<string[]> {
 	return paths;
 }
 
-export async function getNavigation(): Promise<NavigationItem[]> {
-	// This is a placeholder navigation structure
-	// In a real implementation, you might want to generate this from the file structure
-	// or from a navigation configuration file
-	return [
+export async function getNavigation(version?: string): Promise<NavigationItem[]> {
+	const nav: NavigationItem[] = [
 		{
 			title: "Getting Started",
 			path: "",
 			children: [
 				{ title: "Installation", path: "/installation" },
-				{ title: "API Keys", path: "/api_keys" },
-				{ title: "API Versions", path: "/api_versions" },
-				{ title: "Upgrade Guide", path: "/upgrade_dj_stripe" },
+				{ title: "Managing API keys", path: "/api_keys" },
+				{ title: "API versions", path: "/api_versions" },
+				{ title: "Settings", path: "/settings" },
+				{ title: "Upgrading dj-stripe", path: "/upgrade_dj_stripe" },
 			],
 		},
 		{
@@ -154,23 +156,68 @@ export async function getNavigation(): Promise<NavigationItem[]> {
 			children: [
 				{ title: "Webhooks", path: "/usage/webhooks" },
 				{
-					title: "Subscribing Customers",
+					title: "Local webhook testing",
+					path: "/usage/local_webhook_testing",
+				},
+				{ title: "Working with customers", path: "/usage/customers" },
+				{
+					title: "Subscribing customers",
 					path: "/usage/subscribing_customers",
 				},
 				{
-					title: "Payment Methods",
+					title: "Adding a payment method",
 					path: "/usage/add_payment_method_to_customer",
 				},
 				{
-					title: "Managing Subscriptions",
+					title: "Creating charges",
+					path: "/usage/creating_individual_charges",
+				},
+				{
+					title: "Managing subscriptions",
 					path: "/usage/managing_subscriptions",
 				},
 				{ title: "Stripe Checkout", path: "/usage/using_stripe_checkout" },
+				{ title: "Stripe Elements (JS)", path: "/stripe_elements_js" },
 				{
-					title: "Manual Syncing",
+					title: "Manual syncing",
 					path: "/usage/manually_syncing_with_stripe",
 				},
+				{
+					title: "Management commands",
+					path: "/usage/management_commands",
+				},
+				{ title: "Using with Docker", path: "/usage/using_with_docker" },
+			],
+		},
+		{
+			title: "Project",
+			path: "/project",
+			children: [
+				{ title: "Release process", path: "/project/release_process" },
+				{ title: "Support", path: "/project/support" },
+				{ title: "Test fixtures", path: "/project/test_fixtures" },
 			],
 		},
 	];
+
+	// Append the auto-generated API reference section. Module pages are the refs
+	// whose URL has no anchor; the renderer re-adds the `/docs/<version>` prefix.
+	if (version) {
+		const refs = getApiRefs(version);
+		const referenceChildren: NavigationItem[] = Object.entries(refs)
+			.filter(([, url]) => !url.includes("#"))
+			.map(([dotted, url]) => ({
+				title: dotted.replace(/^djstripe\./, ""),
+				path: url.replace(`/docs/${version}`, ""),
+			}));
+		if (referenceChildren.length) {
+			nav.push({
+				title: "API Reference",
+				path: "/reference",
+				children: referenceChildren,
+			});
+		}
+	}
+
+	return nav;
 }

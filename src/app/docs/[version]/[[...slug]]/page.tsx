@@ -8,6 +8,7 @@ import {
 	getVersions,
 	getAllDocumentPaths,
 } from "@/lib/docs";
+import { getApiRefs, injectApiRefDefinitions, remarkHeadingId } from "@/lib/markdown";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
@@ -46,7 +47,10 @@ export default async function DocumentationPage({ params }: PageProps) {
 		notFound();
 	}
 
-	const navigation = await getNavigation();
+	// Resolve mkdocstrings-style API cross-references against the generated map.
+	const renderedContent = injectApiRefDefinitions(content, getApiRefs(version));
+
+	const navigation = await getNavigation(version);
 
 	return (
 		<div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
@@ -89,9 +93,7 @@ export default async function DocumentationPage({ params }: PageProps) {
 															<Link
 																href={`/docs/${version}${child.path}`}
 																className={`-ml-px block border-l-2 py-1.5 pl-4 text-sm transition-colors ${
-																	isActive(
-																		child.path,
-																	)
+																	isActive(child.path)
 																		? "border-blue-600 font-medium text-blue-600 dark:border-blue-400 dark:text-blue-400"
 																		: "border-transparent text-gray-600 hover:border-gray-300 hover:text-gray-900 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-100"
 																}`}
@@ -112,7 +114,7 @@ export default async function DocumentationPage({ params }: PageProps) {
 					<main className="min-w-0 flex-1 max-w-3xl">
 						<article className="prose max-w-none">
 							<MDXRemote
-								source={content}
+								source={renderedContent}
 								options={{
 									parseFrontmatter: true,
 									mdxOptions: {
@@ -120,7 +122,7 @@ export default async function DocumentationPage({ params }: PageProps) {
 										// not MDX. Parsing as "md" avoids treating
 										// `{...}` in code blocks as JSX expressions.
 										format: "md",
-										remarkPlugins: [remarkGfm],
+										remarkPlugins: [remarkGfm, remarkHeadingId],
 										rehypePlugins: [rehypeHighlight],
 									},
 								}}

@@ -38,3 +38,6 @@ next-env.d.ts
 
 # search index (generated from docs during build)
 /public/search-index.json
+
+# API reference cross-reference map (generated from docs during build)
+/src/lib/api-refs.json

@@ -28,6 +28,12 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
+      - name: Setup uv
+        # Provides `uv`, used to run griffe for API reference generation.
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
       - name: Setup Pages
         uses: actions/configure-pages@v6
         with:

@@ -1,6 +1,7 @@
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { getChangelogContent, getAllChangelogPaths } from "@/lib/docs";
+import { getApiRefs, injectApiRefDefinitions, remarkHeadingId } from "@/lib/markdown";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -22,8 +23,14 @@ export default async function ChangelogPage({ params }: PageProps) {
 		notFound();
 	}
 
+	// The changelog is sourced from the "dev" docs tree; resolve API
+	// cross-references against that version's generated reference.
+	const renderedContent = injectApiRefDefinitions(content, getApiRefs("dev"));
+
 	const changelogNavigation = [
 		{ title: "Overview", path: "" },
+		{ title: "Version 3.0 (unreleased)", path: "/3_0_0" },
+		{ title: "Version 2.11", path: "/2_11_0" },
 		{ title: "Version 2.10", path: "/2_10_0" },
 		{ title: "Patch Notes 2.10.x", path: "/2_10_x" },
 		{ title: "Version 2.9", path: "/2_9_0" },
@@ -52,8 +59,7 @@ export default async function ChangelogPage({ params }: PageProps) {
 								{changelogNavigation.map((item) => {
 									const isActive =
 										item.path === `/${filePath}`
-										|| (item.path === ""
-											&& filePath === "index");
+										|| (item.path === "" && filePath === "index");
 									return (
 										<li key={item.path}>
 											<Link
@@ -76,7 +82,7 @@ export default async function ChangelogPage({ params }: PageProps) {
 					<main className="min-w-0 flex-1 max-w-3xl">
 						<article className="prose max-w-none">
 							<MDXRemote
-								source={content}
+								source={renderedContent}
 								options={{
 									parseFrontmatter: true,
 									mdxOptions: {
@@ -84,7 +90,7 @@ export default async function ChangelogPage({ params }: PageProps) {
 										// Parsing as "md" avoids treating `{...}`
 										// in code blocks as JSX expressions.
 										format: "md",
-										remarkPlugins: [remarkGfm],
+										remarkPlugins: [remarkGfm, remarkHeadingId],
 										rehypePlugins: [rehypeHighlight],
 									},
 								}}
