@@ -200,6 +200,23 @@ export async function getNavigation(version?: string): Promise<NavigationItem[]>
 		},
 	];
 
+	// Only link to prose docs that actually exist for this version. Newer docs
+	// land on `dev` first and are absent from older stable versions, so an
+	// unfiltered nav would point at 404s. getAllDocumentPaths returns paths
+	// without a leading slash or `.md` extension (e.g. "usage/customers").
+	const available = version ? new Set(await getAllDocumentPaths(version)) : null;
+	const filtered =
+		available && available.size > 0
+			? nav
+					.map((section) => ({
+						...section,
+						children: section.children?.filter((child) =>
+							available.has(child.path.replace(/^\//, "")),
+						),
+					}))
+					.filter((section) => section.children && section.children.length > 0)
+			: nav;
+
 	// Append the auto-generated API reference section. Module pages are the refs
 	// whose URL has no anchor; the renderer re-adds the `/docs/<version>` prefix.
 	if (version) {
@@ -211,7 +228,7 @@ export async function getNavigation(version?: string): Promise<NavigationItem[]>
 				path: url.replace(`/docs/${version}`, ""),
 			}));
 		if (referenceChildren.length) {
-			nav.push({
+			filtered.push({
 				title: "API Reference",
 				path: "/reference",
 				children: referenceChildren,
@@ -219,5 +236,5 @@ export async function getNavigation(version?: string): Promise<NavigationItem[]>
 		}
 	}
 
-	return nav;
+	return filtered;
 }
