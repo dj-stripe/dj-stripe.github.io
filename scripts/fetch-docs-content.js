@@ -13,7 +13,7 @@ const API_REFERENCE_GENERATOR = path.join(__dirname, "generate_api_reference.py"
 const API_REFS_FILE = path.join(process.cwd(), "src", "lib", "api-refs.json");
 
 // Hardcoded supported versions
-const SUPPORTED_VERSIONS = ["2.10", "2.9", "2.8", "2.7", "2.6", "2.5"];
+const SUPPORTED_VERSIONS = ["2.11", "2.10", "2.9", "2.8", "2.7", "2.6", "2.5"];
 
 async function ensureDir(dir) {
 	try {

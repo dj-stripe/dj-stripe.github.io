@@ -23,7 +23,11 @@ export function VersionSelector({
 		>
 			{versions.map((v) => (
 				<option key={v} value={v}>
-					{v === "latest" ? "Latest Stable" : `v${v}`}
+					{v === "latest"
+						? "Latest Stable"
+						: v === "dev"
+							? "dev (unreleased)"
+							: `v${v}`}
 				</option>
 			))}
 		</select>

@@ -65,7 +65,7 @@ export default function SupportPage() {
 										<strong>Documentation:</strong> Find answers in
 										our{" "}
 										<Link
-											href="/docs/latest"
+											href="/docs/dev"
 											className="text-blue-600 hover:underline"
 										>
 											comprehensive documentation

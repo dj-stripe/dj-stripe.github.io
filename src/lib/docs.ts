@@ -6,13 +6,14 @@ import { getApiRefs } from "./markdown";
 const DOCS_BASE_PATH = path.join(process.cwd(), "docs-versions");
 
 export async function getVersions(): Promise<string[]> {
-	// Hardcoded supported versions for now
-	return ["2.10", "2.9", "2.8", "2.7", "2.6", "2.5", "dev"];
+	// Newest first. "dev" tracks the main branch and is the default version
+	// visitors land on; the numbered entries are stable releases.
+	return ["dev", "2.11", "2.10", "2.9", "2.8", "2.7", "2.6", "2.5"];
 }
 
 export async function getLatestVersion(): Promise<string> {
-	// Return the latest stable version
-	return "2.10";
+	// The latest stable release (what /docs/latest resolves to).
+	return "2.11";
 }
 
 export async function getDocumentationContent(
@@ -102,9 +103,9 @@ Welcome to the dj-stripe changelog. Here you can find all the changes and improv
 
 ## Latest Releases
 
-- [Version 2.10](/changes/2_10_0) - Latest stable release
-- [Version 2.9](/changes/2_9_0)
-- [Version 2.8](/changes/2_8_0)
+- [Version 3.0 (unreleased)](/changes/3_0_0)
+- [Version 2.11](/changes/2_11_0) - Latest stable release
+- [Version 2.10](/changes/2_10_0)
 
 ## All Versions
 
@@ -214,7 +215,9 @@ export async function getNavigation(version?: string): Promise<NavigationItem[]>
 							available.has(child.path.replace(/^\//, "")),
 						),
 					}))
-					.filter((section) => section.children && section.children.length > 0)
+					.filter(
+						(section) => section.children && section.children.length > 0,
+					)
 			: nav;
 
 	// Append the auto-generated API reference section. Module pages are the refs

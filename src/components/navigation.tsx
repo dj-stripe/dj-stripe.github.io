@@ -23,7 +23,7 @@ export function Navigation({
 
 	const navLinks = [
 		{ href: "/about", label: "About" },
-		{ href: "/docs/latest", label: "Documentation" },
+		{ href: "/docs/dev", label: "Documentation" },
 		{ href: "/changes", label: "Changelog" },
 		{ href: "/sponsors", label: "Sponsors" },
 		{ href: "/team", label: "Team" },
@@ -31,7 +31,7 @@ export function Navigation({
 	];
 
 	const isActive = (href: string) => {
-		if (href === "/docs/latest") {
+		if (href === "/docs/dev") {
 			return pathname.startsWith("/docs");
 		}
 		if (href === "/changes") {
